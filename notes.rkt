@@ -7,7 +7,7 @@
   (list
 
    (nt 'exceptions
-       "Exceptions are exceptions"
+       "Exceptions are for exceptions"
        "something something exceptions"
        @p{
  If you have like an A -> B, then you can usually count on getting a B back if
