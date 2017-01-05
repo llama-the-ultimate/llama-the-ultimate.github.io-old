@@ -1,7 +1,8 @@
 #lang at-exp racket
 (require "structs.rkt")
 
-(provide notes)
+(provide notes
+         test-note)
 
 (define notes
   (list
@@ -31,3 +32,24 @@
 
   
   )
+
+(define test-note
+  (nt 'test
+      "Test"
+      "test test test"
+      @p{
+ Meep meep meep.
+ }
+      @p{
+ Meep meep meep.
+ }
+      (ol
+       @li{Meep meep}
+       @li{Moop moop}
+       @li{Maap maap})
+      
+      (ul
+       @li{Meep meep}
+       @li{Moop moop}
+       @li{Maap maap})
+))

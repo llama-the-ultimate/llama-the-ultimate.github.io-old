@@ -13,16 +13,16 @@
 
 (define (note->xexpr n)
   (match n
-    [(note id name desc pars)
+    [(note id name desc pieces)
      (->html-xexpr (note->url-string n)
                    name
                    `((h1 () ,name)
-                     ,@(map paragrpah->xexpr pars)))]))
+                     ,@(map text-piece->xexpr pieces)))]))
 
 (define ((note->link from) n)
   (match n
     [(note id name desc pars)
-     `(p ((class "par"))
+     `(p ()
          (a ((href ,(relative-url from (note->url-string n)))) ,name)
          ,(~a " (" desc ")"))]))
 
@@ -34,15 +34,17 @@
 
 (for ([n notes]) (write-note-file n))
 
+(write-note-file test-note)
+
 (define index
   (write-html-file "index.html"
                    (->html-xexpr "/"
                                  "Some stuff"
                                  `((h1 () "Um")
-                                   (p ((class "par"))
+                                   (p ()
                                       "Some lambdas over "
                                       (a ((href "lambders.html")) "there")
                                       ".")
-                                   (p ((class "par")) "And like a stuff:")
+                                   (p () "And like a stuff:")
                                    ,@(map (note->link "/") notes)))))
 

@@ -9,14 +9,19 @@
          (struct-out strong)
          str
          (struct-out quoted)
-         q)
+         q
+         (struct-out unordered-list)
+         ul
+         (struct-out ordered-list)
+         ol
+         li)
 
-(struct note (id name desc pars) #:transparent)
-(define (nt id name desc . pars)
+(struct note (id name desc pieces) #:transparent)
+(define (nt id name desc . pieces)
   (note id
         name
         desc
-        pars))
+        pieces))
 
 
 
@@ -35,3 +40,13 @@
 (struct quoted (ts) #:transparent)
 (define (q . ts)
   (quoted ts))
+
+(struct ordered-list (tss) #:transparent)
+(define (ol . tss)
+  (ordered-list tss))
+
+(struct unordered-list (tss) #:transparent)
+(define (ul . tss)
+  (unordered-list tss))
+
+(define li list)

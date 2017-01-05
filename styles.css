@@ -90,7 +90,6 @@ pre {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     
-    float: top;
     background-color: #F4F4F4;
 }
 
@@ -117,7 +116,6 @@ pre {
 }
 
 .navlink {
-    float: top;
     margin-top: 0rem;
     margin-left: 0rem;
     margin-right: 0rem;
@@ -157,23 +155,58 @@ a.navlink {
 
 .content
 {
-    float: top;
     width: 50rem;
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
-.par
+p
 {
     margin-bottom: 0.5rem;
     margin-top: 0rem;
     margin-left: 0rem;
-    margin-right: 0rem;
     margin-right: auto;
-    float:top;
 }
 
+
+ol
+{
+    margin-bottom: 0.5rem;
+    margin-top: 0rem;
+    margin-left: 1.5rem;
+    margin-right: auto;
+
+    -webkit-margin-before: 0rem;
+    -webkit-margin-after: 0.5rem;
+    -webkit-margin-start: 1.5rem;
+    -webkit-margin-end: 0rem;
+    -webkit-padding-start: 0rem;
+}
+
+ul
+{
+    margin-bottom: 0.5rem;
+    margin-top: 0rem;
+    margin-left: 1.5rem;
+    margin-right: auto;
+
+    -webkit-margin-before: 0rem;
+    -webkit-margin-after: 0.5rem;
+    -webkit-margin-start: 1.5rem;
+    -webkit-margin-end: 0rem;
+    -webkit-padding-start: 0rem;
+}
+
+li
+{
+    padding-left: 0rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+    margin-left: 0rem;
+    margin-right: auto;
+
+}
 
 .text
 {
@@ -183,7 +216,6 @@ a.navlink {
     margin-top: 0rem;
     margin-left: 10rem;
     margin-right: auto;
-    float:top;
 }
 
 .error

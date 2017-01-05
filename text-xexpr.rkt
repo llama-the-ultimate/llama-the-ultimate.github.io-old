@@ -1,17 +1,22 @@
 #lang racket
 (provide text->xexpr
-         paragrpah->xexpr)
+         text-piece->xexpr)
 
 (require "structs.rkt")
 
 (struct state (quote-level) #:transparent)
 
-(define (paragrpah->xexpr p)
+(define (text-piece->xexpr p)
   (match p
-    [(paragraph (list ts ...)) `(p ((class "par")) ,@(apply append (map text->xexpr ts)))]))
+    [(paragraph (list ts ...)) `(p () ,@(apply append (map text->xexpr ts)))]
+    [(ordered-list (list tss ...)) `(ol () ,@(map ts->li tss))]
+    [(unordered-list (list tss ...)) `(ul () ,@(map ts->li tss))]))
 
-(define (text->xexpr ts)
-  ((text->xexpr-halp (state 0)) ts))
+(define (ts->li ts)
+  `(li () ,@(apply append (map text->xexpr ts))))
+
+(define (text->xexpr t)
+  ((text->xexpr-halp (state 0)) t))
 
 (define ((text->xexpr-halp st) t)
   (define (tag-all st tag ts)
