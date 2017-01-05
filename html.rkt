@@ -17,7 +17,6 @@
   (define res (path->string (find-relative-path (path-only from) to)))
                   
   (string-replace res  "\\" "/"))
-(require racket/trace) (trace relative-url)
 
 (define (nav from)
   `(div ((class "nav"))

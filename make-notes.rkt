@@ -3,6 +3,7 @@
 (require "structs.rkt"
          "notes.rkt"
          "html.rkt"
+         "text-xexpr.rkt"
          (only-in xml xexpr->string))
 
 (define (note->url-string n)
@@ -17,19 +18,6 @@
                    name
                    `((h1 () ,name)
                      ,@(map paragrpah->xexpr pars)))]))
-
-(define (paragrpah->xexpr p)
-  (match p
-    [(paragraph (list ts ...)) `(p ((class "par")) ,@(map text->xexpr ts))]))
-
-(define (text->xexpr t)
-  (define (tag-all tag ts)
-    `(,@tag ,@(map text->xexpr ts)))
-
-  (match t
-    [(? string?) t]
-    [(emphasis ts) (tag-all '(em ()) ts)]
-    [(strong ts) (tag-all '(strong ()) ts)]))
 
 (define ((note->link from) n)
   (match n

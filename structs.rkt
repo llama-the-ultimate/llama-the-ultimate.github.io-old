@@ -7,7 +7,9 @@
          (struct-out emphasis)
          em
          (struct-out strong)
-         str)
+         str
+         (struct-out quoted)
+         q)
 
 (struct note (id name desc pars) #:transparent)
 (define (nt id name desc . pars)
@@ -29,3 +31,7 @@
 (struct strong (ts) #:transparent)
 (define (str . ts)
   (strong ts))
+
+(struct quoted (ts) #:transparent)
+(define (q . ts)
+  (quoted ts))
