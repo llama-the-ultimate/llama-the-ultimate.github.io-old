@@ -9,6 +9,7 @@
 (define (text-piece->xexpr p)
   (match p
     [(paragraph (list ts ...)) `(p () ,@(apply append (map text->xexpr ts)))]
+    [(break) '(hr)]
     [(codeblock (list ts ...)) `(pre () ,@(apply append (map text->xexpr ts)))]
     [(ordered-list (list tss ...)) `(ol () ,@(map ts->li tss))]
     [(unordered-list (list tss ...)) `(ul () ,@(map ts->li tss))]))

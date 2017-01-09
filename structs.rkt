@@ -20,7 +20,9 @@
          (struct-out codeblock)
          block
          (struct-out code)
-         tt)
+         tt
+         (struct-out break)
+         brk)
 
 (struct note (id name desc pieces) #:transparent)
 (define (nt id name desc . pieces)
@@ -68,3 +70,6 @@
 (struct code (ts) #:transparent)
 (define (tt . ts)
   (code ts))
+
+(struct break () #:transparent)
+(define brk (break))

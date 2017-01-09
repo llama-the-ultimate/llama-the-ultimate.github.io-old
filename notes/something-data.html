@@ -1,0 +1,9 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Something about data</title><link rel="stylesheet" href="../styles.css"/></meta></head><body><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>Something about data</h1><p><a href="https://mitpress.mit.edu/books/little-mler">The Little MLer</a> is a pretty fun book.
+There’s a lot of Standard ML-code in it and Standard ML code has a lot of <span class="code">fun</span> in it.</p><p>Anyway there’s this theme in the book. We define a bunch of datatypes, and we define functions on them.
+And as the datatypes become more complicated and sophisticated, then, kind of “naturally,” so do the functions.</p><p>Like, we introduce a recursive type, like one for natural numbers. Something along the lines of,</p><pre>datatype natural =
+    Zero
+  | Successor of natural</pre><p>and then when we wanna do stuff with them, we kind of necessarily get recursive functions,</p><pre>fun add (a, b) =
+    case a of
+        Zero =&gt; b
+      | Successor x =&gt; Successor (add (x, b))</pre><p>and so something like <span class="code">add (Successor (Successor Zero), Successor Zero)</span> evaluates to something like <span class="code">Successor (Successor (Successor Zero))</span>. Woop woop.</p><hr/><p>Bla bla bla</p></div></div></body></html>

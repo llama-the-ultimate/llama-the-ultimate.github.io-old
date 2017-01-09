@@ -35,6 +35,8 @@
 (for ([n notes]) (write-note-file n))
 
 (write-note-file test-note)
+(require "data-note.rkt")
+(write-note-file data-note)
 
 (define index
   (write-html-file "index.html"
