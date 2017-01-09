@@ -14,7 +14,13 @@
          ul
          (struct-out ordered-list)
          ol
-         li)
+         li
+         (struct-out link/url)
+         lnk
+         (struct-out codeblock)
+         block
+         (struct-out code)
+         tt)
 
 (struct note (id name desc pieces) #:transparent)
 (define (nt id name desc . pieces)
@@ -22,7 +28,6 @@
         name
         desc
         pieces))
-
 
 
 (struct emphasis (ts) #:transparent)
@@ -50,3 +55,16 @@
   (unordered-list tss))
 
 (define li list)
+
+(struct link/url (url ts) #:transparent)
+(define (lnk url . ts)
+  (link/url url ts))
+
+
+(struct codeblock (ts) #:transparent)
+(define (block . ts)
+  (codeblock ts))
+
+(struct code (ts) #:transparent)
+(define (tt . ts)
+  (code ts))

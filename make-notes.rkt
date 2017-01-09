@@ -23,7 +23,7 @@
   (match n
     [(note id name desc pars)
      `(p ()
-         (a ((href ,(relative-url from (note->url-string n)))) ,name)
+         (a ([href ,(relative-url from (note->url-string n))]) ,name)
          ,(~a " (" desc ")"))]))
 
 (define (write-note-file n)
@@ -43,7 +43,7 @@
                                  `((h1 () "Um")
                                    (p ()
                                       "Some lambdas over "
-                                      (a ((href "lambders.html")) "there")
+                                      (a ([href "lambders.html"]) "there")
                                       ".")
                                    (p () "And like a stuff:")
                                    ,@(map (note->link "/") notes)))))

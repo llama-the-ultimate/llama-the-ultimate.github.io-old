@@ -9,6 +9,7 @@
 (define (text-piece->xexpr p)
   (match p
     [(paragraph (list ts ...)) `(p () ,@(apply append (map text->xexpr ts)))]
+    [(codeblock (list ts ...)) `(pre () ,@(apply append (map text->xexpr ts)))]
     [(ordered-list (list tss ...)) `(ol () ,@(map ts->li tss))]
     [(unordered-list (list tss ...)) `(ul () ,@(map ts->li tss))]))
 
@@ -24,8 +25,10 @@
   
   (match t
     [(? string?) (list t)]
+    [(link/url url ts) (tag-all st `(a ([href ,url])) ts)]
     [(emphasis ts) (tag-all st '(em ()) ts)]
     [(strong ts) (tag-all st '(strong ()) ts)]
+    [(code ts) (tag-all st '(span ([class "code"])) ts)]
     [(quoted ts) (quot st ts)]))
 
 (define (quot st ts)
