@@ -30,6 +30,7 @@
     [(emphasis ts) (tag-all st '(em ()) ts)]
     [(strong ts) (tag-all st '(strong ()) ts)]
     [(code ts) (tag-all st '(span ([class "code"])) ts)]
+    [(code-word ts) (tag-all st '(span ([class "codew"])) ts)]
     [(quoted ts) (quot st ts)]))
 
 (define (quot st ts)

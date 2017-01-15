@@ -13,10 +13,17 @@
 @media all and (max-width:560px){html {font-size: 13px;}}
 @media all and (max-width:520px){html {font-size: 12px;}}
 
+:root{
+    --main-bg: #FFFFFF;
+    --link-hover-bg: #F4F4F4;
+    --nav-bg: #F4F4F4;
+    --code-bg: #F9F9F9;
+    --hr-bg: #C0C0C0
+}
 
 
 html {
-    background-color: #FFFFFF;
+    background-color: var(--main-bg);
     overflow-y: scroll;
 }
 
@@ -65,7 +72,7 @@ a {
 }
 
 a:hover {
-    background-color: #F4F4F4;
+    background-color: var(--link-hover-bg);
 }
 
 aside {
@@ -82,7 +89,6 @@ aside {
 
 pre {
     font-family: monospace;
-    font-size: 0.8rem;
     overflow-x: auto;
 
     margin-bottom: 0.5rem;
@@ -90,7 +96,7 @@ pre {
     margin-left: 0.5rem;
     margin-right: 2rem;
     
-    background-color: #F4F4F4;
+    background-color: var(--code-bg); 
 }
 
 .navinfo {
@@ -103,7 +109,7 @@ pre {
 
 .nav {
 
-    background-color: #F4F4F4;
+    background-color: var(--nav-bg);
     font-weight: normal;
     font-size: 2rem;
     text-align: center;
@@ -128,29 +134,18 @@ a.navlink {
 }
 
 .navlink:hover {
-    background-color: #FFFFFF;
-}
-
-.info {
-
-    background-color: #F4F4F4;
-    width: 11rem;
-    font-size: 0.5rem;
-    line-height: 1.2;
-    color: #667;
-    float: left;
-
-    margin-top: 0rem;
-    margin-left: 0rem;
-    margin-right: 0rem;
-    margin-bottom: 0.5rem;
-    display: block;
+    background-color: var(--main-bg);
 }
 
 .code {
     font-family: monospace;
-    font-size: 0.8rem;
-    background-color: #F4F4F4;
+    white-space: nowrap;
+    background-color: var(--code-bg);
+}
+
+.codew {
+    font-family: monospace;
+    white-space: nowrap;
 }
 
 .content
@@ -227,7 +222,7 @@ li
 hr {
     border: 0;
     height: 0.1rem;
-    background: #C0C0C0;
+    background: var(--hr-bg);
 
     margin-bottom: 1.2rem;
     margin-top: 1.5rem;

@@ -1,7 +1,6 @@
 #lang racket
 (provide (struct-out note)
          nt
-
          (struct-out paragraph)
          p
          (struct-out emphasis)
@@ -20,15 +19,16 @@
          (struct-out codeblock)
          block
          (struct-out code)
+         ttc
+         (struct-out code-word)
          tt
          (struct-out break)
          brk)
 
-(struct note (id name desc pieces) #:transparent)
-(define (nt id name desc . pieces)
+(struct note (id name pieces) #:transparent)
+(define (nt id name . pieces)
   (note id
         name
-        desc
         pieces))
 
 
@@ -68,8 +68,12 @@
   (codeblock ts))
 
 (struct code (ts) #:transparent)
-(define (tt . ts)
+(define (ttc . ts)
   (code ts))
+
+(struct code-word (ts) #:transparent)
+(define (tt . ts)
+  (code-word ts))
 
 (struct break () #:transparent)
 (define brk (break))
