@@ -13,6 +13,8 @@
 (define S @tt{S})
 (define K @tt{K})
 (define I @tt{I})
+(define B @tt{B})
+(define C @tt{C})
 
 (define s-parens-note
   (nt 's-parens
@@ -64,10 +66,31 @@
       @p{
  @x is the function-function and @y is the argument-function. They get one @tt{z} each, and the result-function is applied to the result-argument.
 }
+      @brk
+      @p{
+ (Also helped to run into @B and @(i C). They’re like @S, but @B only passes its @z the the argument-function and @C only passes it to the function-function:
+}
+      @block{
+ S x y z = x z (y z)
+ B x y z = x (y z)
+ C x y z = x z y
+}
+      @p{
+ Again, with more parentheses:
+}
+      @block{
+ S x y z = (x z) (y z)
+ B x y z = x (y z)
+ C x y z = (x z) y
+}
+      @p{
+ Like that it’s easier for me to see how they are different, which parts are the same, …)
+}
+      @brk
       @p{
  There’s something about currying and how it isn’t always clear if it is more useful to think of something as a function that takes two arguments, or a function that returns a function…
 }
       @p{
- (Just noticed that on @lnk["https://ncatlab.org/nlab/show/combinatory+logic#the_combinators_s_k_and_i"]{the nLab page} they do put of parentheses where I want them. So that’s nice.)
+ (Just noticed that on @lnk["https://ncatlab.org/nlab/show/combinatory+logic#the_combinators_s_k_and_i"]{the nLab page} they do put parentheses where I want them. So that’s nice.)
 }
  ))
