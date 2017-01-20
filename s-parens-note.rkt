@@ -54,7 +54,7 @@
       @p{
  So, we kind of turn the function and the argument of the inner application into function-function and argument-function.
  Now if we apply @ttc{S (λx.@str{F}) (λx.@str{A})} to @foo, @S will pass @foo (its @tt{z}) into @ttc{λx.@str{F}} and @ttc{λx.@str{A}}.
- All @tt{x}es in @F and @A will be replaced with @(i foo). Same as if we applied @ttc{λx.@str{F} @str{A}} to @(i foo).
+ All free @tt{x}es in @F and @A will be replaced with @(i foo). Same as if we applied @ttc{λx.@str{F} @str{A}} to @(i foo).
 }
       @p{
  The @ttc{x z (y z)} bit used to trip me up. It kind of looks like it passes two arguments, @z and @yz, to @(i x).
