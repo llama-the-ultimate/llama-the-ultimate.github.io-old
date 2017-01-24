@@ -75,18 +75,6 @@ a:hover {
     background-color: var(--link-hover-bg);
 }
 
-aside {
-    font-size: 0.85rem;
-    line-height: 1.2;
-    color: #667;
-    float: left;
-
-    margin-top: 0rem;
-    margin-left: 0rem;
-
-    width: 10rem;
-}
-
 pre {
     font-family: monospace;
     overflow-x: auto;
@@ -102,17 +90,19 @@ pre {
 .navinfo {
     float: left;
     margin-top: 0rem;
-    margin-left: 6rem;
+    margin-left: 0rem;
     display: block;
-    width: 2rem;
+    width: 2.5rem;
 }
 
 .nav {
 
+    float: right;
     background-color: var(--nav-bg);
     font-weight: normal;
     font-size: 2rem;
     text-align: center;
+    width: 2.5rem;
 
     margin-top: 0rem;
     margin-left: 0rem;
@@ -150,7 +140,7 @@ a.navlink {
 
 .content
 {
-    width: 50rem;
+    width: 40rem;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -209,7 +199,7 @@ li
     width: 30rem;
     margin-bottom: 0rem;
     margin-top: 0rem;
-    margin-left: 10rem;
+    margin-left: auto;
     margin-right: auto;
 }
 
