@@ -47,11 +47,14 @@
 }
       brk
       @p{
- (I guess this is at least pretty close to the idea of types being defined by their introduction and elimination rules, and the computational building blocks of a language being those rules.
+ (Which is totes a thing also expressed elsewhere. It’s sometimes approached from the opposite direction. Always with less whim.)
+}
+      @p{
+ (On the more type theoretic/beautiful side, it is not too far away from the idea of types being defined by their introduction and elimination rules, and the computational building blocks of a language being those rules.
  Every bit of behaviour being constructing and destructing of values.)
 }
       brk
       @p{
- So, uh. I think a pretty common thing is that things start falling apart when we have like very sophisticated behaviour, built on top of not so sophisticated data structures.
+ So, uh. Software Engineering! I think a pretty common thing is that things start falling apart when we have like very sophisticated behaviour, built on top of not so sophisticated data structures.
 }
       ))
