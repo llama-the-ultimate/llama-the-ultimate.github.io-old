@@ -24,6 +24,11 @@
  @q{exceptions should be exceptional} thing sometimes comes off as being a
  little too concerned with rarity.
  })
+   (nt 'ltuo
+       "Llama the ultimate object"
+       @p{
+ It does extend animal.
+ })
    
    )
 
