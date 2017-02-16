@@ -36,9 +36,11 @@
 (write-note-file test-note)
 (require "data-functions-note.rkt")
 (write-note-file data-functions-note)
-
 (require "s-parens-note.rkt")
 (write-note-file s-parens-note)
+(require "tuples-note.rkt")
+(write-note-file tuples-note)
+
 
 (define index
   (write-html-file "index.html"
