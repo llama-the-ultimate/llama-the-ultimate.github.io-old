@@ -16,14 +16,6 @@
 }
        )
    
-   (nt 'exceptional
-       "Exceptions can be exceptional"
-       @p{
- Okay @q{exception} and @q{exceptional} are two words. Something something
- substring, but they’re probably not actually the same word. Anyway I think the
- @q{exceptions should be exceptional} thing sometimes comes off as being a
- little too concerned with rarity.
- })
    (nt 'ltuo
        "Llama the ultimate object"
        @p{
