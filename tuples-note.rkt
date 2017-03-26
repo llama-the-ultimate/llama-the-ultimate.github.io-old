@@ -5,6 +5,7 @@
 (define tuples-note
   (nt 'tuples
       "I like tuples"
+      (date #f #f #f)
       @p{
  In a language where a function is a thing that takes one value as argument and returns one value as result, we tend to need @em{stuff} when we want to make a function that @q{takes multiple arguments.}
  One way of going about it is to use a tuple to group several values into like one large value, and then pass that value to our function.

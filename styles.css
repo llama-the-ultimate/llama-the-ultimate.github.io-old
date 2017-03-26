@@ -17,7 +17,7 @@
     --main-bg: #FFFFFF;
     --link-hover-bg: #F4F4F4;
     --nav-bg: #F4F4F4;
-    --code-bg: #F9F9F9;
+    --code-bg: #FDFDFD;
     --hr-bg: #C0C0C0
 }
 
@@ -79,12 +79,12 @@ pre {
     font-family: monospace;
     overflow-x: auto;
 
-    margin-bottom: 0.5rem;
-    margin-top: 0rem;
+    margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
     margin-left: 0.5rem;
     margin-right: 2rem;
-    
-    background-color: var(--code-bg); 
+
+    background-color: var(--code-bg);
 }
 
 .navinfo {
@@ -218,4 +218,16 @@ hr {
     margin-top: 1.5rem;
     margin-left: 0.5rem;
     margin-right: 2rem;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+blockquote cite {
+    font-size: 0.8rem;
+    display: block;
 }

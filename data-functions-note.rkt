@@ -5,6 +5,7 @@
 (define data-functions-note
   (nt 'data-functions
       "Data with functions on top"
+      (date #f #f #f)
       @p{
  @lnk["https://mitpress.mit.edu/books/little-mler"]{The Little MLer} is a pretty fun book.
  There’s a lot of Standard ML code in it and Standard ML code has a lot of @tt{fun} in it.

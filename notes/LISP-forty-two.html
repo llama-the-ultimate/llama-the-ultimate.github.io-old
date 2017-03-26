@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Solving a number problem using idiomatic LISP</title><link rel="stylesheet" href="../styles.css"/></meta></head><body><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>Solving a number problem using idiomatic LISP</h1><p>Hi okay one time I ran into a number problem that went something like this:
+“How many (natural) numbers less than or equal to one million are there whose digits add up to forty-two?”</p><p>Okay let’s solve this using Racket. Racket is a maybe a LISP.
+In LISP, pretty much the only thing that matters is you have to use parentheses.</p><blockquote><p>Parentheses essentially are the basis of computation.</p><footer><cite>―Robert Constable, 8 minutes or so into <a href="https://www.youtube.com/watch?v=OubXOd0Twl4">this OPLSS 2015 lecture</a></cite></footer></blockquote><p>Anyway we can stare at this problem for a while and maybe notice three things.
+One thing is that the digits in one million do not add up to forty-two.
+Another thing is that the numbers less than one million all have six digits (or they might as well have, and can be padded with leading zeroes).
+Anothother thing is that forty-two divided by six equals seven.</p><p>So. We only need to care about numbers that have six digits, and if every digit is seven they add up to forty-two.
+More, if the digits in a number are “balanced around seven” they also add up to forty-two. (A six can be made up for by an eight,
+a three by two nines, and so on.)</p><p>Okay so that’s extremely good to know. We pretty much just wanna balance stuff. And parentheses are like incredibly good things to balance.</p><hr/><p>Racket comes with a <span class="codew">read</span>-procedure.
+<span class="codew">read</span> reads an expression from something, and it makes sure parentheses are balanced.
+Problem solved, then, more or less...</p><pre>#lang racket</pre><p>We need some halp.
+<span class="codew">read-string</span> will <span class="codew">read</span> a string until its end.
+If any parentheses are out of balance, <span class="codew">read</span> will throw and the <span class="codew">with-handlers</span>-bit will catch and make it so that we return the number zero.
+Otherwise one.</p><pre>(define (read-string s)
+  (with-handlers
+      ([(λ (_) #t) (λ (_) 0)])
+    (define in (open-input-string s))
+    (let loop ()
+      (unless (eof-object? (read in))
+        (loop)))
+    1))</pre><p>Woop woop. We can use <span class="codew">read-string</span> to kind of check if a string has balanced parentheses.
+If we can turn numbers into strings, so that a string only has balanced parentheses in it if the digits in the number add up to forty-two, then stuff.</p><p><span class="codew">number-&gt;chars</span> will turn a number into a list of character, maybe padded with some zeroes:</p><pre>(define (number-&gt;chars n)
+  (string-&gt;list (~a n
+                    #:min-width 6
+                    #:pad-string "0")))</pre><p>Now we can have one character for every digit in a number. We make a <span class="codew">char-&gt;string</span>-function that will turn a character like that into a string.
+The string will have parentheses that are just as much balanced as the digit was balanced around seven:</p><pre>(define (char-&gt;string c)
+  (match c
+    [#\0 "((((((("]
+    [#\1 "(((((("]
+    [#\2 "((((("]
+    [#\3 "(((("]
+    [#\4 "((("]
+    [#\5 "(("]
+    [#\6 "("]
+    [#\8 ")"]
+    [#\9 "))"]
+    [_ "horses"]))</pre><p>So, in order to turn a number into a good string, we use <span class="codew">number-&gt;chars</span>, then <span class="codew">char-&gt;string</span> each digit-character. And then adjust as necessary:
+We will sort the characters in the string so that any left parentheses come before any right parentheses.
+<span class="codew">number-&gt;string</span> does:</p><pre>(define (number-&gt;string n)
+  (define char-list
+    (map char-&gt;string (number-&gt;chars n)))
+
+  (list-&gt;string
+   (sort (append* (map string-&gt;list char-list))
+         char&lt;?)))</pre><p>Now all that remains is to pick the numbers we care about,
+then feed to <span class="codew">read-string</span> the strings we get by applying <span class="codew">number-&gt;string</span>.
+<span class="codew">read-string</span> should return one if things are balanced and zero if not, so if we add together all those zeroes and ones we’re good.</p><pre>(for/sum ([n (in-range 1000000)])
+  (read-string (number-&gt;string n)))</pre><p>You can get the full program at <a href="https://gist.github.com/Glorp/e615a9b51dc74d8f93a30434c009d06d">blah</a>. Put it into your DrRacket, press F5 or so, and voi—some 20 seconds wait—là, you will have an answer.</p></div></div></body></html>
