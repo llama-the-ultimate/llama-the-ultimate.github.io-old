@@ -154,6 +154,14 @@ p
     margin-right: auto;
 }
 
+.editor
+{
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
+  margin-left: 0.5rem;
+  margin-right: 2rem;
+}
+
 
 ol
 {

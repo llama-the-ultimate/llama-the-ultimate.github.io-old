@@ -1,6 +1,7 @@
 #lang racket
 (provide write-html-file
          ->html-xexpr
+         ->lambs-html-xexpr
          relative-url)
 
 (require (only-in xml xexpr->string))
@@ -34,3 +35,17 @@
                        (div ((class "navinfo")) ,(nav from))
                        (div ((class "text"))
                             ,@content)))))
+
+(define (lambs-js-stuff from)
+  `((script ((data-main ,(relative-url from "/lambstuff/reqmain")) (src ,(relative-url from "/lambstuff/require.js"))))
+    (script ((src ,(relative-url from "/lambstuff/monaco-editor/min/vs/loader.js"))))
+    (script ((src ,(relative-url from "/lambstuff/stuff.js"))))))
+
+(define (->lambs-html-xexpr from name content)
+  `(html ,(title->head from name)
+            (body ((onresize "refreshEditors()"))
+                  (div ((class "content"))
+                       (div ((class "navinfo")) ,(nav from))
+                       (div ((class "text"))
+                            ,@content))
+                  ,@(lambs-js-stuff from))))

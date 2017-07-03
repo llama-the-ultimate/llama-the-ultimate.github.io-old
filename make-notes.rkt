@@ -1,7 +1,6 @@
 #lang racket
 
 (require "structs.rkt"
-         "notes.rkt"
          "html.rkt"
          "text-xexpr.rkt"
          (only-in xml xexpr->string))
@@ -19,6 +18,22 @@
                    `((h1 () ,name)
                      ,@(append* (map text-piece->xexpr pieces))))]))
 
+(define (lambs-text-piece->xexpr p)
+  (match p
+    [(lambs-editor h s) `((div ((class "editor") (name "lambs") (style ,(lambs-style h))) ,s))]
+    [_ (text-piece->xexpr p)]))
+
+(define (lambs-style h)
+  (format "width:100%;height:~arem;border:1px solid lightgrey" h))
+     
+(define (lambs-note->xexpr n)
+  (match n
+    [(note id name d pieces)
+     (->lambs-html-xexpr (note->url-string n)
+                   name
+                   `((h1 () ,name)
+                     ,@(append* (map lambs-text-piece->xexpr pieces))))]))
+
 (define ((note->link from) n)
   (match n
     [(note id name d _)
@@ -30,8 +45,13 @@
   (match n
     [(note id name date pars)
      (write-html-file (relative-url "/" (note->url-string n)) (note->xexpr n))]))
-     
 
+(define (write-lambs-note-file n)
+  (match n
+    [(note id name date pars)
+     (write-html-file (relative-url "/" (note->url-string n)) (lambs-note->xexpr n))]))
+
+(require "notes.rkt")
 (write-note-file test-note)
 (require "data-functions-note.rkt")
 (write-note-file data-functions-note)
@@ -40,6 +60,8 @@
 (require "tuples-note.rkt")
 (write-note-file tuples-note)
 
+(require "lamb-nums.rkt")
+(write-lambs-note-file lamb-nums-note)
 
 (require "LISP-forty-two.rkt")
 
@@ -57,5 +79,5 @@
                                       (a ([href "lambders.html"]) "there")
                                       ".")
                                    (p () "And like a stuff:")
-                                   ,@(map (note->link "/") (sort notes (compose not note-before)))))))
+                                   ,@(map (note->link "/") (sort notes (compose not note-before?)))))))
 

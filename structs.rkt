@@ -1,11 +1,13 @@
 #lang racket
 (provide (struct-out note)
          nt
-         note-before
+         note-before?
          (struct-out date)
          date->string
          current-date
          date<
+         (struct-out lambs-editor)
+         lambs
          (struct-out paragraph)
          p
          (struct-out quotation)
@@ -44,7 +46,11 @@
         date
         pieces))
 
-(define (note-before a b)
+(struct lambs-editor (height text) #:transparent)
+(define (lambs h . rest)
+  (lambs-editor h (apply ~a rest)))
+
+(define (note-before? a b)
   (match* (a b)
     [((note _ _ ad _) (note _ _ bd _))
      (date< ad bd)]))
