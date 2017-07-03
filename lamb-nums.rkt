@@ -33,7 +33,7 @@
  Ctrl+r on line below to replace the names of the things we've defined with their lambdas.
  Then ctrl+enter a bunch of times to evaluate. (Or ctrl+shift+enter one time.)
 }
-            @lambs[2]{
+            @lambs[10]{
  plus 2 (plus 2 2)
 }
             @p{
