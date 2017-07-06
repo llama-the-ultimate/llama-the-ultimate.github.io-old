@@ -2,8 +2,7 @@
 
 (require "structs.rkt"
          "html.rkt"
-         "text-xexpr.rkt"
-         (only-in xml xexpr->string))
+         "text-xexpr.rkt")
 
 (define (note->url-string n)
   (match n
@@ -24,7 +23,7 @@
     [_ (text-piece->xexpr p)]))
 
 (define (lambs-style h)
-  (format "width:100%;height:~arem;border:1px solid lightgrey" h))
+  (format "height:~arem" h))
      
 (define (lambs-note->xexpr n)
   (match n
@@ -69,15 +68,20 @@
 
 (for ([n notes]) (write-note-file n))
 
-(define index
-  (write-html-file "index.html"
-                   (->html-xexpr "/"
-                                 "Some stuff"
-                                 `((h1 () "Um")
-                                   (p ()
-                                      "Some lambdas over "
-                                      (a ([href "lambders.html"]) "there")
-                                      ".")
-                                   (p () "And like a stuff:")
-                                   ,@(map (note->link "/") (sort notes (compose not note-before?)))))))
+
+(require "lambda-playgrounds.rkt")
+(write-html-file "lambdas.html"
+                 (lambda-playground "/"))
+  
+
+(write-html-file "index.html"
+                 (->html-xexpr "/"
+                               "Some stuff"
+                               `((h1 () "Um")
+                                 (p ()
+                                    "Some lambdas over "
+                                    (a ([href "lambdas.html"]) "there")
+                                    ".")
+                                 (p () "And like a stuff:")
+                                 ,@(map (note->link "/") (sort notes (compose not note-before?))))))
 

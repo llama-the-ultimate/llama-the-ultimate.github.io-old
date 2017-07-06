@@ -26,7 +26,7 @@
  And stuff for adding together.
 }
             @lambs[2]{
- plus ≜ λa.λb.λf.λx.a f (b f x)
+ + ≜ λa.λb.λf.λx.a f (b f x)
 }
             @p{
  Andalso actually adding.
@@ -34,7 +34,7 @@
  Then ctrl+enter a bunch of times to evaluate. (Or ctrl+shift+enter one time.)
 }
             @lambs[10]{
- plus 2 (plus 2 2)
+ + 2 (+ 2 2)
 }
             @p{
  Six! (Hopefully.)

@@ -2,7 +2,8 @@
 (provide write-html-file
          ->html-xexpr
          ->lambs-html-xexpr
-         relative-url)
+         relative-url
+         editor-html-xexpr)
 
 (require (only-in xml xexpr->string))
 
@@ -48,4 +49,10 @@
                        (div ((class "navinfo")) ,(nav from))
                        (div ((class "text"))
                             ,@content))
+                  ,@(lambs-js-stuff from))))
+
+(define (editor-html-xexpr from name content)
+  `(html ,(title->head from name)
+            (body ((onresize "refreshEditors()"))
+                  (div ((class "editor") (name "lambs")) ,content)
                   ,@(lambs-js-stuff from))))
