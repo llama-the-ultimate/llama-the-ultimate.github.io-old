@@ -9,29 +9,29 @@
      [(note id name _ _)
       (~a "/notes/" id ".html")]))
 
-(define (note->xexpr n)
+(define (note->xexpr from n)
   (match n
     [(note id name d pieces)
      (->html-xexpr (note->url-string n)
                    name
                    `((h1 () ,name)
-                     ,@(append* (map text-piece->xexpr pieces))))]))
+                     ,@(append* (map (text-piece->xexpr from) pieces))))]))
 
-(define (lambs-text-piece->xexpr p)
+(define ((lambs-text-piece->xexpr from) p)
   (match p
     [(lambs-editor h s) `((div ((class "editor") (name "lambs") (style ,(lambs-style h))) ,s))]
-    [_ (text-piece->xexpr p)]))
+    [_ ((text-piece->xexpr from) p)]))
 
 (define (lambs-style h)
   (format "height:~arem" h))
      
-(define (lambs-note->xexpr n)
+(define (lambs-note->xexpr from n)
   (match n
     [(note id name d pieces)
      (->lambs-html-xexpr (note->url-string n)
                    name
                    `((h1 () ,name)
-                     ,@(append* (map lambs-text-piece->xexpr pieces))))]))
+                     ,@(append* (map (lambs-text-piece->xexpr from) pieces))))]))
 
 (define ((note->link from) n)
   (match n
@@ -43,12 +43,14 @@
 (define (write-note-file n)
   (match n
     [(note id name date pars)
-     (write-html-file (relative-url "/" (note->url-string n)) (note->xexpr n))]))
+     (define url (note->url-string n))
+     (write-html-file (relative-url "/" url) (note->xexpr url n))]))
 
 (define (write-lambs-note-file n)
   (match n
     [(note id name date pars)
-     (write-html-file (relative-url "/" (note->url-string n)) (lambs-note->xexpr n))]))
+     (define url (note->url-string n))
+     (write-html-file (relative-url "/" url) (lambs-note->xexpr url n))]))
 
 (require "notes.rkt")
 (write-note-file test-note)
@@ -59,10 +61,10 @@
 (require "tuples-note.rkt")
 (write-note-file tuples-note)
 
+(require "LISP-forty-two.rkt")
+
 (require "lamb-nums.rkt")
 (write-lambs-note-file lamb-nums-note)
-
-(require "LISP-forty-two.rkt")
 
 (define notes (list* LISP-forty-two-note small-notes))
 
@@ -83,5 +85,7 @@
                                     (a ([href "lambdas.html"]) "there")
                                     ".")
                                  (p () "And like a stuff:")
-                                 ,@(map (note->link "/") (sort notes (compose not note-before?))))))
+                                 ,@(map (note->link "/")
+                                        (sort (cons lamb-nums-note notes)
+                                              (compose not note-before?))))))
 

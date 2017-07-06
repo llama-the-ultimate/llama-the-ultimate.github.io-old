@@ -28,6 +28,8 @@
          li
          (struct-out link/url)
          lnk
+         (struct-out link/internal)
+         ilnk
          (struct-out codeblock)
          block
          (struct-out code)
@@ -93,6 +95,9 @@
 (define (lnk url . ts)
   (link/url url ts))
 
+(struct link/internal (url ts) #:transparent)
+(define (ilnk url . ts)
+  (link/internal url ts))
 
 (struct codeblock (ts) #:transparent)
 (define (block . ts)
