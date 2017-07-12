@@ -19,7 +19,12 @@
 
 (define ((lambs-text-piece->xexpr from) p)
   (match p
-    [(lambs-editor h s) `((div ((class "editor") (name "lambs") (style ,(lambs-style h))) ,s))]
+    [(lambs-editor h p s)
+     `((div ((class "editor")
+             (name "lambs")
+             (style ,(lambs-style h))
+             ,@(if p '((prelude "true")) '()))
+            ,s))]
     [_ ((text-piece->xexpr from) p)]))
 
 (define (lambs-style h)
@@ -63,8 +68,10 @@
 
 (require "LISP-forty-two.rkt")
 
-(require "lamb-nums.rkt")
-(write-lambs-note-file lamb-nums-note)
+(require "lamb-nums.rkt"
+         "lamb-how.rkt")
+(define lamb-notes (list lamb-nums-note lamb-how-note))
+(for ([n lamb-notes]) (write-lambs-note-file n))
 
 (define notes (list* LISP-forty-two-note small-notes))
 
@@ -86,6 +93,6 @@
                                     ".")
                                  (p () "And like a stuff:")
                                  ,@(map (note->link "/")
-                                        (sort (cons lamb-nums-note notes)
+                                        (sort (append lamb-notes notes)
                                               (compose not note-before?))))))
 

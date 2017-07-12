@@ -48,9 +48,9 @@
         date
         pieces))
 
-(struct lambs-editor (height text) #:transparent)
-(define (lambs h . rest)
-  (lambs-editor h (apply ~a rest)))
+(struct lambs-editor (height prelude text) #:transparent)
+(define (lambs h #:prelude [prelude #f] . rest)
+  (lambs-editor h prelude (apply ~a rest)))
 
 (define (note-before? a b)
   (match* (a b)

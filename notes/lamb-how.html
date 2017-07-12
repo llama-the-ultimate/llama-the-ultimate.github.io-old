@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>How do the lambdas?</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>How do the lambdas?</h1><p>A readonly editor is readonly.
+Its content is evaluated when page loads or so.
+Mostly for adding definitions to toplevel so they can be used later in the post:</p><div class="editor" name="lambs" style="height:6rem" prelude="true">id ≜ λx.x
+0 ≜ λf.λx.x
+ω ≜ λx.x x</div><hr/><p>In the regular editors we can do stuff.</p><div class="editor" name="lambs" style="height:10rem">(can do stuff here)</div><p>Normal text-editor-stuff should work. Lambdastuff in addition:</p><ul><li><span class="code">ctrl+l</span> inserts a <span class="codew">λ</span>
+(or can use <span class="codew">\</span> instead of <span class="codew">λ</span> if want to)</li><li><span class="code">ctrl+d</span> inserts a <span class="codew">≜</span>
+(or can use <span class="codew">:=</span> instead of <span class="codew">≜</span> if want to)</li><li><span class="code">ctrl+enter</span> is used to add a definition to toplevel, or remove a definition,
+or do one step of evaluation</li><li><span class="code">ctrl+shift+enter</span> is used to do like a bunch of evaluation
+(stops when the term is on normal form, or after like a thousand steps of evaluation)</li><li><span class="code">ctrl+r</span> is used to replace the names used in toplevel definitions with terms from the definitions</li><li>right-clicking within editor and selecting “Show definitions”
+prints all the current toplevel defintions in the editor.</li></ul><p><span class="code">ctrl+enter</span>, <span class="code">ctrl+shift+enter</span> and <span class="code">ctrl+r</span> all work on the line the cursor is on.
+Results are printed on new line(s), after.
+(And cursor moves to end of result.)</p><hr/><p>So, normally, if we have written some term that maybe uses some of the toplevel defintions,
+we do <span class="code">ctrl+r</span> and then either <span class="code">ctrl+enter</span> a few times, or <span class="code">ctrl+shift+enter</span> once.
+Can try:</p><div class="editor" name="lambs" style="height:7rem">(λa.λb.b a) 0 ω 0</div><p>Lines with <span class="codew">≜</span> (or <span class="codew">:=</span> are for definitons).
+<span class="code">ctrl+enter</span> on a line that goes like <span class="code">&lt;identifier&gt; ≜ &lt;term&gt;</span> adds a definition.</p><div class="editor" name="lambs" style="height:3rem">S ≜ λn.λf.λx.f (n f x)</div><p>(Most characters can be used in identifiers.
+Just, not whitespace ones, and not the ones that are used for other stuff:
+<span class="codew">:</span>, <span class="codew">\</span>, <span class="codew">≜</span>, <span class="codew">λ</span>, <span class="codew">.</span>, <span class="codew">(</span>, <span class="codew">)</span>.)</p><p>The terms used in definitions can use the names of defintions that already exist.
+Like, we can define <span class="codew">2</span> like this now, as long as we have defined <span class="codew">0</span> and <span class="codew">S</span> first:
+(<span class="code">ctrl+enter</span>)</p><div class="editor" name="lambs" style="height:3rem">2 ≜ S (S 0)</div><p>(We can evaluate it to check that the result looks reasonably twoish.
+Two applications of <span class="codew">f</span> is very two-like, so the result should look like <span class="code">λf.λx.f (f x)</span>.
+(<span class="code">ctrl+r</span>, then <span class="code">ctrl+shift+enter</span>))</p><div class="editor" name="lambs" style="height:8rem">2</div><p>If we wanna get rid of a definition we can do <span class="code">&lt;identifier&gt; ≜ :(</span>, or just <span class="code">&lt;identifier&gt; ≜</span>.
+We’ll remove <span class="codew">ω</span> (it’s scary):
+(<span class="code">ctrl+enter</span>)</p><div class="editor" name="lambs" style="height:3rem">ω ≜ :(</div><p>If we try to evaluate the thing we did earler, we won’t get the same result now,
+since ω will just be treated as some free variable...
+(<span class="code">ctrl+r</span>, then <span class="code">ctrl+shift+enter</span>)</p><div class="editor" name="lambs" style="height:5rem">(λa.λb.b a) 0 ω 0</div><hr/><p>That’s like more or less it.
+In posts like this it’s mostly enough to do <span class="code">ctrl+enter</span> on definitions,
+and <span class="code">ctrl+r</span> and then <span class="code">ctrl+shift+enter</span> on other stuff...</p><p>The evaluation of the lambda-things is mostly done with
+<a href="https://github.com/Glorp/purescript-lambs">this bit of PureScript-code</a>.
+The editors are <a href="https://github.com/Microsoft/monaco-editor">Monaco</a> ones...</p></div></div><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></body></html>

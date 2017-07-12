@@ -1,15 +1,50 @@
 require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});
 
 var startMonaco = function() {
+
   var res = [];
   var elems = document.getElementsByName("lambs");
   require(['vs/editor/editor.main'], function() {
+
     for (var i = 0; i < elems.length; i++) {
       var elem = elems[i];
-      res.push(startEditor(elem));
+      if (elem.getAttribute("prelude") === "true") {
+        res.push(startPreluditor(elem));
+      } else {
+        res.push(startEditor(elem));
+      }
+
     }});
     return res;
 };
+
+var startPreluditor = function(element) {
+  var elemContent = element.textContent;
+  element.textContent = "";
+  var content = "";
+  var lines = elemContent.split(/\r?\n/);
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+    if (line.trim().length > 0) {
+      var parsed = lambs.parse(line);
+      updateDefs(parsed);
+      content += line + "\n" + lambs.step(parsed) + "\n";
+    } else {
+      content += "\n";
+    }
+  }
+
+  var editor = monaco.editor.create(element, {
+      value: content,
+      lineNumbers: false,
+      quickSuggestions: false,
+      mouseWheelZoom: true,
+      readOnly: true
+  });
+
+  return editor;
+
+}
 
 var startEditor = function(element) {
 
@@ -89,7 +124,7 @@ var startEditor = function(element) {
         editor.pushUndoStop();
         editor.executeEdits("lambs", edits);
         editor.pushUndoStop();
-        editor.revealPosition({lineNumber: e.getPosition().lineNumber, column: 0});
+        editor.revealPosition({lineNumber: editor.getPosition().lineNumber, column: 0});
     });
 
     editor.addCommand([monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_R], function() {
