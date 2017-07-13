@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>What do the lambdas?</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>What do the lambdas?</h1><p>A <span class="codew">term</span> is one of the following:</p><ul><li><span class="code">&lt;identifier&gt;</span>
+(variable reference)</li><li><span class="code">λ&lt;identifier&gt;.&lt;term&gt;</span>
+(function (abstraction))</li><li><span class="code">&lt;term&gt; &lt;term&gt;</span>
+(function application)</li></ul><p>Is like tree. Variable references are leaves.
+Function application branches into two sub-trees, one for function and one for argument.</p><p>Function application is left associative. So <span class="code">a b c</span> and <span class="code">(a b) c</span> works out the same.</p><p>(So, syntax is mostly like in a ML family language or a Haskell or something.
+Only instead of like, <span class="code">fn x =&gt; foo</span> or <span class="code">fun x -&gt; foo</span> or <span class="code">\x -&gt; foo</span>),
+we do <span class="code">λx.foo</span>.)</p><hr/><p>Evaluation goes like so: <span class="code">(λ<strong>x</strong>.<strong>B</strong>) <strong>A</strong> ⟶ [<strong>A</strong>/<strong>x</strong>]<strong>B</strong></span>.
+Meaning, if there’s a function application with</p><ul><li>a function-part that is an function abstraction (lambda thing), with some identifier <span class="codew"><strong>x</strong></span> as its parameter
+and some term <span class="codew"><strong>B</strong></span> as its body</li><li>an argument part that is some term <span class="codew"><strong>A</strong></span></li></ul><p>then we can substitute the argument <span class="codew"><strong>A</strong></span> for every free occurence of the parameter <span class="codew"><strong>x</strong></span> in the body <span class="codew"><strong>B</strong></span>,
+and replace the whole function application with the result of that.</p><p>Can try.
+With the term <span class="code">(λz.z bar) foo</span>, the paramter <span class="codew"><strong>x</strong></span> is <span class="codew">z</span>,
+the body <span class="codew"><strong>B</strong></span> is <span class="code">z bar</span>, and the argument <span class="codew"><strong>A</strong></span> is <span class="codew">foo</span>.
+So it should evaluate to the body <span class="code">z bar</span>
+with every free <span class="codew">z</span> replaced by the argument <span class="codew">foo</span>: <span class="code">foo bar</span>.
+(<span class="code">ctrl+enter</span> below)</p><div class="editor" name="lambs" style="height:3rem">(λz.z bar) foo</div><p>A variable reference is free if it is not bound by a parameter in a function abstraction (lambda thing).
+With the term <span class="code">(λz.z (λz.bar z) bar) foo</span>, the paramter <span class="codew"><strong>x</strong></span> is <span class="codew">z</span>,
+the body <span class="codew"><strong>B</strong></span> is <span class="code">z (λz.bar z) bar</span>, and the argument <span class="codew"><strong>A</strong></span> is <span class="codew">foo</span>.
+Here, only the first z in the body <span class="code">z (λz.bar z) bar</span> is free, so only that one is replaced with <span class="codew">foo</span>.</p><div class="editor" name="lambs" style="height:3rem">(λz.z (λz.bar z) bar) foo</div><p>(In maybe more programmy jargon, we could maybe say that the inner <span class="codew">z</span> shadows the outer.)</p><p>Sometimes we have to change the names of some variables before doing the evaluation thing,
+in order to avoid changing the meaning of things with “variable capture”.
+With the term <span class="code">(λx.λy.y x) y</span>, the paramter <span class="codew"><strong>x</strong></span> is <span class="codew">x</span>,
+the body <span class="codew"><strong>B</strong></span> is <span class="code">λy.y x</span>, and the argument <span class="codew"><strong>A</strong></span> is <span class="codew">y</span>.
+If we just replace the <span class="codew">x</span> in <span class="code">λy.y x</span> with <span class="codew">y</span>, we get <span class="code">λy.y y</span>.
+Our argument-<span class="codew">y</span> becomes like bound by the parameter of the lambda within the body.
+Is no good. We should be able to keep refering to some outer <span class="codew">y</span>.
+So, we change the name of the parameter of the lambda (and all references to it) before we do the thing.
+(<span class="code">ctrl+enter</span> two times, since the first one will just rename the parameter)</p><div class="editor" name="lambs" style="height:3rem">(λx.λy.y x) y</div><hr/><p>That’s mostly it.
+We look through our expression-tree in some order,
+find a function application where the function-part is a function abstraction,
+rename things if necessary,
+and do the substitution thing.</p><p>The order we look through the expression-tree is normal order.
+We check the outermost expression first, and then the function-parts of applications before the argument-parts.
+(If we can’t find anything to do the substitution-thing on, the term is on “normal form”, and we’re like done.)
+(<span class="code">ctrl+shift+enter</span>)</p><div class="editor" name="lambs" style="height:6rem">(λz.z foo) (λx.λy.x bar y) quux</div></div></div><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></body></html>

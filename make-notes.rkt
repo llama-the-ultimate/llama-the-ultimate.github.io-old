@@ -68,6 +68,8 @@
 
 (require "LISP-forty-two.rkt")
 
+(require "lamb-what.rkt")
+(write-lambs-note-file lamb-what-note)
 (require "lamb-nums.rkt"
          "lamb-how.rkt")
 (define lamb-notes (list lamb-nums-note lamb-how-note))
