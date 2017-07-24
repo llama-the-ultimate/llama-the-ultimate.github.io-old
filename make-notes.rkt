@@ -55,11 +55,10 @@
 
 (require "LISP-forty-two.rkt")
 
-(require "lambs/what.rkt")
-(write-lambs-note-file lamb-what-note)
 (require "lambs/nums.rkt"
-         "lambs/how.rkt")
-(define lamb-notes (list lamb-nums-note lamb-how-note))
+         "lambs/how.rkt"
+         "lambs/what.rkt")
+(define lamb-notes (list lamb-nums-note lamb-how-note lamb-what-note))
 (for ([n lamb-notes]) (write-lambs-note-file n))
 
 (define notes (list* LISP-forty-two-note small-notes))
