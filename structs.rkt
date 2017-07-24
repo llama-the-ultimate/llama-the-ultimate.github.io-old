@@ -6,8 +6,6 @@
          date->string
          current-date
          date<
-         (struct-out lambs-editor)
-         lambs
          (struct-out paragraph)
          p
          (struct-out quotation)
@@ -48,10 +46,6 @@
         name
         date
         pieces))
-
-(struct lambs-editor (height prelude text) #:transparent)
-(define (lambs h #:prelude [prelude #f] . rest)
-  (lambs-editor h prelude (apply ~a rest)))
 
 (define (note-before? a b)
   (match* (a b)
