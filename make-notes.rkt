@@ -1,8 +1,7 @@
 #lang racket
 
 (require "structs.rkt"
-         "html.rkt"
-         "text-xexpr.rkt")
+         "html.rkt")
 
 (define (note->url-string n)
   (match n
@@ -15,7 +14,7 @@
      (->html-xexpr (note->url-string n)
                    name
                    `((h1 () ,name)
-                     ,@(append* (map (text-piece->xexpr from) pieces))))]))
+                     ,@(append* (map (text-piece->html from) pieces))))]))
 
 (define ((lambs-text-piece->xexpr from) p)
   (match p
@@ -25,7 +24,7 @@
              (style ,(lambs-style h))
              ,@(if p '((prelude "true")) '()))
             ,s))]
-    [_ ((text-piece->xexpr from) p)]))
+    [_ ((text-piece->html from) p)]))
 
 (define (lambs-style h)
   (format "height:~arem" h))

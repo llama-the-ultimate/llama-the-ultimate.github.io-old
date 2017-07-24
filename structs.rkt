@@ -26,10 +26,11 @@
          (struct-out ordered-list)
          ol
          li
-         (struct-out link/url)
+         (struct-out link)
          lnk
-         (struct-out link/internal)
          ilnk
+         (struct-out ref/url)
+         (struct-out ref/internal)
          (struct-out codeblock)
          block
          (struct-out code)
@@ -91,13 +92,16 @@
 
 (define li list)
 
-(struct link/url (url ts) #:transparent)
-(define (lnk url . ts)
-  (link/url url ts))
+(struct ref/url (url) #:transparent)
+(struct ref/internal (url) #:transparent)
 
-(struct link/internal (url ts) #:transparent)
+(struct link (ref ts) #:transparent)
+
+(define (lnk url . ts)
+  (link (ref/url url) ts))
+
 (define (ilnk url . ts)
-  (link/internal url ts))
+  (link (ref/internal url) ts))
 
 (struct codeblock (ts) #:transparent)
 (define (block . ts)
