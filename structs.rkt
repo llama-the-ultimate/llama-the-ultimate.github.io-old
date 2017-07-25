@@ -36,7 +36,9 @@
          (struct-out code-word)
          tt
          (struct-out break)
-         brk)
+         brk
+         (struct-out txts)
+         txt)
 
 (require (only-in racket/date [current-date racket-current-date]))
 
@@ -149,3 +151,9 @@
                           (halpy y)
                           (halp m)
                           (halp d))]))
+(struct txts (ts)
+  #:transparent
+  #:property prop:procedure (λ (x) x))
+  
+(define (txt . ts)
+  (txts ts))

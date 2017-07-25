@@ -1,6 +1,7 @@
 #lang at-exp racket
 (provide lamb-what-note)
-(require "structs.rkt")
+(require "structs.rkt"
+         "util.rkt")
 
 (define x @tt{@str{x}})
 (define B @tt{@str{B}})
@@ -98,7 +99,7 @@
  we get @ttc{(λz.z bar) foo ⟶ [foo/z]z bar}.
  It should evaluate to the body @ttc{z bar}
  with every free @tt{z} replaced by the argument @tt{foo}: @ttc{foo bar}.
- (@ttc{ctrl+enter} below)
+ (@eval1 below)
 }
       
       @lambs[3]{
@@ -125,7 +126,7 @@
  Our argument-@tt{y} becomes like bound (@q{captured}) by the parameter of the lambda within the body.
  Is no good. We should be able to keep refering to some outer @tt{y}.
  So, we change the name of the parameter of the lambda (and all references to it) before we do beta reduction.
- (@ttc{ctrl+enter} two times, since the first one will just rename the parameter)
+ (@eval1 two times, since the first one will just rename the parameter)
 }
       @lambs[3]{
  (λx.λy.y x) y
@@ -154,7 +155,7 @@
 }
 
  @p{
- Can do (@ttc{ctrl+shift+enter}) to evaluate the foillowing until it’s on normal form:
+ Can do (@eval*) to evaluate the foillowing until it’s on normal form:
 }
 
  @lambs[6]{

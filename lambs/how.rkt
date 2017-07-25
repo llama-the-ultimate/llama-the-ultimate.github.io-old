@@ -1,6 +1,7 @@
 #lang at-exp racket
 (provide lamb-how-note)
-(require "structs.rkt")
+(require "structs.rkt"
+         "util.rkt")
 
 (define lamb-how-note
   (nt 'lamb-how
@@ -29,37 +30,37 @@
 }
       (ul
        @li{
- @ttc{ctrl+l} inserts a @tt{λ}
+ @insLam inserts a @tt{λ}
  (or can use @tt{\} instead of @tt{λ} if want to)
 }
        @li{
- @ttc{ctrl+d} inserts a @tt{≜}
+ @insDef inserts a @tt{≜}
  (or can use @tt{:=} instead of @tt{≜} if want to)
 }
        @li{
- @ttc{ctrl+enter} is used to add a definition to toplevel, or remove a definition,
+ @eval1 is used to add a definition to toplevel, or remove a definition,
  or do one step of evaluation
 }
        @li{
- @ttc{ctrl+shift+enter} is used to do like a bunch of evaluation
+ @eval* is used to do like a bunch of evaluation
  (stops when the term is on normal form, or after like a thousand steps of evaluation)
 }
        @li{
- @ttc{ctrl+r} is used to replace the names used in toplevel definitions with terms from the definitions
+ @substDefs is used to replace the names used in toplevel definitions with terms from the definitions
 }
        @li{
  right-clicking within editor and selecting @q{Show definitions}
  prints all the current toplevel defintions in the editor.
  })
       @p{
- @ttc{ctrl+enter}, @ttc{ctrl+shift+enter} and @ttc{ctrl+r} all work on the line the cursor is on.
+ @eval1, @eval* and @substDefs all work on the line the cursor is on.
  Results are printed on new line(s), after.
  (And cursor moves to end of result.)
 }
       @brk
       @p{
  So, normally, if we have written some term that maybe uses some of the toplevel defintions,
- we do @ttc{ctrl+r} and then either @ttc{ctrl+enter} a few times, or @ttc{ctrl+shift+enter} once.
+ we do @substDefs and then either @eval1 a few times, or @eval* once.
  Can try:
 }
             
@@ -68,7 +69,7 @@
 }
       @p{
  Lines with @tt{≜} (or @tt{:=} are for definitons).
- @ttc{ctrl+enter} on a line that goes like @ttc{<identifier> ≜ <term>} adds a definition.
+ @eval1 on a line that goes like @ttc{<identifier> ≜ <term>} adds a definition.
 }
             
       @lambs[3]{
@@ -83,7 +84,7 @@
       @p{
  The terms used in definitions can use the names of defintions that already exist.
  Like, we can define @tt{2} like this now, as long as we have defined @tt{0} and @tt{S} first:
- (@ttc{ctrl+enter})
+ (@eval1)
 }
       @lambs[3]{
  2 ≜ S (S 0)
@@ -92,7 +93,7 @@
       @p{
  (We can evaluate it to check that the result looks reasonably twoish.
  Two applications of @tt{f} is very two-like, so the result should look like @ttc{λf.λx.f (f x)}.
- (@ttc{ctrl+r}, then @ttc{ctrl+shift+enter}))
+ (@substDefs, then @eval*))
 }
       @lambs[8]{
  2

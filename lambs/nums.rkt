@@ -1,6 +1,7 @@
 #lang at-exp racket
 (provide lamb-nums-note)
-(require "structs.rkt")
+(require "structs.rkt"
+         "util.rkt")
 
 (define id identity)
 
@@ -21,15 +22,15 @@
       @p{
  (There’s also kind of a lambda playground @ilnk["/lambdas.html"]{over here}.)
 }
-      @p{To try, put cursor on line below and do like ctrl+enter couple of times:}
+      @p{To try, put cursor on line below and do like @eval1 couple of times:}
       @lambs[4]{
  (λx.λy.y x) bar foo
 }
       @p{
- If it works (if the ctrl+enter-business leads to a line that goes @ttc{foo bar}), we can make like, a few numbers... (ctrl+enter each line).
+ If it works (if the @(eval1)-business leads to a line that goes @ttc{foo bar}), we can make like, a few numbers... (@eval1 each line).
 }
       @p{
- (Oh by the way. Can do ctrl+l to insert a @tt{λ}, and ctrl+d to insert a @tt{≜}.
+ (Oh by the way. Can do @insLam to insert a @tt{λ}, and @insDef to insert a @tt{≜}.
  Or can use @tt{\} instead of @tt{λ} and @tt{:=} instead of @tt{≜}.)
 }
       
@@ -43,7 +44,7 @@
             @p{
  The idea, or at least one way to look at it, is that the number five is the function that does something five times.
  So, if we want to @foo a @bar five times, then we can...
- (Ctrl+r to replace @tt{5} with the lambdas from the definition we did above. Then ctrl+enter a couple of times.)
+ (@substDefs to replace @tt{5} with the lambdas from the definition we did above. Then @eval1 a couple of times.)
 }
       @lambs[4]{
  5 foo bar
@@ -55,15 +56,15 @@
  Okay. Addition is pretty numbery let’s that. Below is a function that takes arguments @a and @(id b).
  And gives back, uh, a @ttc{λf.λx.}-function.
  This function applies @f @q{@b times} to @x, and applies @f @q{@a times} to the result of that again.
- Hopefully amounts to like, an @a + @b number of @(id f)s applied to @(id x). (ctrl+enter on line below)
+ Hopefully amounts to like, an @a + @b number of @(id f)s applied to @(id x). (@eval1 on line below)
 }
             @lambs[3]{
  + ≜ λa.λb.λf.λx.a f (b f x)
 }
             @p{
  If things seem fine so far, we can try to use it to like, actually additioning.
- Ctrl+r on line below to replace the names of the things we’ve defined with their lambdas.
- Then ctrl+enter a bunch of times to evaluate. (Or ctrl+shift+enter one time.)
+ @substDefs on line below to replace the names of the things we’ve defined with their lambdas.
+ Then @eval1 a bunch of times to evaluate. (Or @eval* one time.)
 }
             @lambs[13]{
  + 5 (+ 5 2)
