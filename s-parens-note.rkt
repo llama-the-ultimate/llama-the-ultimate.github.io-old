@@ -18,7 +18,7 @@
 (define s-parens-note
   (nt 's-parens
       "S (and parentheses)"
-      (date #f #f #f)
+      #f
       @p{
  In the SKI combinator calculus we have three functions. @S, @K and @(I):
 }

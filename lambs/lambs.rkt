@@ -3,14 +3,15 @@
 (require "../structs.rkt"
          "what.rkt"
          "how.rkt"
-         "nums.rkt")
+         "nums.rkt"
+         "data.rkt")
 
 (define lambs-list
   (note-list
    (nt
     'lambs
     "Some lambda-notes"
-    (date #f #f #f)
+    #f
     @p{
  Bla blah.
  This is a collection of notes with lambda calculus stuff.
@@ -30,4 +31,5 @@
    
    (list lamb-nums-note
          lamb-how-note
-         lamb-what-note)))
+         lamb-what-note
+         lamb-data-note)))

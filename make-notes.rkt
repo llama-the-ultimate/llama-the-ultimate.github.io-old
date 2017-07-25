@@ -57,18 +57,15 @@
 
 (require "LISP-forty-two.rkt")
 
-(require "lambs/nums.rkt"
-         "lambs/how.rkt"
-         "lambs/what.rkt")
-(define lamb-notes (list lamb-nums-note lamb-how-note lamb-what-note))
-(for ([n lamb-notes]) (write-note-file n))
-
 (define notes (list* LISP-forty-two-note small-notes))
 
 (for ([n notes]) (write-note-file n))
 
 (require "lambs/lambs.rkt")
 (write-list-file lambs-list)
+
+(define lamb-notes (note-list-notes lambs-list))
+(for ([n lamb-notes]) (write-note-file n))
 
 (require "lambs/playgrounds.rkt")
 (write-html-file "lambdas.html"
@@ -84,6 +81,7 @@
                                     ".")
                                  (p () "And like a stuff:")
                                  ,@(notes->links "/"
-                                                 (sort (append lamb-notes notes)
-                                                       (compose not note-before?))))))
+                                                 (filter note-date
+                                                         (sort (append lamb-notes notes)
+                                                               (compose not note-before?)))))))
 
