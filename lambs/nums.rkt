@@ -28,8 +28,8 @@
  If it works (if the @(eval1)-business leads to a line that goes @ttc{foo bar}), we can make like, a few numbers... (@eval1 each line).
 }
       @p{
- (Oh by the way. Can do @insLam to insert a @tt{λ}, and @insDef to insert a @tt{≜}.
- Or can use @tt{\} instead of @tt{λ} and @tt{:=} instead of @tt{≜}.)
+ (Oh by the way. Can do @ins-lam to insert a @lam, and @ins-def to insert a @(def).
+ Or can use @alt-lam instead of @lam and @alt-def instead of @(def).)
 }
       
       @lambs[8]{
@@ -42,7 +42,7 @@
             @p{
  The idea, or at least one way to look at it, is that the number five is the function that does something five times.
  So, if we want to @foo a @bar five times, then we can...
- (@substDefs to replace @tt{5} with the lambdas from the definition we did above. Then @eval1 a couple of times.)
+ (@subst-defs to replace @tt{5} with the lambdas from the definition we did above. Then @eval1 a couple of times.)
 }
       @lambs[4]{
  5 foo bar
@@ -61,7 +61,7 @@
 }
             @p{
  If things seem fine so far, we can try to use it to like, actually additioning.
- @substDefs on line below to replace the names of the things we’ve defined with their lambdas.
+ @subst-defs on line below to replace the names of the things we’ve defined with their lambdas.
  Then @eval1 a bunch of times to evaluate. (Or @eval* one time.)
 }
             @lambs[13]{

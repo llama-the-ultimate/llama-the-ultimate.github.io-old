@@ -2,13 +2,23 @@
 (require "structs.rkt")
 (provide eval1
          eval*
-         substDefs
-         insLam
-         insDef)
+         subst-defs
+         ins-lam
+         lam
+         alt-lam
+         ins-def
+         def
+         alt-def)
 
 (deftxt eval1 @ttc{ctrl+enter})
 (deftxt eval* @ttc{ctrl+shift+enter})
-(deftxt substDefs @ttc{ctrl+r})
+(deftxt subst-defs @ttc{ctrl+r})
 
-(deftxt insLam @ttc{ctrl+l})
-(deftxt insDef @ttc{ctrl+d})
+(deftxt ins-lam @ttc{ctrl+l})
+(deftxt lam @tt{λ})
+(deftxt alt-lam @tt{\})
+
+
+(deftxt ins-def @ttc{ctrl+d})
+(deftxt def @tt{≜})
+(deftxt alt-def @tt{:=})

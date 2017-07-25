@@ -30,12 +30,12 @@
 }
       (ul
        @li{
- @insLam inserts a @tt{λ}
- (or can use @tt{\} instead of @tt{λ} if want to)
+ @ins-lam inserts a @lam
+ (or can use @alt-lam instead of @lam if want to)
 }
        @li{
- @insDef inserts a @tt{≜}
- (or can use @tt{:=} instead of @tt{≜} if want to)
+ @ins-def inserts a @def
+ (or can use @alt-def instead of @def if want to)
 }
        @li{
  @eval1 is used to add a definition to toplevel, or remove a definition,
@@ -46,21 +46,21 @@
  (stops when the term is on normal form, or after like a thousand steps of evaluation)
 }
        @li{
- @substDefs is used to replace the names used in toplevel definitions with terms from the definitions
+ @subst-defs is used to replace the names used in toplevel definitions with terms from the definitions
 }
        @li{
  right-clicking within editor and selecting @q{Show definitions}
  prints all the current toplevel defintions in the editor.
  })
       @p{
- @eval1, @eval* and @substDefs all work on the line the cursor is on.
+ @eval1, @eval* and @subst-defs all work on the line the cursor is on.
  Results are printed on new line(s), after.
  (And cursor moves to end of result.)
 }
       @brk
       @p{
  So, normally, if we have written some term that maybe uses some of the toplevel defintions,
- we do @substDefs and then either @eval1 a few times, or @eval* once.
+ we do @subst-defs and then either @eval1 a few times, or @eval* once.
  Can try:
 }
             
@@ -68,7 +68,7 @@
  (λa.λb.b a) 0 ω 0
 }
       @p{
- Lines with @tt{≜} (or @tt{:=} are for definitons).
+ Lines with @def (or @alt-def are for definitons).
  @eval1 on a line that goes like @ttc{<identifier> ≜ <term>} adds a definition.
 }
             
@@ -93,7 +93,7 @@
       @p{
  (We can evaluate it to check that the result looks reasonably twoish.
  Two applications of @tt{f} is very two-like, so the result should look like @ttc{λf.λx.f (f x)}.
- (@substDefs, then @eval*))
+ (@subst-defs, then @eval*))
 }
       @lambs[8]{
  2
