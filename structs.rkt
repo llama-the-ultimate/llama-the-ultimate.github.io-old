@@ -1,5 +1,6 @@
 #lang racket
 (provide (struct-out note)
+         (struct-out content)
          nt
          note-before?
          (struct-out date)
@@ -43,12 +44,13 @@
 
 (require (only-in racket/date [current-date racket-current-date]))
 
-(struct note (id name date pieces) #:transparent)
+(struct note (id name date content) #:transparent)
+(struct content (pieces) #:transparent)
 (define (nt id name date . pieces)
   (note id
         name
         date
-        pieces))
+        (content pieces)))
 
 (define (note-before? a b)
   (match* (a b)

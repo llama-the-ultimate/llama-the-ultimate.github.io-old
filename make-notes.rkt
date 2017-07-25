@@ -10,16 +10,12 @@
 
 (define (note->xexpr from n)
   (match n
-    [(note id name d pieces)
+    [(note id name d (content pieces))
      (->html-xexpr (note->url-string n)
                    name
                    `((h1 () ,name)
-                     ,@(append* (map (text-piece->html from) pieces))))]))
-
-    
-(define (lambs-note->xexpr from n)
-  (match n
-    [(note id name d pieces)
+                     ,@(append* (map (text-piece->html from) pieces))))]
+    [(note id name d (lambs-content pieces))
      (->lambs-html-xexpr (note->url-string n)
                    name
                    `((h1 () ,name)
@@ -38,12 +34,6 @@
      (define url (note->url-string n))
      (write-html-file (relative-url "/" url) (note->xexpr url n))]))
 
-(define (write-lambs-note-file n)
-  (match n
-    [(note id name date pars)
-     (define url (note->url-string n))
-     (write-html-file (relative-url "/" url) (lambs-note->xexpr url n))]))
-
 (require "notes.rkt")
 (write-note-file test-note)
 (require "data-functions-note.rkt")
@@ -59,7 +49,7 @@
          "lambs/how.rkt"
          "lambs/what.rkt")
 (define lamb-notes (list lamb-nums-note lamb-how-note lamb-what-note))
-(for ([n lamb-notes]) (write-lambs-note-file n))
+(for ([n lamb-notes]) (write-note-file n))
 
 (define notes (list* LISP-forty-two-note small-notes))
 
