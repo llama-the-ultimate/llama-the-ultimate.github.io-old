@@ -2,26 +2,25 @@
 (provide s-parens-note)
 (require "structs.rkt")
 
-(define F @tt{@str{F}})
-(define A @tt{@str{A}})
-(define x @tt{x})
-(define y @tt{y})
-(define z @tt{z})
-(define yz @ttc{y z})
-(define foo @tt{foo})
-(define i identity)
-(define S @tt{S})
-(define K @tt{K})
-(define I @tt{I})
-(define B @tt{B})
-(define C @tt{C})
+(deftxt F @tt{@str{F}})
+(deftxt A @tt{@str{A}})
+(deftxt x @tt{x})
+(deftxt y @tt{y})
+(deftxt z @tt{z})
+(deftxt yz @ttc{y z})
+(deftxt foo @tt{foo})
+(deftxt S @tt{S})
+(deftxt K @tt{K})
+(deftxt I @tt{I})
+(deftxt B @tt{B})
+(deftxt C @tt{C})
 
 (define s-parens-note
   (nt 's-parens
       "S (and parentheses)"
       (date #f #f #f)
       @p{
- In the SKI combinator calculus we have three functions. @S, @K and @(i I):
+ In the SKI combinator calculus we have three functions. @S, @K and @(I):
 }
       @block{
  I x = x
@@ -55,10 +54,10 @@
       @p{
  So, we kind of turn the function and the argument of the inner application into function-function and argument-function.
  Now if we apply @ttc{S (λx.@str{F}) (λx.@str{A})} to @foo, @S will pass @foo (its @tt{z}) into @ttc{λx.@str{F}} and @ttc{λx.@str{A}}.
- All free @tt{x}es in @F and @A will be replaced with @(i foo). Same as if we applied @ttc{λx.@str{F} @str{A}} to @(i foo).
+ All free @tt{x}es in @F and @A will be replaced with @(foo). Same as if we applied @ttc{λx.@str{F} @str{A}} to @(foo).
 }
       @p{
- The @ttc{x z (y z)} bit used to trip me up. It kind of looks like it passes two arguments, @z and @yz, to @(i x).
+ The @ttc{x z (y z)} bit used to trip me up. It kind of looks like it passes two arguments, @z and @yz, to @(x).
  And then why does the first argument appear in the second and and ??? I think it became clearer to me when I saw it written with more parentheses: 
 }
       @block{
@@ -69,7 +68,7 @@
 }
       @brk
       @p{
- (Also helped to run into @B and @(i C). They’re like @S, but @B only passes its @z the the argument-function and @C only passes it to the function-function:
+ (Also helped to run into @B and @(C). They’re like @S, but @B only passes its @z the the argument-function and @C only passes it to the function-function:
 }
       @block{
  S x y z = x z (y z)

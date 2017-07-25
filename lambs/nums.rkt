@@ -3,14 +3,12 @@
 (require "structs.rkt"
          "util.rkt")
 
-(define id identity)
-
-(define f @tt{f})
-(define x @tt{x})
-(define a @tt{a})
-(define b @tt{b})
-(define foo @tt{foo})
-(define bar @tt{bar})
+(deftxt f @tt{f})
+(deftxt x @tt{x})
+(deftxt a @tt{a})
+(deftxt b @tt{b})
+(deftxt foo @tt{foo})
+(deftxt bar @tt{bar})
 
 (define lamb-nums-note
   (nt 'lamb-nums
@@ -50,13 +48,13 @@
  5 foo bar
 }
            @p{
- Which quite possibly evaluated to @ttc{foo (foo (foo (foo (foo bar))))}. Which is like five @(id foo)s.
+ Which quite possibly evaluated to @ttc{foo (foo (foo (foo (foo bar))))}. Which is like five @(foo)s.
  }
       @p{
- Okay. Addition is pretty numbery let’s that. Below is a function that takes arguments @a and @(id b).
+ Okay. Addition is pretty numbery let’s that. Below is a function that takes arguments @a and @(b).
  And gives back, uh, a @ttc{λf.λx.}-function.
  This function applies @f @q{@b times} to @x, and applies @f @q{@a times} to the result of that again.
- Hopefully amounts to like, an @a + @b number of @(id f)s applied to @(id x). (@eval1 on line below)
+ Hopefully amounts to like, an @a + @b number of @(f)s applied to @(x). (@eval1 on line below)
 }
             @lambs[3]{
  + ≜ λa.λb.λf.λx.a f (b f x)

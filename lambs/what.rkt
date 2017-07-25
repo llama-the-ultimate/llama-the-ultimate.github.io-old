@@ -3,10 +3,9 @@
 (require "structs.rkt"
          "util.rkt")
 
-(define x @tt{@str{x}})
-(define B @tt{@str{B}})
-(define A @tt{@str{A}})
-(define id identity)
+(deftxt x @tt{@str{x}})
+(deftxt B @tt{@str{B}})
+(deftxt A @tt{@str{A}})
 
 (define lamb-what-note
   (nt 'lamb-what
@@ -83,11 +82,11 @@
  and with an argument-part that is some expression @A
  })
       @p{
- And if we have a reducible expression, then we can do @q{beta reduction}: Substitute the argument @A for every free occurence of the parameter @x in the body @(id B),
+ And if we have a reducible expression, then we can do @q{beta reduction}: Substitute the argument @A for every free occurence of the parameter @x in the body @(B),
  and replace the whole function application with the result of that.
 }
       @p{
- (The part that goes @ttc{[@str{A}/@str{x}]@str{B}} means that substitution thing: @B but with every free @x replaced with @(id A).
+ (The part that goes @ttc{[@str{A}/@str{x}]@str{B}} means that substitution thing: @B but with every free @x replaced with @(A).
  So @ttc{(λ@str{x}.@str{B}) @str{A} ⟶ [@str{A}/@str{x}]@str{B}} is a bit like a pattern match on the syntax of an expression.
  Like, the expression to the left of the arrow binds the variables @x and @B and @A, and the expression to the right uses them.)
 }

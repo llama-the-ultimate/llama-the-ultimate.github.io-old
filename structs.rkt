@@ -38,7 +38,8 @@
          (struct-out break)
          brk
          (struct-out txts)
-         txt)
+         txt
+         deftxt)
 
 (require (only-in racket/date [current-date racket-current-date]))
 
@@ -157,3 +158,6 @@
   
 (define (txt . ts)
   (txts ts))
+
+(define-syntax-rule (deftxt name ts ...)
+  (define name (txt ts ...)))
