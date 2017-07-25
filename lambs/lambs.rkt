@@ -18,8 +18,8 @@
 }
     @p{
  Couple of the posts are maybe more introductiony than others.
- @nlnk['lamb-how]{How} for editor, keys that can be pressed, and such.
- @nlnk['lamb-what]{What} for syntax and semantics of the lambda calculus we’re using.
+ @nlnk['lamb-how]{How} is for how to editor, keys that can be pressed such.
+ @nlnk['lamb-what]{What} is for syntax and semantics of the lambda calculus we’re using.
 }
     @p{
  Also there’s kind of a lambda playground @ilnk["/lambdas.html"]{over here}.
