@@ -1,5 +1,6 @@
 #lang racket
-(provide (struct-out note)
+(provide (struct-out note-list)
+         (struct-out note)
          (struct-out content)
          nt
          note-before?
@@ -28,8 +29,10 @@
          (struct-out link)
          lnk
          ilnk
+         nlnk
          (struct-out ref/url)
          (struct-out ref/internal)
+         (struct-out ref/note)
          (struct-out codeblock)
          block
          (struct-out code)
@@ -44,7 +47,10 @@
 
 (require (only-in racket/date [current-date racket-current-date]))
 
+(struct note-list (note notes) #:transparent)
+
 (struct note (id name date content) #:transparent)
+
 (struct content (pieces) #:transparent)
 (define (nt id name date . pieces)
   (note id
@@ -93,6 +99,7 @@
 
 (struct ref/url (url) #:transparent)
 (struct ref/internal (url) #:transparent)
+(struct ref/note (id) #:transparent)
 
 (struct link (ref ts) #:transparent)
 
@@ -101,6 +108,8 @@
 
 (define (ilnk url . ts)
   (link (ref/internal url) ts))
+(define (nlnk id . ts)
+  (link (ref/note id) ts))
 
 (struct codeblock (ts) #:transparent)
 (define (block . ts)

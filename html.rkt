@@ -4,10 +4,34 @@
          ->lambs-html-xexpr
          relative-url
          editor-html-xexpr
-         text-piece->html)
+         text-piece->html
+         note-id->url
+         note->url
+         note-list-id->url
+         note-list->url
+         pieces->html)
 
 (require (only-in xml xexpr->string)
          "structs.rkt")
+
+(define (pieces->html from pieces)
+  (append* (map (text-piece->html from) pieces)))
+
+(define (note-id->url s)
+  (~a "/notes/" s ".html"))
+
+(define (note->url n)
+  (match n
+     [(note id _ _ _)
+      (note-id->url id)]))
+
+(define (note-list-id->url s)
+    (~a "/lists/" s ".html"))
+
+(define (note-list->url l)
+  (match l
+     [(note-list (note id _ _ _) _)
+      (note-list-id->url id)]))
 
 (define (write-html-file path x)
   (make-parent-directory* path)
@@ -92,7 +116,8 @@
   (define (ref->string r)
     (match r
       [(ref/url url) url]
-      [(ref/internal url) (relative-url from url)]))
+      [(ref/internal url) (relative-url from url)]
+      [(ref/note id) (relative-url from (note-id->url id))]))
   
   (define ((text->xexpr-halp st) t)
     (define (tag-all st tag ts)
