@@ -60,9 +60,9 @@
 
       
    @p{
- (So really, syntax is mostly like in a ML family language or a Haskell or something.
+ (So really, syntax is mostly like in an ML family language or a Haskell or something.
  Only instead of like, @ttc{fn x => foo} or @ttc{fun x -> foo} or @ttc{\x -> foo}),
- we do @ttc{λx.foo}.)
+ we do @ttc{λx.foo}. Andalso there’s never any infix stuff for function application.)
 }
    @brk
    @p{
