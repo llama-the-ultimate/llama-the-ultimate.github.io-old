@@ -13,7 +13,7 @@
       (date 2017 07 24)
       
       @p{
- A @tt{exp}ression is one of the following:
+ An @tt{exp}ression is one of the following:
 }
       (ul
        @li{
