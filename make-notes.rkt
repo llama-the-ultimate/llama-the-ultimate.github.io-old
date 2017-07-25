@@ -23,13 +23,15 @@
 (define ((note->link from) n)
   (match n
     [(note id name d _)
-     `(p ()
-         (a ([href ,(relative-url from (note->url n))]) ,name)
-         ,(format " (~a)" (date->string d)))]))
+     `((a ([href ,(relative-url from (note->url n))]) ,name)
+       ,(format " (~a)" (date->string d)))]))
 
 
 (define (notes->links from notes)
-  (map (note->link from) notes))
+  `((ul ()
+        ,@(map (λ (n)
+                 `(li () ,@((note->link from) n)))
+               notes))))
 
 (define (write-list-file l)
   (match l

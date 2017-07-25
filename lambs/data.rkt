@@ -36,4 +36,17 @@
  and gives back a new @ttc{λf.λx}-function that applies @f @q{@a times}
  to the result of applying @f @q{@b times} to @(x).)
 }
+   @p{
+ We can do like multiuplication as well, before moving on.
+ Multiplication is like addition, just more.
+ We will make a function that given the numbers @a and @b as arguments,
+ will like, start with the number zero, and add @a @q{@b times} to it:
+}
+   @lambs[8]{
+ * ≜ λa.λb.b (+ a) 0
+
+ * 5 2
+}
+
+   
    ))

@@ -18,11 +18,13 @@ var startMonaco = function() {
     return res;
 };
 
-var startPreluditor = function(element) {
-  var elemContent = element.textContent;
-  element.textContent = "";
+var evalPreluditor = function(editor) {
+  if (!lambs) {
+    setTimeout(function(){evalPreluditor(editor);}, 1000);
+    return;
+  }
   var content = "";
-  var lines = elemContent.split(/\r?\n/);
+  var lines = editor.getValue().split(/\r?\n/);
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i];
     if (line.trim().length > 0) {
@@ -33,7 +35,12 @@ var startPreluditor = function(element) {
       content += "\n";
     }
   }
+  editor.setValue(content);
+}
 
+var startPreluditor = function(element) {
+  var content = element.textContent;
+  element.textContent = "";
   var editor = monaco.editor.create(element, {
       value: content,
       lineNumbers: false,
@@ -42,8 +49,8 @@ var startPreluditor = function(element) {
       readOnly: true
   });
 
+  evalPreluditor(editor);
   return editor;
-
 }
 
 var startEditor = function(element) {
