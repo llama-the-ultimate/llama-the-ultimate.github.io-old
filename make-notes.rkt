@@ -129,13 +129,13 @@
 
 (write-html-file "index.html"
                  (->html-xexpr "/"
-                               "Some stuff"
-                               `((h1 () "Um")
+                               "Llama llama"
+                               `((h1 () "Llama llama")
                                  (p ()
-                                    "Some lambdas over "
-                                    (a ([href "lambdas.html"]) "there")
-                                    ".")
-                                 (p () "And like a stuff:")
+                                    "For lambda calculus things, "
+                                    (a ([href "lists/lambs.html"]) "this")
+                                    " is maybe good starting point.")
+                                 (p () "Also, stuff:")
                                  ,@(notes->links "/"
                                                  (filter note-date
                                                          (sort (append lamb-notes notes)
