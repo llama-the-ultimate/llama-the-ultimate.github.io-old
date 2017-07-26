@@ -32,7 +32,7 @@
   (dbg
   `((p ()
        (em ()
-           "(This is part of a list: "
+           "(This post is part of a list: "
            ,@((thing->link from) note-list)
            "."
            ,@(if previous `(" Previous thing: " ,@((thing->link from) previous) ".") '())
