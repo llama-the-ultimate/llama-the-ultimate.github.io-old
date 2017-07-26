@@ -3,8 +3,8 @@
          ->html-xexpr
          ->lambs-html-xexpr
          relative-url
-         editor-html-xexpr
          text-piece->html
+         editor-html-xexpr
          note-id->url
          note->url
          note-list-id->url
@@ -31,8 +31,8 @@
     [(note-list (note id name _ _) _)
      `((a ([href ,(relative-url from (note-list-id->url id))]) ,name))]))
 
-(define (pieces->html from pieces)
-  (append* (map (text-piece->html from) pieces)))
+(define (pieces->html note-id from pieces)
+  (append* (map (text-piece->html note-id from) pieces)))
 
 (define (note-id->url s)
   (~a "/notes/" s ".html"))
@@ -104,13 +104,15 @@
 
 (struct tstate (quote-level) #:transparent)
 
-(define ((text-piece->html from) p)
+(define ((text-piece->html note-id from) p)
   
   (define (text-piece->xexpr p)
     (match p
       [(paragraph (list ts ...)) `((p () ,@(append* (map text->xexpr ts))))]
       
       [(break) '((hr))]
+
+      [(img (svg i-name i)) `((div ((class "image")) (img ((src ,(format "~a/~a.svg" note-id i-name))))))]
       
       [(blockquote (quotation ps) (citation ts))
        `((blockquote

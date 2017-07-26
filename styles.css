@@ -226,6 +226,13 @@ li
     margin-right: auto;
 }
 
+.image
+{
+  overflow: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .error
 {
     color: red;

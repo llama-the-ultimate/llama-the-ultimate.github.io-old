@@ -1,7 +1,9 @@
 #lang at-exp racket
 (provide lamb-what-note)
 (require "structs.rkt"
-         "util.rkt")
+         "util.rkt"
+         "lang/parse.rkt"
+         "lang/draw-expr.rkt")
 
 (deftxt x @tt{@str{x}})
 (deftxt B @tt{@str{B}})
@@ -58,6 +60,11 @@
 }
     )
 
+   @p{
+ And we can do like a little tree-drawing, like maybe like this:
+}
+   (img (svg 'lambdatree (draw-expr (parse "(λa.a (foo a)) bar"))))
+   
       
    @p{
  (So really, syntax is mostly like in an ML family language or a Haskell or something.

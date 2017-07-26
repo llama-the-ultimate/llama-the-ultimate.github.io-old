@@ -43,7 +43,9 @@
          brk
          (struct-out txts)
          txt
-         deftxt)
+         deftxt
+         (struct-out img)
+         (struct-out svg))
 
 (require (only-in racket/date [current-date racket-current-date]))
 
@@ -126,6 +128,8 @@
 (struct break () #:transparent)
 (define brk (break))
 
+(struct img (ref) #:transparent)
+(struct svg (name i) #:transparent)
 
          
 (struct date (year month day) #:prefab)

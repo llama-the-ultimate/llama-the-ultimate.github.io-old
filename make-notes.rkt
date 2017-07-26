@@ -1,7 +1,8 @@
 #lang racket
 
 (require "lambs/structs.rkt"
-         "lambs/html.rkt")
+         "lambs/html.rkt"
+         (only-in 2htdp/image save-svg-image))
 
 (define (note->xexpr from n #:pre [pre '()] #:post [post '()])
   (match n
@@ -10,15 +11,16 @@
                    name
                    `((h1 () ,name)
                      ,@pre
-                     ,@(pieces->html from pieces)
+                     ,@(pieces->html id from pieces)
                      ,@post))]
     [(note id name d (lambs-content pieces))
      (->lambs-html-xexpr (note->url n)
                          name
                          `((h1 () ,name)
                            ,@pre
-                           ,@(lambs-pieces->html from pieces)
+                           ,@(lambs-pieces->html id from pieces)
                            ,@post))]))
+
 
 (define (notes->links from notes)
   `((ul ()
@@ -35,9 +37,29 @@
        ,@(if previous `((br ()) "Previous thing: " ,@((thing->link from) previous)) '())
        ,@(if next `((br ()) "Next thing: " ,@((thing->link from) next)) '())
        ")")))
-           
+
+(define (maybe-save-img x dir)
+  (define reldir (relative-url "/" dir))
+  (match x
+    [(img (svg name i))
+     (make-directory* reldir)
+     (save-svg-image i (format "~a/~a.svg" reldir name))]
+    [_ (void)]))
+
+(define (save-images x)
+  (define (content->pieces c)
+    (match c
+      [(content ps) ps]
+      [(lambs-content ps) ps]))
+  (match x
+    [(note id _ _ c)
+     (for ([p (content->pieces c)]) (maybe-save-img p (format "/notes/~a" id)))]
+    [(note-list (note id _ _ c) nts)
+     (for ([p (content->pieces c)]) (maybe-save-img p (format "/lists/~a" id)))
+     (for ([nt nts]) (save-images nt))]))
 
 (define (write-list-files l)
+  (save-images l)
   (define list-url (note-list->url l))
 
   (define (write-note nt previous next)
@@ -70,7 +92,7 @@
      (for ([n not-ready]) (write-note n #f #f))
      
      (match nt
-       [(note id name d content)        
+       [(note id name d content)
         (define post (notes->links list-url ready))
         (write-html-file (relative-url "/" list-url) (note->xexpr list-url nt #:post post))])]))
 
