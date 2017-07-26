@@ -29,7 +29,7 @@
     [(note id name _ _)
      `((a ([href ,(relative-url from (note-id->url id))]) ,name))]
     [(note-list (note id name _ _) _)
-     `((a ([href ,(relative-url from (note-id->url id))]) ,name))]))
+     `((a ([href ,(relative-url from (note-list-id->url id))]) ,name))]))
 
 (define (pieces->html from pieces)
   (append* (map (text-piece->html from) pieces)))

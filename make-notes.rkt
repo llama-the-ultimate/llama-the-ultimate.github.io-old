@@ -26,14 +26,57 @@
                  `(li () ,@((thing->link/date from) n)))
                notes))))
 
-(define (write-list-file l)
+(define (dbg x) (display x) (newline) x)
+
+(define (note-list->pre-text from note-list previous next)
+  (dbg
+  `((p ()
+       (em ()
+           "(This is part of a list: "
+           ,@((thing->link from) note-list)
+           "."
+           ,@(if previous `(" Previous thing: " ,@((thing->link from) previous) ".") '())
+           ,@(if next `(" Next thing: " ,@((thing->link from) next) ".") '())
+           ")"))))
+  )
+           
+
+(define (write-list-files l)
+  (define list-url (note-list->url l))
+
+  (define (write-note nt previous next)
+    (define note-url (note->url nt))
+    (define pre (note-list->pre-text note-url l previous next))
+    (write-html-file (relative-url "/" note-url) (note->xexpr note-url nt #:pre pre)))
+  
+  (define (write-notes nts)
+    (define (write-first nts)
+      (match nts
+        ['() (void)]
+        [(list nt) (write-note nt #f #f)]
+        [(list nt next-nt _ ...)
+         (write-note nt #f next-nt)
+         (write-rest nts)]))
+    (define (write-rest nts)
+      (match nts
+        [(list prev-nt nt) (write-note nt prev-nt #f)]
+        [(list prev-nt nt next-nt xs ...)
+         (write-note nt prev-nt next-nt)
+         (write-rest (list* nt next-nt xs))]))
+    (write-first nts))
+  
   (match l
     [(note-list nt nts)
+     (define ready (filter note-date nts))
+     (define not-ready (filter (compose not note-date) nts))
+
+     (write-notes ready)
+     (for ([n not-ready]) (write-note n #f #f))
+     
      (match nt
-       [(note id name d content)
-        (define url (note-list->url l))
-        (define post (notes->links url nts))
-        (write-html-file (relative-url "/" url) (note->xexpr url nt #:post post))])]))
+       [(note id name d content)        
+        (define post (notes->links list-url ready))
+        (write-html-file (relative-url "/" list-url) (note->xexpr list-url nt #:post post))])]))
 
 (define (write-note-file n)
   (match n
@@ -57,10 +100,9 @@
 (for ([n notes]) (write-note-file n))
 
 (require "lambs/lambs.rkt")
-(write-list-file lambs-list)
+(write-list-files lambs-list)
 
 (define lamb-notes (note-list-notes lambs-list))
-(for ([n lamb-notes]) (write-note-file n))
 
 (require "lambs/playgrounds.rkt")
 (write-html-file "lambdas.html"
