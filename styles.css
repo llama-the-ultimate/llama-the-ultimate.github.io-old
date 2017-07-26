@@ -87,6 +87,12 @@ pre {
     background-color: var(--code-bg);
 }
 
+.listinfo {
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+
 .navinfo {
     float: left;
     margin-top: 0rem;

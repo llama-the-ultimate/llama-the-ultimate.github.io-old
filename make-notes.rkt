@@ -29,16 +29,12 @@
 (define (dbg x) (display x) (newline) x)
 
 (define (note-list->pre-text from note-list previous next)
-  (dbg
-  `((p ()
-       (em ()
-           "(This post is part of a list: "
-           ,@((thing->link from) note-list)
-           "."
-           ,@(if previous `(" Previous thing: " ,@((thing->link from) previous) ".") '())
-           ,@(if next `(" Next thing: " ,@((thing->link from) next) ".") '())
-           ")"))))
-  )
+  `((p ((class "listinfo"))
+       "(This post is part of a list: "
+       ,@((thing->link from) note-list)
+       ,@(if previous `((br ()) "Previous thing: " ,@((thing->link from) previous)) '())
+       ,@(if next `((br ()) "Next thing: " ,@((thing->link from) next)) '())
+       ")")))
            
 
 (define (write-list-files l)
