@@ -9,10 +9,27 @@
          note->url
          note-list-id->url
          note-list->url
-         pieces->html)
+         pieces->html
+         thing->link
+         thing->link/date)
 
 (require (only-in xml xexpr->string)
          "structs.rkt")
+
+(define ((thing->link/date from) x)
+  (define link ((thing->link from) x))
+  (define date
+    (match x
+      [(note _ _ d _) d]
+      [(note-list (note _ _ d _) _) d]))
+  `(,@link ,(format " (~a)" (date->string date))))
+
+(define ((thing->link from) x)
+  (match x
+    [(note id name _ _)
+     `((a ([href ,(relative-url from (note-id->url id))]) ,name))]
+    [(note-list (note id name _ _) _)
+     `((a ([href ,(relative-url from (note-id->url id))]) ,name))]))
 
 (define (pieces->html from pieces)
   (append* (map (text-piece->html from) pieces)))
