@@ -97,6 +97,7 @@
         (write-html-file (relative-url "/" list-url) (note->xexpr list-url nt #:post post))])]))
 
 (define (write-note-file n)
+  (save-images n)
   (match n
     [(note id name date pars)
      (define url (note->url n))
