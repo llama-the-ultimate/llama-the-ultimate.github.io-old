@@ -32,11 +32,10 @@
 
 (define (note-list->pre-text from note-list previous next)
   `((p ((class "listinfo"))
-       "(This post is part of a list: "
-       ,@((thing->link from) note-list)
-       ,@(if previous `((br ()) "Previous thing: " ,@((thing->link from) previous)) '())
-       ,@(if next `((br ()) "Next thing: " ,@((thing->link from) next)) '())
-       ")")))
+      "This post is part of a list: "
+      ,@((thing->link from) note-list)
+      ,@(if next `((br ()) "Next thing: " ,@((thing->link from) next)) '())
+      ,@(if previous `((br ()) "Previous thing: " ,@((thing->link from) previous)) '()))))
 
 (define (maybe-save-img x dir)
   (define reldir (relative-url "/" dir))

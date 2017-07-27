@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Some booly functions</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>Some booly functions</h1><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Previous thing: <a href="lamb-what.html">What do the lambdas?</a></p><p>Bit of prelude, first. Some stuff from an earlier <a href="lamb-nums.html">numbery post</a>:</p><div class="editor" name="lambs" style="height:10rem" prelude="true">0 ≜ λf.λx.x
+1 ≜ λf.λx.f x
+2 ≜ λf.λx.f (f x)
+5 ≜ λf.λx.f (f (f (f (f x))))
++ ≜ λa.λb.λf.λx.a f (b f x)</div><p>(And in the earlier post we said something like:
+The number <em>n</em> is a function that,
+if given two arguments,
+applies the first argument <em>n</em> times to the second.
+The <span class="codew">+</span>-function takes the numbers <span class="codew">a</span> and <span class="codew">b</span> as arguments
+and gives back a new <span class="code">λf.λx</span>-function that applies <span class="codew">f</span> “<span class="codew">a</span> times”
+to the result of applying <span class="codew">f</span> “<span class="codew">b</span> times” to <span class="codew">x</span>.)</p><p>We can do like multiuplication as well, before moving on.
+Multiplication is like addition, just more.
+We will make a function that, if given the numbers <span class="codew">a</span> and <span class="codew">b</span> as arguments,
+will like, start with the number zero, and add <span class="codew">a</span> “<span class="codew">b</span> times” to it:</p><div class="editor" name="lambs" style="height:10rem">* ≜ λa.λb.b (+ a) 0
+
+* 5 2</div><hr/><p>Soo. We have several numbers and also a couple of ways to make more numbers.
+So we pretty much have business:
+We can decide that one of the numbers is the number of monies and another one is the number of products.
+If we also have booleans we can do business logic.</p><p>Booleans are used for if-then-else.
+We have a stuff we maybe wanna do and another stuff we maybe wanna do instead, and we use a boolean to pick one of the stuffs.
+So, we would like to have a <span class="codew">true</span>-value and a <span class="codew">false</span>-value,
+and we wanna set things up so that something like <span class="code">if true stuff otherstuff</span> will evaluate to <span class="codew">stuff</span>,
+and something like <span class="code">if false stuff otherstuff</span> will evalute to <span class="codew">otherstuff</span>.</p><p>We will make the two boolean values be functions. (A reasonably easy choice, so long as we can only make functions in our language.)
+<span class="codew">true</span> will, if given two arguments, return the first one. <span class="codew">false</span>, if given two arguments, will return the second one.</p><div class="editor" name="lambs" style="height:10rem">true ≜ λa.λb.a
+false ≜ λa.λb.b
+
+true stuff otherstuff
+
+false stuff otherstuff</div><p>Okay so it looks like <span class="code">true stuff otherstuff</span> evaluates to <span class="codew">stuff</span> just fine on it’s own,
+and <span class="code">false stuff otherstuff</span> evaluates to <span class="codew">otherstuff</span>,
+and we don’t really need <span class="codew">if</span>.
+But like if we want an <span class="codew">if</span> we can have one.
+It can take a boolean as its first arguments and then two more arguments,
+and then like, just, hand those two last arguments over to the boolean.</p><div class="editor" name="lambs" style="height:10rem">if ≜ λb.λt.λe.b t e
+
+if true stuff otherstuff
+
+if false stuff otherstuff</div><p>Should get same results as with just the booleans.
+(And if we want to, we can redefine <span class="codew">if</span> to be the identity function, <span class="code">λx.x</span>.
+Will work fine.
+The <span class="code">if true</span> part of <span class="code">if true stuff otherstuff</span> wil evaluate to <span class="codew">true</span>.
+So we get <span class="code">true stuff otherstuff</span>, which we already know that works.)</p><hr/><p>Okay, some boolean logic bits:</p><ul><li><span class="codew">not</span> takes one boolean <span class="codew">b</span>. If <span class="codew">b</span> is <span class="codew">true</span>, <span class="codew">not</span> returns <span class="codew">false</span>. If <span class="codew">b</span> is <span class="codew">false</span>, <span class="codew">not</span> returns <span class="codew">true</span>.</li><li><span class="codew">and</span> takes two booleans <span class="codew">a</span> and <span class="codew">b</span>. If <span class="codew">a</span> is <span class="codew">true</span>, <span class="codew">and</span> returns <span class="codew">b</span>. If <span class="codew">a</span> is <span class="codew">false</span>, <span class="codew">and</span> returns <span class="codew">false</span>.</li><li><span class="codew">or</span> takes two booleans <span class="codew">a</span> and <span class="codew">b</span>. If <span class="codew">a</span> is <span class="codew">true</span>, <span class="codew">or</span> returns <span class="codew">true</span>. If <span class="codew">a</span> is <span class="codew">false</span>, <span class="codew">or</span> returns <span class="codew">b</span>.</li></ul><div class="editor" name="lambs" style="height:10rem">not ≜ λb.if b false true
+and ≜ λa.λb.if a b false
+or ≜ λa.λb.if a true b
+
+if (and (or true false) (not false)) stuff otherstuff</div><hr/><p>We’ll do some boolean stuff with numbers.
+We can check if a number is zero by giving it two arguments.
+The first argument is a function that always returns <span class="codew">false</span>: <span class="code">λ_.false</span>.
+If the number is not zero this function will be applied to something and we’ll get <span class="codew">false</span> back.
+The second argument is <span class="codew">true</span>.
+If the number is zero this <span class="codew">true</span> will be returned, without any applying of the <span class="code">λ_.false</span>-function.</p><div class="editor" name="lambs" style="height:10rem">zero? ≜ λn.n (λ_.false) true
+
+zero? 0
+
+zero? 2</div><p>Good. Now we can do everyday business logic things.
+Like you know when boss is like hey we need a program that checks if the number of monies times the number of products is zero
+and if it is zero we should add five to the number of monies and if it is not zero we should multiply the number of products by 2.
+And like, <em>no problem</em>.</p><div class="editor" name="lambs" style="height:20rem">do-business ≜ λmonies.λproducts.if (zero? (* monies products)) (+ 2 monies) (* 2 products)
+
+do-business 2 5
+
+do-business 2 0</div><p>That’s a lot of business.</p><hr/><p>(Oh. If we cared about side effects or maybe performance or something,
+we would maybe worry about stuff like: Will the else-stuff be evaluated even if the boolean is <span class="codew">true</span> and we really only want the then-stuff?
+We don’t really care, since it’s going to correctly return the stuff we want either way.
+But like, <em>if</em> we cared:
+We’re evaluating things in normal order, and will give the then-stuff and the else-stuff to the boolean first, before we “step into” any of the then-stuff or else-stuff.
+So like in the case of <span class="codew">true</span> the else-stuff will disappear before we do anything with it.)</p></div></div><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></body></html>
