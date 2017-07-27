@@ -2,7 +2,7 @@
 
 (require "lambs/structs.rkt"
          "lambs/html.rkt"
-         (only-in 2htdp/image save-svg-image))
+         "svg.rkt")
 
 (define (note->xexpr from n #:pre [pre '()] #:post [post '()])
   (match n
@@ -43,7 +43,7 @@
   (match x
     [(img (svg name i))
      (make-directory* reldir)
-     (save-svg-image i (format "~a/~a.svg" reldir name))]
+     (save-svg-file i (~a name) (format "~a/~a.svg" reldir name))]
     [_ (void)]))
 
 (define (save-images x)
