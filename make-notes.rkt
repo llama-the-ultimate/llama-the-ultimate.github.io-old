@@ -131,6 +131,12 @@
                                "Llama llama"
                                `((h1 () "Llama llama")
                                  (p ()
+                                    "Blah blah. I’m a Jonas. My Twitter is "
+                                    (a ([href "https://twitter.com/JonasWinje"]) "here")
+                                    " and my GitHub is "
+                                    (a ([href "https://github.com/Glorp"]) "there")
+                                    ".")
+                                 (p ()
                                     "For lambda calculus things, "
                                     (a ([href "lists/lambs.html"]) "this")
                                     " is maybe good starting point.")
