@@ -4,7 +4,8 @@
          "what.rkt"
          "how.rkt"
          "nums.rkt"
-         "bools.rkt")
+         "bools.rkt"
+         "pairs.rkt")
 
 (define lambs-list
   (note-list
@@ -32,4 +33,5 @@
    (list lamb-nums-note
          lamb-how-note
          lamb-what-note
-         lamb-bools-note)))
+         lamb-bools-note
+         lamb-pairs-note)))
