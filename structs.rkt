@@ -39,6 +39,8 @@
          ttc
          (struct-out code-word)
          tt
+         (struct-out code-line)
+         ttl
          (struct-out break)
          brk
          (struct-out txts)
@@ -120,6 +122,10 @@
 (struct code (ts) #:transparent)
 (define (ttc . ts)
   (code ts))
+
+(struct code-line (start? stop? ts) #:transparent)
+(define (ttl #:start? [start? #f] #:stop? [stop? #f] . ts)
+  (code-line start? stop? ts))
 
 (struct code-word (ts) #:transparent)
 (define (tt . ts)

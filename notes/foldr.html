@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Something, foldr, sugar</title><link rel="stylesheet" href="../styles.css"/></meta></head><body><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>Something, foldr, sugar</h1><p>I dunno. Does taking away some sugar and infixity make some things more clear?</p><p>Some Standard ML:</p><pre>- nonfix +;
+nonfix +
+- + (1, 2);
+val it = 3 : int
+- nonfix ::;
+nonfix ::
+- :: (1, :: (2, :: (3, nil)));
+val it = [1,2,3] : int list
+- foldr + 0 (:: (1, :: (2, :: (3, nil))));
+val it = 6 : int</pre><p>(We removed the infix thing from <span class="codew">+</span> and <span class="codew">::</span> (the plus function and the list “cons”).
+They take tupled arguments. Infix <span class="code">1 + 2</span> is nonfix <span class="code">+ (1, 2)</span>, and so on.)</p><p>Here, I guess we can say that
+<br/><span class="code">foldr + 0 (:: (1, :: (2, :: (3, nil))))</span><br/>
+is like equivalent to
+<br/><span class="code">+ (1, + (2, + (3, 0)))</span>.</p><p>And it is maybe more clear how
+<br/><span class="code">+ (1, + (2, + (3, 0)))</span><br/>
+is similar to the list
+<br/><span class="code">0 (:: (1, :: (2, :: (3, nil)))</span>?</p><p>(It is like list we started with, but with the list constructors,
+<span class="codew">::</span> and <span class="codew">nil</span>,
+replaced with the first two values we gave to <span class="codew">foldr</span>,
+<span class="codew">+</span> and <span class="codew">0</span>.</p><p>Also maybe unsurprising that
+<br/><span class="code">foldr :: nil (:: (1, :: (2, :: (3, nil))))</span><br/>
+will be equivalent to
+<br/><span class="code">:: (1, :: (2, :: (3, nil)))</span><br/>
+and evaluate to a list rather the same as the one we started with?</p><hr/><p>(Like, more clear compared to something like saying that
+<br/><span class="code">foldr (op +) 0 [1, 2, 3]</span><br/>
+is equivalent to
+<br/><span class="code">1 + (2 + (3 + 0))</span>?)</p><hr/><p>And also like maybe not I dunno.</p></div></div></body></html>

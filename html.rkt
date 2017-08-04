@@ -148,6 +148,10 @@
       [(emphasis ts) (tag-all st '(em ()) ts)]
       [(strong ts) (tag-all st '(strong ()) ts)]
       [(code ts) (tag-all st '(span ([class "code"])) ts)]
+      [(code-line start? stop? ts)
+       `(,@(if start? '() '((br ())))
+         ,@(tag-all st '(span ([class "code"])) ts)
+         ,@(if stop? '() '((br ()))))]
       [(code-word ts) (tag-all st '(span ([class "codew"])) ts)]
       [(quoted ts) (quot-halp st ts)]
       [(txts ts) (append* (map (text->xexpr-halp st) ts))]))

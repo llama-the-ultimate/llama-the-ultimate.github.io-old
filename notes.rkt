@@ -33,7 +33,7 @@
 (define test-note
   (nt 'test
       "Test"
-      (date #f #f #f)
+      #f
       @p{
  Meep meep meep.
  }

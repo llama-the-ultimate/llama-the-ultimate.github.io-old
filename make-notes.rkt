@@ -102,18 +102,20 @@
      (define url (note->url n))
      (write-html-file (relative-url "/" url) (note->xexpr url n))]))
 
-(require "notes.rkt")
-(write-note-file test-note)
-(require "data-functions-note.rkt")
-(write-note-file data-functions-note)
-(require "s-parens-note.rkt")
-(write-note-file s-parens-note)
-(require "tuples-note.rkt")
-(write-note-file tuples-note)
+(require "notes.rkt"
+         "data-functions-note.rkt"
+         "s-parens-note.rkt"
+         "tuples-note.rkt"
+         "LISP-forty-two.rkt"
+         "foldr-note.rkt")
 
-(require "LISP-forty-two.rkt")
-
-(define notes (list* LISP-forty-two-note small-notes))
+(define notes (list* test-note
+                     data-functions-note
+                     s-parens-note
+                     tuples-note
+                     LISP-forty-two-note
+                     foldr-note
+                     small-notes))
 
 (for ([n notes]) (write-note-file n))
 
