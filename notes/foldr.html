@@ -17,8 +17,8 @@ is like equivalent to
 is similar to the list
 <br/><span class="code">0 (:: (1, :: (2, :: (3, nil)))</span>?</p><p>(It is like list we started with, but with the list constructors,
 <span class="codew">::</span> and <span class="codew">nil</span>,
-replaced with the first two values we gave to <span class="codew">foldr</span>,
-<span class="codew">+</span> and <span class="codew">0</span>.)</p><p>Also maybe unsurprising that
+replaced with <span class="codew">+</span> and <span class="codew">0</span>
+(the first two values we gave to <span class="codew">foldr</span>)).</p><p>Also maybe unsurprising that
 <br/><span class="code">foldr :: nil (:: (1, :: (2, :: (3, nil))))</span><br/>
 will be equivalent to
 <br/><span class="code">:: (1, :: (2, :: (3, nil)))</span><br/>

@@ -44,8 +44,8 @@
       @p{
  (It is like list we started with, but with the list constructors,
  @tt{::} and @tt{nil},
- replaced with the first two values we gave to @tt{foldr},
- @tt{+} and @tt{0}.)
+ replaced with @tt{+} and @tt{0}
+ (the first two values we gave to @tt{foldr})).
 }
       
       @p{
