@@ -107,7 +107,8 @@
          "s-parens-note.rkt"
          "tuples-note.rkt"
          "LISP-forty-two.rkt"
-         "foldr-note.rkt")
+         "foldr-note.rkt"
+         "mesh17.rkt")
 
 (define notes (list* test-note
                      data-functions-note
@@ -115,6 +116,7 @@
                      tuples-note
                      LISP-forty-two-note
                      foldr-note
+                     mesh17-note
                      small-notes))
 
 (for ([n notes]) (write-note-file n))
