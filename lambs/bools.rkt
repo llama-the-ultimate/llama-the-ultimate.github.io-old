@@ -3,7 +3,6 @@
 (require "structs.rkt"
          "util.rkt")
 
-(deftxt n @em{n})
 (deftxt + @tt{+})
 (deftxt a @tt{a})
 (deftxt b @tt{b})
@@ -37,11 +36,9 @@
 }
    @p{
  (And in the earlier post we said something like:
- The number @n is a function that,
- if given two arguments,
- applies the first argument @n times to the second.
+ @numberdef
  The @(+)-function takes the numbers @a and @b as arguments
- and gives back a new @ttc{λf.λx}-function that applies @f @q{@a times}
+ and gives back a new @ttc{λf.λx.}-function that applies @f @q{@a times}
  to the result of applying @f @q{@b times} to @(x).)
 }
    @p{

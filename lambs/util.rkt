@@ -8,7 +8,8 @@
          alt-lam
          ins-def
          def
-         alt-def)
+         alt-def
+         numberdef)
 
 (deftxt eval1 @ttc{ctrl+enter})
 (deftxt eval* @ttc{ctrl+shift+enter})
@@ -22,3 +23,8 @@
 (deftxt ins-def @ttc{ctrl+d})
 (deftxt def @tt{≜})
 (deftxt alt-def @tt{:=})
+
+(deftxt numberdef @txt{
+ The number @em{n} is a function that,
+ if given two arguments,
+ applies the first argument @em{n} times to the second.})

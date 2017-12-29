@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Successor</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>Successor</h1><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Previous thing: <a href="lamb-pairs.html">Pairs</a></p><p>We have made some numbers and some functions for working with numbers. Also some other datatypes.</p><p>We haven’t really done so here,
+but sometimes when we define numbers we fuss more about how they are constructed,
+about what the constructors are.
+We say things like: “A natural number is zero or it is the successor of a natural number.”
+(In a Standard ML we might say: <span class="code">datatype nat = Zero | Succ of nat</span>.)</p><p>So let’s try to? With the lambdas and such...</p><hr/><p>We already know what zero looks like:</p><div class="editor" name="lambs" style="height:3rem">0 ≜ λf.λx.x</div><p>We do not know that successor looks like:</p><div class="editor" name="lambs" style="height:3rem">S ≜ λn.λf.λx.f (n f x)</div><p>It takes a number, <span class="codew">n</span>, as its argument.
+<span class="codew">S</span> applied to <span class="codew">n</span> should return a number that is one larger than <span class="codew">n</span>.</p><p>(Remember: The number <em>n</em> is a function that,
+if given two arguments,
+applies the first argument <em>n</em> times to the second.)</p><p>So, <span class="codew">S</span> takes a number, <span class="codew">n</span>, as its argument, and returns one of those <span class="code">λf.λx.</span>-functions.
+Within, we do <span class="code">(n f x)</span>; we apply <span class="codew">n</span> to <span class="codew">f</span> and <span class="codew">x</span>. This should amount to applying <span class="codew">f</span> “<span class="codew">n</span> times” to <span class="codew">x</span>.
+And then we apply <span class="codew">f</span> to the result of <span class="code">(n f x)</span>,
+so that we should, in total, get <span class="codew">f</span> applied, well, “<span class="codew">n</span>+1 times” to <span class="codew">x</span>.</p><p>We can test it some and see if it looks right:</p><div class="editor" name="lambs" style="height:15rem">S 0
+
+S (S 0)
+
+S (S (S 0))
+
+S (S (S (S (S 0))))</div><hr/><p>And like, that’s it, that’s our successor.
+It seems maybe less impressive than the addition and multiplcation functions we did earlier.
+But like it’s pretty cool:</p><ul><li>We have zero-and-successor constructors. Much like the grown-ups have.</li><li>We can, somewhat obviously, build any natural number with <span class="codew">0</span> and <span class="codew">S</span>.
+Like, we have <span class="codew">0</span>, and we can totally just throw <span class="codew">S</span>es at it until we have the number we really want.</li><li>Related: We kind of don’t really have to write the <span class="code">λf.λx.</span>-bit ever again. Unless we want to.
+Like, if we’re defining addition, say, and we stick to <span class="codew">0</span> and <span class="codew">S</span>,
+we won’t have to do the <span class="code">λf.λx.</span>-bit in order to construct the result-number.</li></ul><p>Will take a look at that last ting. But like, in later post...</p></div></div><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></body></html>
