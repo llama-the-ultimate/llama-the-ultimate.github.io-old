@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>A design pattern?</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><div class="navinfo"><div class="nav"><a class="navlink" href="../index.html"><div class="navlink">λ</div></a></div></div><div class="text"><h1>A design pattern?</h1><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Previous thing: <a href="lamb-succ.html">Successor</a></p><p><a href="lamb-succ.html">Previously</a> we constructored:</p><div class="editor" name="lambs" style="height:5rem" prelude="true">0 ≜ λf.λx.x
+
+S ≜ λn.λf.λx.f (n f x)</div><p>Now there are some things. Or, this possibly encourages a way of thinking about some things.</p><p>One thing is: We can think that any natural number must necessarily be built from <span class="codew">0</span> and a series of <span class="codew">S</span>es.
+(And if we’d like, we can think about the types of things, and argue that <span class="code">0 : nat</span> and <span class="code">S : nat -&gt; nat</span>.)</p><p>Another thing is: A number like this is a function. And that function kind of is the “eliminator function” for that number.
+An “eliminator function” like this is rather similar to the <a href="foldr.html">foldr</a>-function for lists;
+we can think of it as a function for doing “constructor replacement.”</p><p>Like if we have a number built from <span class="code">S (S 0)</span>, and we wanna replace the <span class="codew">S</span>es with <span class="codew">foo</span>s and the <span class="codew">0</span> with <span class="codew">bar</span>,
+we can apply the number to <span class="codew">foo</span> and <span class="codew">bar</span>:</p><div class="editor" name="lambs" style="height:9rem">(S (S 0)) foo bar</div><hr/><p>So, say we have the numbers <span class="codew">2</span> and <span class="codew">3</span>...</p><div class="editor" name="lambs" style="height:10rem">S (S 0)
+
+S (S (S 0))</div><p>Reduced to normal form:</p><div class="editor" name="lambs" style="height:5rem">2 ≜ λf.λx.f (f x)
+
+3 ≜ λf.λx.f (f (f x))</div><p>And, say we want to add them together.
+If we want the sum, we can take the number <span class="codew">2</span> and do the “constructor replacement” thing.
+The number <span class="codew">2</span> is built from the <span class="codew">0</span>-constructor and 2 <span class="codew">S</span>-contructors: <span class="code">S (S 0)</span>.
+We should be able to get sum by taking that number and, keeping all the <span class="codew">S</span>es, replacing the <span class="codew">0</span> with <span class="codew">3</span>:
+<span class="code">S (S 3)</span>, which should amount to like 5.</p><p>We try. Taking the number <span class="codew">2</span>, we replace <span class="codew">S</span> with <span class="codew">S</span>, which should let us “keep” all the <span class="codew">S</span>es,
+and we replace <span class="codew">0</span> with <span class="codew">3</span>:</p><div class="editor" name="lambs" style="height:10rem">2 S 3</div><p>We get 5 :)</p><p>A bit of abstraction and we will have a <span class="codew">+</span>-function.</p><div class="editor" name="lambs" style="height:10rem">+ ≜ λa.λb.a S b
+
++ 2 3</div><hr/><p>Or, say we want to multiply <span class="codew">2</span> by <span class="codew">3</span>.</p><p>This time the idea is that we want to replace things so that we turn the number <span class="codew">2</span>, or <span class="code">S (S 0)</span>,
+into <span class="code">+ 3 (+ 3 0)</span>.
+We replace the <span class="codew">S</span>es with a function that adds 3 to something, and we replace <span class="codew">0</span> with <span class="codew">0</span>:</p><div class="editor" name="lambs" style="height:10rem">2 (+ 3) 0</div><p>6!</p><p>Again, abstraction:</p><div class="editor" name="lambs" style="height:10rem">* ≜ λa.λb.a (+ b) 0
+
+* 2 3</div><hr/><p>(So, uh. In my experience, thinking about these things in terms of constructors and constructor replacement
+lets me look away from the “inner workings” of the numbers a little bit,
+and also make the things feel slightly more like working with datatypes in e.g. an ML dialect.
+It sometimes makes some things clearer to me.
+But like, we totally did do <a href="lamb-nums.html">addition</a> and <a href="lamb-bools.html">multiplication</a> earlier,
+and it’s not like the functions we did here are very different from those earlier ones. Just a little different.)</p></div></div><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></body></html>

@@ -6,7 +6,8 @@
          "nums.rkt"
          "bools.rkt"
          "pairs.rkt"
-         "succ.rkt")
+         "succ.rkt"
+         "design-pattern.rkt")
 
 (define lambs-list
   (note-list
@@ -36,4 +37,5 @@
          lamb-what-note
          lamb-bools-note
          lamb-pairs-note
-         lamb-succ-note)))
+         lamb-succ-note
+         lamb-design-pattern-note)))
