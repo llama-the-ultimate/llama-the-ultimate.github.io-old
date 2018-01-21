@@ -24,7 +24,7 @@
  part, the unique individuality of the characters whom you met.
  This singularity is like the dominant note of every moment of existence; in
  each moment of life, the life principle itself is unique.
- To achieve this, the class stores a long representing epoch-seconds and an int representing nanosecond-of-second,
+ To achieve this, the class stores a @tt{long} representing epoch-seconds and an @tt{int} representing nanosecond-of-second,
  which will always be between 0 and 999,999,999.
 }
       @p{
