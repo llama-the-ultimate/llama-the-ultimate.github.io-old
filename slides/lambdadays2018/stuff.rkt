@@ -91,6 +91,25 @@
                          "imgs/lamb1.svg"
                          '((pre () "App (Lam \"a\" (App (Var \"foo\") (Var \"a\"))) (Var \"bar\")"))))
 
+(define lamb1-ps-match (sld #:title "(λa.a (foo a)) bar"
+                            "given"
+                            '((pre () "App (Lam \"a\" (App (Var \"foo\") (Var \"a\"))) (Var \"bar\")"))
+                            "the match on"
+                            '((pre () "redex (App (Lam p b) a) = ..."))
+                            "should match and like bind variables"
+                            `((pre () ,@@list{
+ p = "a"
+ b = App (Var "foo") (Var "a")
+ a = (Var "bar")
+ }))))
+
+(define paren (sld `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/v0.3.0/src/Lambs/Parse.purs#L90-L91" "Parse.purs"))
+                   `((pre ()
+                          ,@@list{
+ paren :: forall a b m.StringLike a => Monad m => ParserT a m b -> ParserT a m b
+ paren x = between (string "(") (string ")") x
+ }))))
+
 (define lamb1-redex (imgsld #:title "(λa.a (foo a)) bar"
                             "imgs/lamb1-redex.svg"))
 
@@ -285,12 +304,7 @@
  identifier = many1 (satisfy (\x -> not (Set.member x reserved))) >>= pure <<< listString
  })))
 
-    (sld `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/v0.3.0/src/Lambs/Parse.purs#L90-L91" "Parse.purs"))
-         `((pre ()
-                ,@@list{
- paren :: forall a b m.StringLike a => Monad m => ParserT a m b -> ParserT a m b
- paren x = between (string "(") (string ")") x
- })))
+    paren
     
     (sld #:title "unparsing")
     (sld `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/v0.3.0/src/Lambs/Unparse.purs" "Unparse.purs"))
@@ -368,13 +382,15 @@
          `((pre () "fillTerm :: TermPath -> Term -> Term")))
     
     (sld `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/v0.3.0/src/Lambs/Subst.purs#L13" "Subst.purs"))
-         `((pre () "data Redex = Redex Term String Term"))
+         '((pre () "data Redex = Redex Term String Term"))
          `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/v0.3.0/src/Lambs/Subst.purs#L21-L23" "Subst.purs"))
          `((pre () ,@@list{
  redex :: Term -> Maybe Redex
  redex (App (Lam p b) a) = Just (Redex a p b)
  redex _ = Nothing
- })))     
+ })))
+
+    lamb1-ps-match
 
     (sld #:title "substitution (swoosh)")
     lamb1
@@ -406,6 +422,7 @@
          "return the stuff you need for"
          "next part of program")
     (sld "often more good:"
+         '((pre () "data Redex = Redex Term String Term"))
          `((pre () "redex :: Term -> Maybe Redex"))
          `((pre () "subst :: Redex -> Term"))
          "possibly less good:"
@@ -507,8 +524,9 @@
          "require bit me")
     
     (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L1" "stuff.js"))
-         `((pre () "require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});"))
-         `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L3-L19" "stuff.js"))
+         `((pre () "require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});")))
+
+    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L3-L19" "stuff.js"))
          `((pre ()
                 ,@@list{
  var startMonaco = function() @"{"
@@ -528,8 +546,24 @@
      @"}"@"}");
      return res;
  @"}";
- }))
-         `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L68-L74" "stuff.js"))
+ })))
+
+    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L58-L66" "stuff.js"))
+         `((pre ()
+                ,@@list{
+ var content = element.textContent;
+ element.textContent = "";
+
+ var editor = monaco.editor.create(element, @"{"
+     value: content,
+     lineNumbers: false,
+     quickSuggestions: false,
+     mouseWheelZoom: true
+ @"}");
+ })))
+    
+    
+    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L68-L74" "stuff.js"))
          `((pre ()
                 ,@@list{
     editor.addCommand([monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L], function() @"{"
@@ -538,7 +572,30 @@
         var text = 'λ';
         var op = @"{"identifier: id, range: range, text: text, forceMoveMarkers: true@"}";
         editor.executeEdits("lambs", [op]);
-    @"}");})))
+ @"}");})))
+
+    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L84-L101" "stuff.js"))
+         `((pre ()
+                ,@@list{
+    editor.addCommand([monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter], function() {
+        var selection = editor.getSelection();
+        var line = selection.positionLineNumber;
+        var model = editor.getModel();
+        var s = model.getLineContent(line);
+        var pos = new monaco.Position(line, s.length + 1);
+        editor.setPosition(pos);
+        var range = editor.getSelection();
+        var id = @"{" major: 1, minor: 1 @"}";
+        var parsed = lambs.parse(s);
+        updateDefs(parsed);
+        var text = '\n' + lambs.step(parsed);
+        var op = @"{"identifier: id, range: range, text: text, forceMoveMarkers: true@"}";
+        editor.pushUndoStop();
+        editor.executeEdits("lambs", [op]);
+        editor.pushUndoStop();
+        editor.revealPosition(editor.getPosition());
+    });
+ })))
 
     (sld #:title "html+css"
          `("I use racket for this but it basically amounts to"
@@ -647,6 +704,7 @@
  in value declaration stepExec
  })))
 
+    paren
     (imgsld "imgs/atom-error2.png")
     (sld `((pre () ,@@list{
  Could not match type
@@ -670,21 +728,6 @@
        t5 is an unknown type
        t3 is an unknown type
        t4 is an unknown type
- })))
-
-    (sld #:title "exports and imports"
-         `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/master/src/Lambs/Eval.purs#L1-L10" "Eval.purs")
-           (pre () ,@@list{
- module Lambs.Eval (Exec(..), stepExec) where
-
- import Data.Set as Set
- import Data.Generic (class Generic, gCompare, gEq, gShow)
- import Data.Int (fromString)
- import Data.Maybe (Maybe(..))
- import Data.String (charAt, length, splitAt)
- import Lambs.Subst (Redex(..), redex, subst)
- import Lambs.Term (Found(..), Term(..), TermPath, argStep, emptyTermPath, fillTerm, findTerm, funStep, lamStep)
- import Prelude (class Eq, class Ord, class Show, Unit, show, unit, (&&), (+), (/=), (<>), (==), (-), bind)
  })))
     
     (sld #:title "okay bye")
