@@ -541,7 +541,8 @@
     @"}");})))
 
     (sld #:title "html+css"
-         `((pre () ,@@list{
+         `("I use racket for this but it basically amounts to"
+           (pre () ,@@list{
  <html>
  ...
  <body>
@@ -562,6 +563,9 @@
     
     (sld #:title "appendix A is like, misc")
 
+    (hai "a new version of"
+         "purescript broke some of my stuff"
+         "but only one time")
 
     (sld #:title "typeclasses, show and ord and such"
          `((pre () ,@@list{
@@ -611,11 +615,7 @@
          "has thing of type T in it"
          "don’t know where T is")
 
-    (hai "does not have tuples"
-         "oogly boogly beep boop bap"
-         "currying instead")
-
-    (sld #:title "also record punning"
+    (sld #:title "record punning"
          "if you have e.g."
          '((pre () "x = \"hello\""))
          "and you wanna do"
@@ -624,6 +624,10 @@
          '((pre () "{ x, y: 5 }"))
          "instead."
          "(I think that’s weird)")
+    
+    (hai "does not have tuples"
+         "oogly boogly beep boop bap"
+         "currying instead")
     
     (imgsld "imgs/atom-error1.png")
     (sld `((pre () ,@@list{
@@ -666,6 +670,21 @@
        t5 is an unknown type
        t3 is an unknown type
        t4 is an unknown type
+ })))
+
+    (sld #:title "exports and imports"
+         `(,(lnk "https://github.com/Glorp/purescript-lambs/blob/master/src/Lambs/Eval.purs#L1-L10" "Eval.purs")
+           (pre () ,@@list{
+ module Lambs.Eval (Exec(..), stepExec) where
+
+ import Data.Set as Set
+ import Data.Generic (class Generic, gCompare, gEq, gShow)
+ import Data.Int (fromString)
+ import Data.Maybe (Maybe(..))
+ import Data.String (charAt, length, splitAt)
+ import Lambs.Subst (Redex(..), redex, subst)
+ import Lambs.Term (Found(..), Term(..), TermPath, argStep, emptyTermPath, fillTerm, findTerm, funStep, lamStep)
+ import Prelude (class Eq, class Ord, class Show, Unit, show, unit, (&&), (+), (/=), (<>), (==), (-), bind)
  })))
     
     (sld #:title "okay bye")
