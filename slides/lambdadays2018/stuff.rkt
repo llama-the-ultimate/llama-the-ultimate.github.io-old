@@ -664,11 +664,11 @@
  <body>
    ...
    <p>blah blah hello goodbye</p>
-   <div class="lambs">
+   <div name="lambs">
      (λx.λy.y x) foo bar
    </div>
    <p>blah blah blah</p>
-   <div class="lambs">
+   <div name="lambs">
      (λx.λy.y x) foo bar
    </div>
    ...
