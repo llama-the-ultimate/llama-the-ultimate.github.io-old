@@ -500,6 +500,10 @@
     (hai "pure functions inside"
          "layer with state and effects"
          "surrounding the core")
+
+    (sld #:title "io, eff")
+    (imgsld #:title "modernized algol"
+            "imgs/pfpl.jpg")
     
     (imgsld "imgs/stuff.jpg")
 
