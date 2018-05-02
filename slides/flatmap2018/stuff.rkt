@@ -321,7 +321,13 @@
         `(,(lnk "beep-boop/7-only-rectangles.html" "evaluator"))
         `((pre () ,@@list{
  notes = makeNotes(x =>[@"{" val: x * 1.2, time: 0.7 @"}", @"{" val: x, time: 0.3 @"}"], vol,[400, 460, 515, 550, 800, 250]);
-})))))
+})))
+   
+   (sld #:title "some code"
+        `(,(lnk "https://github.com/Glorp/elm-beep-boop" "some elm"))
+        `(,(lnk "https://github.com/Glorp/glorp.github.io/tree/master/slides/flatmap2018/beep-boop" "some js and html stuff that uses the elm")))))
+
+
 
 (write-html-file
  "index.html"

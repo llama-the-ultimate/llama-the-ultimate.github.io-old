@@ -38,7 +38,8 @@ var doBeop = sendBeop;
 
 function handleKey(event) {
   doBeop(keyToBeop(event.keyCode));
-  maybeSpeechThing(event.keyCode);
+  // uncomment for speech recognition support
+  //maybeSpeechThing(event.keyCode);
 }
 
 document.addEventListener('keydown', handleKey);
