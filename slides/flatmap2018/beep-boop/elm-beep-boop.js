@@ -3783,6 +3783,433 @@ var _Glorp$elm_beep_boop$Fish_Boxy$boxThing = {
 	_1: {ctor: '[]'}
 };
 
+var _Glorp$elm_beep_boop$Fish_Fishier$createBezierShape = F3(
+	function (v1, v2, v3) {
+		return {controlPoint1: v1, controlPoint2: v2, endPoint: v3};
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$createCurve = F4(
+	function (v1, v2, v3, v4) {
+		return {point1: v1, point2: v2, point3: v3, point4: v4};
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$createVector = F2(
+	function (x, y) {
+		return {x: x, y: y};
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$createBezier = F3(
+	function (_p2, _p1, _p0) {
+		var _p3 = _p2;
+		var _p4 = _p1;
+		var _p5 = _p0;
+		return A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezierShape,
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, _p3._0, _p3._1),
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, _p4._0, _p4._1),
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, _p5._0, _p5._1));
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$fishyBeziers = {
+	ctor: '::',
+	_0: A3(
+		_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+		{ctor: '_Tuple2', _0: 0.11, _1: 0.11},
+		{ctor: '_Tuple2', _0: 0.175, _1: 0.175},
+		{ctor: '_Tuple2', _0: 0.25, _1: 0.25}),
+	_1: {
+		ctor: '::',
+		_0: A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+			{ctor: '_Tuple2', _0: 0.372, _1: 0.194},
+			{ctor: '_Tuple2', _0: 0.452, _1: 0.132},
+			{ctor: '_Tuple2', _0: 0.564, _1: 3.2e-2}),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+				{ctor: '_Tuple2', _0: 0.73, _1: 5.6e-2},
+				{ctor: '_Tuple2', _0: 0.834, _1: 4.2e-2},
+				{ctor: '_Tuple2', _0: 1.0, _1: 0.0}),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+					{ctor: '_Tuple2', _0: 0.896, _1: 6.2e-2},
+					{ctor: '_Tuple2', _0: 0.837, _1: 0.107},
+					{ctor: '_Tuple2', _0: 0.766, _1: 0.202}),
+				_1: {
+					ctor: '::',
+					_0: A3(
+						_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+						{ctor: '_Tuple2', _0: 0.66, _1: 0.208},
+						{ctor: '_Tuple2', _0: 0.589, _1: 0.217},
+						{ctor: '_Tuple2', _0: 0.5, _1: 0.25}),
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+							{ctor: '_Tuple2', _0: 0.5, _1: 0.41},
+							{ctor: '_Tuple2', _0: 0.5, _1: 0.46},
+							{ctor: '_Tuple2', _0: 0.5, _1: 0.5}),
+						_1: {
+							ctor: '::',
+							_0: A3(
+								_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+								{ctor: '_Tuple2', _0: 0.5, _1: 0.575},
+								{ctor: '_Tuple2', _0: 0.5, _1: 0.625},
+								{ctor: '_Tuple2', _0: 0.5, _1: 0.75}),
+							_1: {
+								ctor: '::',
+								_0: A3(
+									_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+									{ctor: '_Tuple2', _0: 0.411, _1: 0.783},
+									{ctor: '_Tuple2', _0: 0.34, _1: 0.792},
+									{ctor: '_Tuple2', _0: 0.234, _1: 0.798}),
+								_1: {
+									ctor: '::',
+									_0: A3(
+										_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+										{ctor: '_Tuple2', _0: 0.163, _1: 0.893},
+										{ctor: '_Tuple2', _0: 0.104, _1: 0.938},
+										{ctor: '_Tuple2', _0: 0.0, _1: 1.0}),
+									_1: {
+										ctor: '::',
+										_0: A3(
+											_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+											{ctor: '_Tuple2', _0: -4.2e-2, _1: 0.834},
+											{ctor: '_Tuple2', _0: -5.6e-2, _1: 0.73},
+											{ctor: '_Tuple2', _0: -3.2e-2, _1: 0.564}),
+										_1: {
+											ctor: '::',
+											_0: A3(
+												_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+												{ctor: '_Tuple2', _0: -0.132, _1: 0.452},
+												{ctor: '_Tuple2', _0: -0.194, _1: 0.372},
+												{ctor: '_Tuple2', _0: -0.25, _1: 0.25}),
+											_1: {
+												ctor: '::',
+												_0: A3(
+													_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+													{ctor: '_Tuple2', _0: -0.15, _1: 0.15},
+													{ctor: '_Tuple2', _0: -5.0e-2, _1: 5.0e-2},
+													{ctor: '_Tuple2', _0: 0.0, _1: 0.0}),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$fewFishyBeziers = {
+	ctor: '::',
+	_0: A3(
+		_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+		{ctor: '_Tuple2', _0: 0.11, _1: 0.11},
+		{ctor: '_Tuple2', _0: 0.175, _1: 0.175},
+		{ctor: '_Tuple2', _0: 0.25, _1: 0.25}),
+	_1: {
+		ctor: '::',
+		_0: A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+			{ctor: '_Tuple2', _0: 0.372, _1: 0.194},
+			{ctor: '_Tuple2', _0: 0.452, _1: 0.132},
+			{ctor: '_Tuple2', _0: 0.564, _1: 3.2e-2}),
+		_1: {ctor: '[]'}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$fishyLeftEyeBeziers = {
+	ctor: '::',
+	_0: A3(
+		_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+		{ctor: '_Tuple2', _0: 4.0e-2, _1: 0.772},
+		{ctor: '_Tuple2', _0: 6.8e-2, _1: 0.696},
+		{ctor: '_Tuple2', _0: 7.4e-2, _1: 0.685}),
+	_1: {
+		ctor: '::',
+		_0: A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+			{ctor: '_Tuple2', _0: 4.5e-2, _1: 0.66},
+			{ctor: '_Tuple2', _0: 1.0e-2, _1: 0.617},
+			{ctor: '_Tuple2', _0: -8.0e-3, _1: 0.592}),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+				{ctor: '_Tuple2', _0: -1.7e-2, _1: 0.685},
+				{ctor: '_Tuple2', _0: -1.2e-2, _1: 0.77},
+				{ctor: '_Tuple2', _0: 4.0e-3, _1: 0.8}),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$leftEyePath = _Glorp$elm_beep_boop$Fish_Shape$Path(
+	{
+		ctor: '_Tuple2',
+		_0: {x: 4.0e-3, y: 0.8},
+		_1: _Glorp$elm_beep_boop$Fish_Fishier$fishyLeftEyeBeziers
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$fishyInnerLeftEyeBeziers = {
+	ctor: '::',
+	_0: A3(
+		_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+		{ctor: '_Tuple2', _0: 3.8e-2, _1: 0.708},
+		{ctor: '_Tuple2', _0: 5.3e-2, _1: 0.684},
+		{ctor: '_Tuple2', _0: 5.7e-2, _1: 0.674}),
+	_1: {
+		ctor: '::',
+		_0: A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+			{ctor: '_Tuple2', _0: 3.5e-2, _1: 0.652},
+			{ctor: '_Tuple2', _0: 1.0e-2, _1: 0.622},
+			{ctor: '_Tuple2', _0: 8.0e-3, _1: 0.618}),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+				{ctor: '_Tuple2', _0: 5.0e-3, _1: 0.685},
+				{ctor: '_Tuple2', _0: 1.0e-2, _1: 0.7},
+				{ctor: '_Tuple2', _0: 1.8e-2, _1: 0.72}),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$innerLeftEyePath = _Glorp$elm_beep_boop$Fish_Shape$Path(
+	{
+		ctor: '_Tuple2',
+		_0: {x: 1.8e-2, y: 0.72},
+		_1: _Glorp$elm_beep_boop$Fish_Fishier$fishyInnerLeftEyeBeziers
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$fishyRightEyeBeziers = {
+	ctor: '::',
+	_0: A3(
+		_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+		{ctor: '_Tuple2', _0: 0.16, _1: 0.84},
+		{ctor: '_Tuple2', _0: 0.2, _1: 0.79},
+		{ctor: '_Tuple2', _0: 0.205, _1: 0.782}),
+	_1: {
+		ctor: '::',
+		_0: A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+			{ctor: '_Tuple2', _0: 0.165, _1: 0.76},
+			{ctor: '_Tuple2', _0: 0.14, _1: 0.74},
+			{ctor: '_Tuple2', _0: 0.115, _1: 0.715}),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+				{ctor: '_Tuple2', _0: 9.5e-2, _1: 0.775},
+				{ctor: '_Tuple2', _0: 9.0e-2, _1: 0.83},
+				{ctor: '_Tuple2', _0: 9.5e-2, _1: 0.87}),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$rightEyePath = _Glorp$elm_beep_boop$Fish_Shape$Path(
+	{
+		ctor: '_Tuple2',
+		_0: {x: 9.5e-2, y: 0.87},
+		_1: _Glorp$elm_beep_boop$Fish_Fishier$fishyRightEyeBeziers
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$fishyInnerRightEyeBeziers = {
+	ctor: '::',
+	_0: A3(
+		_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+		{ctor: '_Tuple2', _0: 0.15, _1: 0.805},
+		{ctor: '_Tuple2', _0: 0.174, _1: 0.783},
+		{ctor: '_Tuple2', _0: 0.185, _1: 0.774}),
+	_1: {
+		ctor: '::',
+		_0: A3(
+			_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+			{ctor: '_Tuple2', _0: 0.154, _1: 0.756},
+			{ctor: '_Tuple2', _0: 0.139, _1: 0.74},
+			{ctor: '_Tuple2', _0: 0.132, _1: 0.736}),
+		_1: {
+			ctor: '::',
+			_0: A3(
+				_Glorp$elm_beep_boop$Fish_Fishier$createBezier,
+				{ctor: '_Tuple2', _0: 0.126, _1: 0.76},
+				{ctor: '_Tuple2', _0: 0.122, _1: 0.795},
+				{ctor: '_Tuple2', _0: 0.128, _1: 0.81}),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$innerRightEyePath = _Glorp$elm_beep_boop$Fish_Shape$Path(
+	{
+		ctor: '_Tuple2',
+		_0: {x: 0.128, y: 0.81},
+		_1: _Glorp$elm_beep_boop$Fish_Fishier$fishyInnerRightEyeBeziers
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$fishyPath = _Glorp$elm_beep_boop$Fish_Shape$Path(
+	{
+		ctor: '_Tuple2',
+		_0: A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.0, 0.0),
+		_1: _Glorp$elm_beep_boop$Fish_Fishier$fishyBeziers
+	});
+var _Glorp$elm_beep_boop$Fish_Fishier$fishySpineCurves = {
+	ctor: '::',
+	_0: A4(
+		_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+		A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.84, 7.0e-2),
+		A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.35, 0.12),
+		A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.14, 0.5),
+		A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 2.5e-2, 0.9)),
+	_1: {
+		ctor: '::',
+		_0: A4(
+			_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -1.5e-2, 0.52),
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 4.0e-2, 0.4),
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.12, 0.3),
+			A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.21, 0.26)),
+		_1: {
+			ctor: '::',
+			_0: A4(
+				_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+				A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.475, 0.27),
+				A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.32, 0.35),
+				A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.34, 0.6),
+				A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.24, 0.77)),
+			_1: {
+				ctor: '::',
+				_0: A4(
+					_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+					A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.377, 0.377),
+					A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.41, 0.41),
+					A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.46, 0.46),
+					A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.495, 0.495)),
+				_1: {
+					ctor: '::',
+					_0: A4(
+						_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+						A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.43, 0.165),
+						A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.48, 0.175),
+						A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.49, 0.22),
+						A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.49, 0.23)),
+					_1: {
+						ctor: '::',
+						_0: A4(
+							_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+							A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.452, 0.178),
+							A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.51, 0.13),
+							A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.54, 0.11),
+							A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.6, 8.0e-2)),
+						_1: {
+							ctor: '::',
+							_0: A4(
+								_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+								A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.482, 0.215),
+								A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.52, 0.2),
+								A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.6, 0.16),
+								A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.74, 0.15)),
+							_1: {
+								ctor: '::',
+								_0: A4(
+									_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+									A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -0.17, 0.237),
+									A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -0.125, 0.355),
+									A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -6.5e-2, 0.405),
+									A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 1.0e-2, 0.48)),
+								_1: {
+									ctor: '::',
+									_0: A4(
+										_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+										A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -0.11, 0.175),
+										A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -6.0e-2, 0.25),
+										A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -3.0e-2, 0.3),
+										A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 8.0e-2, 0.365)),
+									_1: {
+										ctor: '::',
+										_0: A4(
+											_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+											A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, -4.5e-2, 0.115),
+											A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 1.0e-2, 0.18),
+											A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 6.0e-2, 0.23),
+											A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.17, 0.28)),
+										_1: {
+											ctor: '::',
+											_0: A4(
+												_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+												A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.27, 0.7),
+												A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.34, 0.72),
+												A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.426, 0.71),
+												A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.474, 0.692)),
+											_1: {
+												ctor: '::',
+												_0: A4(
+													_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+													A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.31, 0.57),
+													A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.4, 0.622),
+													A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.435, 0.618),
+													A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.474, 0.615)),
+												_1: {
+													ctor: '::',
+													_0: A4(
+														_Glorp$elm_beep_boop$Fish_Fishier$createCurve,
+														A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.35, 0.435),
+														A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.4, 0.505),
+														A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.422, 0.52),
+														A2(_Glorp$elm_beep_boop$Fish_Fishier$createVector, 0.474, 0.538)),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _Glorp$elm_beep_boop$Fish_Fishier$fishThing = A2(
+	_elm_lang$core$Basics_ops['++'],
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple3', _0: 'fill', _1: 'primary', _2: _Glorp$elm_beep_boop$Fish_Fishier$fishyPath},
+		_1: {ctor: '[]'}
+	},
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		{
+			ctor: '::',
+			_0: {ctor: '_Tuple3', _0: 'fill', _1: 'secondary', _2: _Glorp$elm_beep_boop$Fish_Fishier$leftEyePath},
+			_1: {ctor: '[]'}
+		},
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			{
+				ctor: '::',
+				_0: {ctor: '_Tuple3', _0: 'fill', _1: 'secondary', _2: _Glorp$elm_beep_boop$Fish_Fishier$rightEyePath},
+				_1: {ctor: '[]'}
+			},
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple3', _0: 'fill', _1: 'primary', _2: _Glorp$elm_beep_boop$Fish_Fishier$innerLeftEyePath},
+					_1: {ctor: '[]'}
+				},
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple3', _0: 'fill', _1: 'primary', _2: _Glorp$elm_beep_boop$Fish_Fishier$innerRightEyePath},
+						_1: {ctor: '[]'}
+					},
+					A2(
+						_elm_lang$core$List$map,
+						function (s) {
+							return {ctor: '_Tuple3', _0: 'stroke', _1: 'secondary', _2: s};
+						},
+						A2(_elm_lang$core$List$map, _Glorp$elm_beep_boop$Fish_Shape$Curve, _Glorp$elm_beep_boop$Fish_Fishier$fishySpineCurves)))))));
+
 var _Glorp$elm_beep_boop$Fish_Style$StrokeStyle = F2(
 	function (a, b) {
 		return {strokeWidth: a, strokeColor: b};
@@ -3796,7 +4223,7 @@ var _Glorp$elm_beep_boop$Fish_Style$Style = F2(
 	});
 
 var _Glorp$elm_beep_boop$Fish_Picture$toColorCode = function (n) {
-	return (_elm_lang$core$Native_Utils.eq(n, 'x') || _elm_lang$core$Native_Utils.eq(n, 'x?')) ? '#4FA4A5' : ((_elm_lang$core$Native_Utils.eq(n, 'y') || _elm_lang$core$Native_Utils.eq(n, 'y?')) ? '#D47564' : ((_elm_lang$core$Native_Utils.eq(n, 'z') || _elm_lang$core$Native_Utils.eq(n, 'z?')) ? '#41F4C4' : ((_elm_lang$core$Native_Utils.eq(n, 'f') || _elm_lang$core$Native_Utils.eq(n, 'f?')) ? '#5C6182' : ((_elm_lang$core$Native_Utils.eq(n, 'a') || _elm_lang$core$Native_Utils.eq(n, 'a?')) ? '#F4B41B' : ((_elm_lang$core$Native_Utils.eq(n, 'b') || _elm_lang$core$Native_Utils.eq(n, 'b?')) ? '#F47E1B' : ((_elm_lang$core$Native_Utils.eq(n, 'c') || _elm_lang$core$Native_Utils.eq(n, 'c?')) ? '#E6482E' : ((_elm_lang$core$Native_Utils.eq(n, 'd') || _elm_lang$core$Native_Utils.eq(n, 'd?')) ? '#A93B3B' : ((_elm_lang$core$Native_Utils.eq(n, 'e') || _elm_lang$core$Native_Utils.eq(n, 'e?')) ? '#429EF4' : 'Black'))))))));
+	return (_elm_lang$core$Native_Utils.eq(n, 'x') || _elm_lang$core$Native_Utils.eq(n, 'x?')) ? '#4FA4A5' : ((_elm_lang$core$Native_Utils.eq(n, 'y') || _elm_lang$core$Native_Utils.eq(n, 'y?')) ? '#D47564' : ((_elm_lang$core$Native_Utils.eq(n, 'z') || _elm_lang$core$Native_Utils.eq(n, 'z?')) ? '#41F4C4' : ((_elm_lang$core$Native_Utils.eq(n, 'f') || _elm_lang$core$Native_Utils.eq(n, 'f?')) ? '#5C6182' : ((_elm_lang$core$Native_Utils.eq(n, 'a') || _elm_lang$core$Native_Utils.eq(n, 'a?')) ? '#F4B41B' : ((_elm_lang$core$Native_Utils.eq(n, 'b') || _elm_lang$core$Native_Utils.eq(n, 'b?')) ? '#F47E1B' : ((_elm_lang$core$Native_Utils.eq(n, 'c') || _elm_lang$core$Native_Utils.eq(n, 'c?')) ? '#E6482E' : ((_elm_lang$core$Native_Utils.eq(n, 'd') || _elm_lang$core$Native_Utils.eq(n, 'd?')) ? '#A93B3B' : ((_elm_lang$core$Native_Utils.eq(n, 'e') || _elm_lang$core$Native_Utils.eq(n, 'e?')) ? '#429EF4' : ((_elm_lang$core$Native_Utils.eq(n, '___') || _elm_lang$core$Native_Utils.eq(n, 'e?')) ? 'Black' : ((_elm_lang$core$Native_Utils.eq(n, '...') || _elm_lang$core$Native_Utils.eq(n, 'e?')) ? 'Gray' : 'DarkGray'))))))))));
 };
 var _Glorp$elm_beep_boop$Fish_Picture$refillStyle = F2(
 	function (n, _p0) {
@@ -3847,14 +4274,20 @@ var _Glorp$elm_beep_boop$Fish_Picture$recolor = F3(
 			_Glorp$elm_beep_boop$Fish_Picture$recolorItem(n),
 			p(box));
 	});
-var _Glorp$elm_beep_boop$Fish_Picture$vartile = F2(
+var _Glorp$elm_beep_boop$Fish_Picture$fishvartile = F2(
 	function (n, p) {
 		return A2(
 			_Glorp$elm_beep_boop$Fish_Picture$recolor,
 			_Glorp$elm_beep_boop$Fish_Picture$toColorCode(n),
 			p);
 	});
-var _Glorp$elm_beep_boop$Fish_Picture$boxvartile = _Glorp$elm_beep_boop$Fish_Picture$vartile;
+var _Glorp$elm_beep_boop$Fish_Picture$boxvartile = F2(
+	function (n, p) {
+		return A2(
+			_Glorp$elm_beep_boop$Fish_Picture$recolor,
+			_Glorp$elm_beep_boop$Fish_Picture$toColorCode(n),
+			p);
+	});
 var _Glorp$elm_beep_boop$Fish_Picture$over = F3(
 	function (p1, p2, box) {
 		return A2(
@@ -9197,37 +9630,194 @@ var _elm_lang$svg$Svg_Attributes$accumulate = _elm_lang$virtual_dom$VirtualDom$a
 var _elm_lang$svg$Svg_Attributes$accelerate = _elm_lang$virtual_dom$VirtualDom$attribute('accelerate');
 var _elm_lang$svg$Svg_Attributes$accentHeight = _elm_lang$virtual_dom$VirtualDom$attribute('accent-height');
 
+var _Glorp$elm_beep_boop$Fish_Rendering$getResizer = F3(
+	function (_p2, _p1, _p0) {
+		var _p3 = _p2;
+		var _p4 = _p1;
+		var _p5 = _p0;
+		var ydim = _p4._1._1 - _p4._0._1;
+		var yf = _elm_lang$core$Basics$toFloat(_p3._1) / ydim;
+		var xdim = _p4._1._0 - _p4._0._0;
+		var xf = _elm_lang$core$Basics$toFloat(_p3._0) / xdim;
+		var f = (_elm_lang$core$Native_Utils.cmp(xf, yf) < 0) ? xf : yf;
+		return {x: f * _p5.x, y: f * _p5.y};
+	});
+var _Glorp$elm_beep_boop$Fish_Rendering$getTransposer = F2(
+	function (_p7, _p6) {
+		var _p8 = _p7;
+		var _p9 = _p6;
+		return {x: _p9.x - _p8._0._0, y: _p9.y - _p8._0._1};
+	});
+var _Glorp$elm_beep_boop$Fish_Rendering$findVectorListBounds = function (vectors) {
+	var selecty = function (_p10) {
+		var _p11 = _p10;
+		return _p11.y;
+	};
+	var ys = A2(_elm_lang$core$List$map, selecty, vectors);
+	var ymax = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$maximum(ys));
+	var ymin = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$minimum(ys));
+	var selectx = function (_p12) {
+		var _p13 = _p12;
+		return _p13.x;
+	};
+	var xs = A2(_elm_lang$core$List$map, selectx, vectors);
+	var xmax = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$maximum(xs));
+	var xmin = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$minimum(xs));
+	return {
+		ctor: '_Tuple2',
+		_0: {ctor: '_Tuple2', _0: xmin, _1: ymin},
+		_1: {ctor: '_Tuple2', _0: xmax, _1: ymax}
+	};
+};
+var _Glorp$elm_beep_boop$Fish_Rendering$findShapeBounds = function (shape) {
+	var _p14 = shape;
+	_v7_4:
+	do {
+		switch (_p14.ctor) {
+			case 'Polygon':
+				return _Glorp$elm_beep_boop$Fish_Rendering$findVectorListBounds(_p14._0.points);
+			case 'Polyline':
+				return _Glorp$elm_beep_boop$Fish_Rendering$findVectorListBounds(_p14._0.pts);
+			case 'Curve':
+				return _Glorp$elm_beep_boop$Fish_Rendering$findVectorListBounds(
+					{
+						ctor: '::',
+						_0: _p14._0.point1,
+						_1: {
+							ctor: '::',
+							_0: _p14._0.point2,
+							_1: {
+								ctor: '::',
+								_0: _p14._0.point3,
+								_1: {
+									ctor: '::',
+									_0: _p14._0.point4,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					});
+			case 'Path':
+				if (_p14._0.ctor === '_Tuple2') {
+					var gatherVectors = function (_p15) {
+						var _p16 = _p15;
+						return {
+							ctor: '::',
+							_0: _p16.controlPoint1,
+							_1: {
+								ctor: '::',
+								_0: _p16.controlPoint2,
+								_1: {
+									ctor: '::',
+									_0: _p16.endPoint,
+									_1: {ctor: '[]'}
+								}
+							}
+						};
+					};
+					var vs = A2(_elm_lang$core$List$concatMap, gatherVectors, _p14._0._1);
+					return _Glorp$elm_beep_boop$Fish_Rendering$findVectorListBounds(
+						{ctor: '::', _0: _p14._0._0, _1: vs});
+				} else {
+					break _v7_4;
+				}
+			default:
+				break _v7_4;
+		}
+	} while(false);
+	return {
+		ctor: '_Tuple2',
+		_0: {ctor: '_Tuple2', _0: 0, _1: 0},
+		_1: {ctor: '_Tuple2', _0: 0, _1: 0}
+	};
+};
+var _Glorp$elm_beep_boop$Fish_Rendering$findBounds = function (shapes) {
+	var selectymax = function (_p17) {
+		var _p18 = _p17;
+		return _p18._1._1;
+	};
+	var selectxmax = function (_p19) {
+		var _p20 = _p19;
+		return _p20._1._0;
+	};
+	var selectymin = function (_p21) {
+		var _p22 = _p21;
+		return _p22._0._1;
+	};
+	var selectxmin = function (_p23) {
+		var _p24 = _p23;
+		return _p24._0._0;
+	};
+	var boundses = A2(_elm_lang$core$List$map, _Glorp$elm_beep_boop$Fish_Rendering$findShapeBounds, shapes);
+	var xmax = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$maximum(
+			A2(_elm_lang$core$List$map, selectxmax, boundses)));
+	var xmin = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$minimum(
+			A2(_elm_lang$core$List$map, selectxmin, boundses)));
+	var ymax = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$maximum(
+			A2(_elm_lang$core$List$map, selectymax, boundses)));
+	var ymin = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$minimum(
+			A2(_elm_lang$core$List$map, selectymin, boundses)));
+	return {
+		ctor: '_Tuple2',
+		_0: {ctor: '_Tuple2', _0: xmin, _1: ymin},
+		_1: {ctor: '_Tuple2', _0: xmax, _1: ymax}
+	};
+};
 var _Glorp$elm_beep_boop$Fish_Rendering$getStrokeWidthFromStyle = function (style) {
-	var _p0 = style;
-	if (_p0.ctor === 'Just') {
-		return _elm_lang$core$Basics$sqrt(_p0._0.strokeWidth);
+	var _p25 = style;
+	if (_p25.ctor === 'Just') {
+		return _elm_lang$core$Basics$sqrt(_p25._0.strokeWidth);
 	} else {
 		return 2.0;
 	}
 };
 var _Glorp$elm_beep_boop$Fish_Rendering$toPolygonElement = F2(
 	function (style, pts) {
-		var _p1 = function () {
-			var _p2 = style.fill;
-			if (_p2.ctor === 'Just') {
-				return {ctor: '_Tuple2', _0: 'None', _1: _p2._0.fillColor};
+		var _p26 = function () {
+			var _p27 = style.fill;
+			if (_p27.ctor === 'Just') {
+				return {ctor: '_Tuple2', _0: 'None', _1: _p27._0.fillColor};
 			} else {
 				return {ctor: '_Tuple2', _0: 'White', _1: 'None'};
 			}
 		}();
-		var strokeStr = _p1._0;
-		var fillStr = _p1._1;
+		var strokeStr = _p26._0;
+		var fillStr = _p26._1;
 		var sw = _Glorp$elm_beep_boop$Fish_Rendering$getStrokeWidthFromStyle(style.stroke);
 		var s = function () {
-			var str = function (_p3) {
-				var _p4 = _p3;
+			var str = function (_p28) {
+				var _p29 = _p28;
 				return A2(
 					_elm_lang$core$Basics_ops['++'],
-					_elm_lang$core$Basics$toString(_p4.x),
+					_elm_lang$core$Basics$toString(_p29.x),
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						',',
-						_elm_lang$core$Basics$toString(_p4.y)));
+						_elm_lang$core$Basics$toString(_p29.y)));
 			};
 			return A2(
 				_elm_lang$core$String$join,
@@ -9260,15 +9850,15 @@ var _Glorp$elm_beep_boop$Fish_Rendering$toPolylineElement = F2(
 	function (style, pts) {
 		var sw = _Glorp$elm_beep_boop$Fish_Rendering$getStrokeWidthFromStyle(style.stroke);
 		var s = function () {
-			var str = function (_p5) {
-				var _p6 = _p5;
+			var str = function (_p30) {
+				var _p31 = _p30;
 				return A2(
 					_elm_lang$core$Basics_ops['++'],
-					_elm_lang$core$Basics$toString(_p6.x),
+					_elm_lang$core$Basics$toString(_p31.x),
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						',',
-						_elm_lang$core$Basics$toString(_p6.y)));
+						_elm_lang$core$Basics$toString(_p31.y)));
 			};
 			return A2(
 				_elm_lang$core$String$join,
@@ -9300,15 +9890,15 @@ var _Glorp$elm_beep_boop$Fish_Rendering$toPolylineElement = F2(
 var _Glorp$elm_beep_boop$Fish_Rendering$toCurveElement = F5(
 	function (style, pt1, pt2, pt3, pt4) {
 		var sw = _Glorp$elm_beep_boop$Fish_Rendering$getStrokeWidthFromStyle(style.stroke);
-		var toStr = function (_p7) {
-			var _p8 = _p7;
+		var toStr = function (_p32) {
+			var _p33 = _p32;
 			return A2(
 				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(_p8.x),
+				_elm_lang$core$Basics$toString(_p33.x),
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					' ',
-					_elm_lang$core$Basics$toString(_p8.y)));
+					_elm_lang$core$Basics$toString(_p33.y)));
 		};
 		var pt1s = toStr(pt1);
 		var pt2s = toStr(pt2);
@@ -9357,45 +9947,45 @@ var _Glorp$elm_beep_boop$Fish_Rendering$toCurveElement = F5(
 	});
 var _Glorp$elm_beep_boop$Fish_Rendering$toPathElement = F3(
 	function (style, v, beziers) {
-		var _p9 = function () {
-			var _p10 = style.fill;
-			if (_p10.ctor === 'Just') {
-				return {ctor: '_Tuple2', _0: 'None', _1: _p10._0.fillColor};
+		var _p34 = function () {
+			var _p35 = style.fill;
+			if (_p35.ctor === 'Just') {
+				return {ctor: '_Tuple2', _0: 'None', _1: _p35._0.fillColor};
 			} else {
 				return {ctor: '_Tuple2', _0: 'White', _1: 'None'};
 			}
 		}();
-		var strokeStr = _p9._0;
-		var fillStr = _p9._1;
+		var strokeStr = _p34._0;
+		var fillStr = _p34._1;
 		var sw = _Glorp$elm_beep_boop$Fish_Rendering$getStrokeWidthFromStyle(style.stroke);
-		var toStr = function (_p11) {
-			var _p12 = _p11;
+		var toStr = function (_p36) {
+			var _p37 = _p36;
 			return A2(
 				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(_p12.x),
+				_elm_lang$core$Basics$toString(_p37.x),
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					' ',
-					_elm_lang$core$Basics$toString(_p12.y)));
+					_elm_lang$core$Basics$toString(_p37.y)));
 		};
-		var toControl = function (_p13) {
-			var _p14 = _p13;
+		var toControl = function (_p38) {
+			var _p39 = _p38;
 			return A2(
 				_elm_lang$core$Basics_ops['++'],
 				' C ',
 				A2(
 					_elm_lang$core$Basics_ops['++'],
-					toStr(_p14.controlPoint1),
+					toStr(_p39.controlPoint1),
 					A2(
 						_elm_lang$core$Basics_ops['++'],
 						', ',
 						A2(
 							_elm_lang$core$Basics_ops['++'],
-							toStr(_p14.controlPoint2),
+							toStr(_p39.controlPoint2),
 							A2(
 								_elm_lang$core$Basics_ops['++'],
 								', ',
-								toStr(_p14.endPoint))))));
+								toStr(_p39.endPoint))))));
 		};
 		var controlPts = A3(
 			_elm_lang$core$List$foldr,
@@ -9434,33 +10024,33 @@ var _Glorp$elm_beep_boop$Fish_Rendering$toPathElement = F3(
 	});
 var _Glorp$elm_beep_boop$Fish_Rendering$toSvgElement = F2(
 	function (style, shape) {
-		var _p15 = shape;
-		_v8_4:
+		var _p40 = shape;
+		_v21_4:
 		do {
-			switch (_p15.ctor) {
+			switch (_p40.ctor) {
 				case 'Polygon':
-					return A2(_Glorp$elm_beep_boop$Fish_Rendering$toPolygonElement, style, _p15._0.points);
+					return A2(_Glorp$elm_beep_boop$Fish_Rendering$toPolygonElement, style, _p40._0.points);
 				case 'Polyline':
-					return A2(_Glorp$elm_beep_boop$Fish_Rendering$toPolylineElement, style, _p15._0.pts);
+					return A2(_Glorp$elm_beep_boop$Fish_Rendering$toPolylineElement, style, _p40._0.pts);
 				case 'Curve':
-					return A5(_Glorp$elm_beep_boop$Fish_Rendering$toCurveElement, style, _p15._0.point1, _p15._0.point2, _p15._0.point3, _p15._0.point4);
+					return A5(_Glorp$elm_beep_boop$Fish_Rendering$toCurveElement, style, _p40._0.point1, _p40._0.point2, _p40._0.point3, _p40._0.point4);
 				case 'Path':
-					if (_p15._0.ctor === '_Tuple2') {
-						return A3(_Glorp$elm_beep_boop$Fish_Rendering$toPathElement, style, _p15._0._0, _p15._0._1);
+					if (_p40._0.ctor === '_Tuple2') {
+						return A3(_Glorp$elm_beep_boop$Fish_Rendering$toPathElement, style, _p40._0._0, _p40._0._1);
 					} else {
-						break _v8_4;
+						break _v21_4;
 					}
 				default:
-					break _v8_4;
+					break _v21_4;
 			}
 		} while(false);
 		return _elm_lang$svg$Svg$text('nothing');
 	});
 var _Glorp$elm_beep_boop$Fish_Rendering$toSvg = F2(
 	function (bounds, rendering) {
-		var _p16 = bounds;
-		var w = _p16._0;
-		var h = _p16._1;
+		var _p41 = bounds;
+		var w = _p41._0;
+		var h = _p41._1;
 		var viewBoxValue = A2(
 			_elm_lang$core$String$join,
 			' ',
@@ -9483,12 +10073,88 @@ var _Glorp$elm_beep_boop$Fish_Rendering$toSvg = F2(
 			});
 		var mirror = _Glorp$elm_beep_boop$Fish_Mirror$mirrorVector(
 			_elm_lang$core$Basics$toFloat(h));
-		var toElement = function (_p17) {
-			var _p18 = _p17;
+		var toElement = function (_p42) {
+			var _p43 = _p42;
 			return A2(
 				_Glorp$elm_beep_boop$Fish_Rendering$toSvgElement,
-				_p18._1,
-				A2(_Glorp$elm_beep_boop$Fish_Mirror$mirrorShape, mirror, _p18._0));
+				_p43._1,
+				A2(_Glorp$elm_beep_boop$Fish_Mirror$mirrorShape, mirror, _p43._0));
+		};
+		return A2(
+			_elm_lang$svg$Svg$svg,
+			{
+				ctor: '::',
+				_0: _elm_lang$svg$Svg_Attributes$version('1.1'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$svg$Svg_Attributes$x('0'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$y('0'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$svg$Svg_Attributes$width(
+								_elm_lang$core$Basics$toString(w)),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$svg$Svg_Attributes$height(
+									_elm_lang$core$Basics$toString(h)),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			},
+			A2(_elm_lang$core$List$map, toElement, rendering));
+	});
+var _Glorp$elm_beep_boop$Fish_Rendering$toFittingSvg = F2(
+	function (bounds, rendering) {
+		var selectShape = function (_p44) {
+			var _p45 = _p44;
+			return _p45._0;
+		};
+		var outerBounds = _Glorp$elm_beep_boop$Fish_Rendering$findBounds(
+			A2(_elm_lang$core$List$map, selectShape, rendering));
+		var transposer = _Glorp$elm_beep_boop$Fish_Rendering$getTransposer(outerBounds);
+		var resizer = A2(_Glorp$elm_beep_boop$Fish_Rendering$getResizer, bounds, outerBounds);
+		var _p46 = bounds;
+		var w = _p46._0;
+		var h = _p46._1;
+		var viewBoxValue = A2(
+			_elm_lang$core$String$join,
+			' ',
+			{
+				ctor: '::',
+				_0: '0',
+				_1: {
+					ctor: '::',
+					_0: '0',
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$core$Basics$toString(w),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$core$Basics$toString(h),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			});
+		var mirror = _Glorp$elm_beep_boop$Fish_Mirror$mirrorVector(
+			_elm_lang$core$Basics$toFloat(h));
+		var toElement = function (_p47) {
+			var _p48 = _p47;
+			return A2(
+				_Glorp$elm_beep_boop$Fish_Rendering$toSvgElement,
+				_p48._1,
+				A2(
+					_Glorp$elm_beep_boop$Fish_Mirror$mirrorShape,
+					function (_p49) {
+						return mirror(
+							resizer(
+								transposer(_p49)));
+					},
+					_p48._0));
 		};
 		return A2(
 			_elm_lang$svg$Svg$svg,
@@ -9791,30 +10457,72 @@ var _Glorp$elm_beep_boop$Lamb_Exp$findExp = F2(
 			expr);
 	});
 
-var _Glorp$elm_beep_boop$Fishies$convertExpBox = F2(
+var _Glorp$elm_beep_boop$Fishies$convertExpFish = F2(
 	function (p, exp) {
 		var _p0 = exp;
 		switch (_p0.ctor) {
 			case 'Lam':
 				return A2(
+					_Glorp$elm_beep_boop$Fish_Picture$lamtile,
+					A2(_Glorp$elm_beep_boop$Fish_Picture$fishvartile, _p0._0, p),
+					A2(_Glorp$elm_beep_boop$Fishies$convertExpFish, p, _p0._1));
+			case 'App':
+				return A2(
+					_Glorp$elm_beep_boop$Fish_Picture$apptile,
+					A2(_Glorp$elm_beep_boop$Fishies$convertExpFish, p, _p0._0),
+					A2(_Glorp$elm_beep_boop$Fishies$convertExpFish, p, _p0._1));
+			default:
+				return A2(_Glorp$elm_beep_boop$Fish_Picture$fishvartile, _p0._0, p);
+		}
+	});
+var _Glorp$elm_beep_boop$Fishies$expToFish = F2(
+	function (wh, exp) {
+		var fishpicture = _Glorp$elm_beep_boop$Fish_Fitting$createStylePicture(_Glorp$elm_beep_boop$Fish_Fishier$fishThing);
+		var fp = A2(_Glorp$elm_beep_boop$Fishies$convertExpFish, fishpicture, exp);
+		var boxpicture = _Glorp$elm_beep_boop$Fish_Fitting$createStylePicture(_Glorp$elm_beep_boop$Fish_Boxy$boxThing);
+		var _p1 = wh;
+		var w = _p1._0;
+		var h = _p1._1;
+		var box = {
+			a: {x: 0, y: 0},
+			b: {
+				x: _elm_lang$core$Basics$toFloat(w),
+				y: 0
+			},
+			c: {
+				x: 0,
+				y: _elm_lang$core$Basics$toFloat(h)
+			}
+		};
+		return A2(
+			_Glorp$elm_beep_boop$Fish_Rendering$toFittingSvg,
+			wh,
+			fp(box));
+	});
+var _Glorp$elm_beep_boop$Fishies$convertExpBox = F2(
+	function (p, exp) {
+		var _p2 = exp;
+		switch (_p2.ctor) {
+			case 'Lam':
+				return A2(
 					_Glorp$elm_beep_boop$Fish_Picture$boxlamtile,
-					A2(_Glorp$elm_beep_boop$Fish_Picture$boxvartile, _p0._0, p),
-					A2(_Glorp$elm_beep_boop$Fishies$convertExpBox, p, _p0._1));
+					A2(_Glorp$elm_beep_boop$Fish_Picture$boxvartile, _p2._0, p),
+					A2(_Glorp$elm_beep_boop$Fishies$convertExpBox, p, _p2._1));
 			case 'App':
 				return A2(
 					_Glorp$elm_beep_boop$Fish_Picture$boxapptile,
-					A2(_Glorp$elm_beep_boop$Fishies$convertExpBox, p, _p0._0),
-					A2(_Glorp$elm_beep_boop$Fishies$convertExpBox, p, _p0._1));
+					A2(_Glorp$elm_beep_boop$Fishies$convertExpBox, p, _p2._0),
+					A2(_Glorp$elm_beep_boop$Fishies$convertExpBox, p, _p2._1));
 			default:
-				return A2(_Glorp$elm_beep_boop$Fish_Picture$boxvartile, _p0._0, p);
+				return A2(_Glorp$elm_beep_boop$Fish_Picture$boxvartile, _p2._0, p);
 		}
 	});
 var _Glorp$elm_beep_boop$Fishies$expToSvg = F2(
 	function (wh, exp) {
 		var boxpicture = _Glorp$elm_beep_boop$Fish_Fitting$createStylePicture(_Glorp$elm_beep_boop$Fish_Boxy$boxThing);
-		var _p1 = wh;
-		var w = _p1._0;
-		var h = _p1._1;
+		var _p3 = wh;
+		var w = _p3._0;
+		var h = _p3._1;
 		var box = {
 			a: {x: 0, y: 0},
 			b: {
@@ -10459,13 +11167,27 @@ var _Glorp$elm_beep_boop$Mainly$Half = function (a) {
 	return {ctor: 'Half', _0: a};
 };
 
-var _Glorp$elm_beep_boop$Views$rectH = function (st) {
+var _Glorp$elm_beep_boop$Views$fishH = function (st) {
 	var l = function () {
 		var _p0 = st;
 		if (_p0.ctor === 'Half') {
 			return _Glorp$elm_beep_boop$LamBru$halfBruToLamb(_p0._0);
 		} else {
 			return _p0._0;
+		}
+	}();
+	return A2(
+		_Glorp$elm_beep_boop$Fishies$expToFish,
+		{ctor: '_Tuple2', _0: 400, _1: 400},
+		l);
+};
+var _Glorp$elm_beep_boop$Views$rectH = function (st) {
+	var l = function () {
+		var _p1 = st;
+		if (_p1.ctor === 'Half') {
+			return _Glorp$elm_beep_boop$LamBru$halfBruToLamb(_p1._0);
+		} else {
+			return _p1._0;
 		}
 	}();
 	return A2(
@@ -10513,12 +11235,12 @@ var _Glorp$elm_beep_boop$Views$onlyBeops = function (st) {
 		});
 };
 var _Glorp$elm_beep_boop$Views$bruH = function (st) {
-	var _p1 = st;
-	if (_p1.ctor === 'Half') {
+	var _p2 = st;
+	if (_p2.ctor === 'Half') {
 		return _Glorp$elm_beep_boop$Views$codeP(
 			{
 				ctor: '::',
-				_0: _Glorp$elm_beep_boop$Bru_String$unparseHalf(_p1._0),
+				_0: _Glorp$elm_beep_boop$Bru_String$unparseHalf(_p2._0),
 				_1: {ctor: '[]'}
 			});
 	} else {
@@ -10526,7 +11248,7 @@ var _Glorp$elm_beep_boop$Views$bruH = function (st) {
 			{
 				ctor: '::',
 				_0: _Glorp$elm_beep_boop$Bru_String$unparse(
-					_Glorp$elm_beep_boop$LamBru$lambToBru(_p1._0)),
+					_Glorp$elm_beep_boop$LamBru$lambToBru(_p2._0)),
 				_1: {ctor: '[]'}
 			});
 	}
@@ -10546,20 +11268,20 @@ var _Glorp$elm_beep_boop$Views$bruNoEval = function (st) {
 		});
 };
 var _Glorp$elm_beep_boop$Views$lambH = function (st) {
-	var _p2 = st;
-	if (_p2.ctor === 'Half') {
+	var _p3 = st;
+	if (_p3.ctor === 'Half') {
 		return _Glorp$elm_beep_boop$Views$codeP(
 			{
 				ctor: '::',
 				_0: _Glorp$elm_beep_boop$Lamb_String$unparse(
-					_Glorp$elm_beep_boop$LamBru$halfBruToLamb(_p2._0)),
+					_Glorp$elm_beep_boop$LamBru$halfBruToLamb(_p3._0)),
 				_1: {ctor: '[]'}
 			});
 	} else {
 		return _Glorp$elm_beep_boop$Views$codeP(
 			{
 				ctor: '::',
-				_0: _Glorp$elm_beep_boop$Lamb_String$unparse(_p2._0),
+				_0: _Glorp$elm_beep_boop$Lamb_String$unparse(_p3._0),
 				_1: {ctor: '[]'}
 			});
 	}
@@ -10583,11 +11305,11 @@ var _Glorp$elm_beep_boop$Views$bruLambNoEval = function (st) {
 		});
 };
 var _Glorp$elm_beep_boop$Views$execH = function (st) {
-	var _p3 = st;
-	if (_p3.ctor === 'Exec') {
+	var _p4 = st;
+	if (_p4.ctor === 'Exec') {
 		return _Glorp$elm_beep_boop$Views$codeP(
 			_Glorp$elm_beep_boop$Lamb_String$unparseExec(
-				_Glorp$elm_beep_boop$Lamb_Eval$stepExec(_p3._0)));
+				_Glorp$elm_beep_boop$Lamb_Eval$stepExec(_p4._0)));
 	} else {
 		return _Glorp$elm_beep_boop$Views$lambH(st);
 	}
@@ -10633,8 +11355,8 @@ var _Glorp$elm_beep_boop$Views$rectangles = function (st) {
 		});
 };
 var _Glorp$elm_beep_boop$Views$onlyRectangles = function (st) {
-	var _p4 = st;
-	if (_p4.ctor === 'Exec') {
+	var _p5 = st;
+	if (_p5.ctor === 'Exec') {
 		return A2(
 			_elm_lang$html$Html$div,
 			{ctor: '[]'},
@@ -10647,9 +11369,46 @@ var _Glorp$elm_beep_boop$Views$onlyRectangles = function (st) {
 		return _Glorp$elm_beep_boop$Views$rectangles(st);
 	}
 };
+var _Glorp$elm_beep_boop$Views$fish = function (st) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _Glorp$elm_beep_boop$Views$beopsH(st),
+			_1: {
+				ctor: '::',
+				_0: _Glorp$elm_beep_boop$Views$bruH(st),
+				_1: {
+					ctor: '::',
+					_0: _Glorp$elm_beep_boop$Views$execH(st),
+					_1: {
+						ctor: '::',
+						_0: _Glorp$elm_beep_boop$Views$fishH(st),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _Glorp$elm_beep_boop$Views$onlyFish = function (st) {
+	var _p6 = st;
+	if (_p6.ctor === 'Exec') {
+		return A2(
+			_elm_lang$html$Html$div,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _Glorp$elm_beep_boop$Views$fishH(st),
+				_1: {ctor: '[]'}
+			});
+	} else {
+		return _Glorp$elm_beep_boop$Views$fish(st);
+	}
+};
 var _Glorp$elm_beep_boop$Views$viewFor = function (s) {
-	var _p5 = s;
-	switch (_p5) {
+	var _p7 = s;
+	switch (_p7) {
 		case 'onlyBeops':
 			return _Glorp$elm_beep_boop$Views$onlyBeops;
 		case 'bruNoEval':
@@ -10662,6 +11421,10 @@ var _Glorp$elm_beep_boop$Views$viewFor = function (s) {
 			return _Glorp$elm_beep_boop$Views$rectangles;
 		case 'onlyRectangles':
 			return _Glorp$elm_beep_boop$Views$onlyRectangles;
+		case 'fish':
+			return _Glorp$elm_beep_boop$Views$fish;
+		case 'onlyFish':
+			return _Glorp$elm_beep_boop$Views$onlyFish;
 		default:
 			return _Glorp$elm_beep_boop$Views$rectangles;
 	}

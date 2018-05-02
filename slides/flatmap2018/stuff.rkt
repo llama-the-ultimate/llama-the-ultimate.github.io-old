@@ -317,8 +317,12 @@
    (sld #:title "syntax colouring"
         `(,(lnk "beep-boop/6-rectangles.html" "graphical evaluator")))
 
+   (sld #:title "fish!"
+        `(,(lnk "beep-boop/8-fish.html" "fishy evaluator")))
+
    (sld #:title "plug-in architecture"
-`((pre () ,@@list{
+        `(,(lnk "beep-boop/6-rectangles.html" "evaluator"))
+        `((pre () ,@@list{
  function supersaw(freq, vol, sawNumber, detune) @"{"
    var g = audioContext.createGain();
    g.gain.setValueAtTime(0, audioContext.currentTime);
@@ -355,11 +359,16 @@
 
  notes = [saw(440), saw(493.88), saw(523.25), saw(587.33), saw(800), saw(250)];
 })))
+
+   (sld `("(supersaw stolen from "
+          ,(lnk "https://twitter.com/mollerse" "@mollerse")
+          ". "
+          ,(lnk "https://github.com/mollerse/audible-code-presentation" "code")
+          ".)"))
         
-        
-   
+   (sld #:title "be glad for the song has no ending"
+        `(,(lnk "beep-boop/7-only-rectangles.html" "evaluator")))
    (sld #:title "okay bye"
-        `(,(lnk "beep-boop/7-only-rectangles.html" "evaluator"))
         `((pre () ,@@list{
  notes = makeNotes(x =>[@"{" val: x * 1.2, time: 0.7 @"}", @"{" val: x, time: 0.3 @"}"], vol,[400, 460, 515, 550, 800, 250]);
 })))
