@@ -316,7 +316,48 @@
 
    (sld #:title "syntax colouring"
         `(,(lnk "beep-boop/6-rectangles.html" "graphical evaluator")))
+
+   (sld #:title "plug-in architecture"
+`((pre () ,@@list{
+ function supersaw(freq, vol, sawNumber, detune) @"{"
+   var g = audioContext.createGain();
+   g.gain.setValueAtTime(0, audioContext.currentTime);
+
+   for (var i = 0; i < sawNumber; i++) @"{"
+     var saw = audioContext.createOscillator();
+     saw.type = 'sawtooth';
+     saw.frequency.setValueAtTime(freq, audioContext.currentTime);
+     saw.detune.value = -detune + i * 2 * (detune / (sawNumber - 1));
+     saw.start();
+     saw.connect(g);
+   @"}"
+
+   var dur = 0;
+   for (var i = 0; i < vol.length; i++) @"{"
+     dur = dur + vol[i].time;
+   @"}"
+   dur = dur * 0.5;
+
+   g.connect(audioContext.destination);
+
+   return note(dur, [@"{" dial: g.gain, vts: vol @"}"]);
+ @"}"
+
+ const sawVol = [
+   @"{" val: 0.13, time: 0.1 @"}",
+   @"{" val: 0.1, time: 0.2 @"}",
+   @"{" val: 0.1, time: 0.5 @"}",
+   @"{" val: 0, time: 0.3 @"}"];
+
+ function saw(freq) @"{"
+   return supersaw(freq, vol, 7, 10);
+ @"}"
+
+ notes = [saw(440), saw(493.88), saw(523.25), saw(587.33), saw(800), saw(250)];
+})))
         
+        
+   
    (sld #:title "okay bye"
         `(,(lnk "beep-boop/7-only-rectangles.html" "evaluator"))
         `((pre () ,@@list{
