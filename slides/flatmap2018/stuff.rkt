@@ -162,7 +162,7 @@
 
    (sld #:title "variable capture thing"
         "λy.(λx.λy.x) y"
-        "λy.(λy.y)"
+        "λy.λy.y"
         "oh no")
    
    (sld #:title "variable capture thing"
