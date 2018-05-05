@@ -109,6 +109,7 @@
          "LISP-forty-two.rkt"
          "foldr-note.rkt"
          "mesh17.rkt"
+         "flat18.rkt"
          "time.rkt")
 
 (define notes (list* test-note
@@ -118,6 +119,7 @@
                      LISP-forty-two-note
                      foldr-note
                      mesh17-note
+                     flat18-note
                      time-note
                      small-notes))
 

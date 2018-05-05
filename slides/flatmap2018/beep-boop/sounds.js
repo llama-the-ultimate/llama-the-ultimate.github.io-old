@@ -1,4 +1,4 @@
-var audioContext = new AudioContext();
+var audioContext = false;
 
 function osc() {
   var oscillator = audioContext.createOscillator();
@@ -48,7 +48,7 @@ const vol = [
   { val: 0.1, time: 0.05 },
   { val: 0, time: 0.1 }];
 
-var notes = makeNotes(freqer, vol, [440, 493.88, 523.25, 587.33, 800, 250]);
+
 
 function applyValTime(thing, start) {
   var total = 0;
@@ -82,7 +82,16 @@ function playNotes(ns, start) {
   return total;
 }
 
+function startAudio() {
+  audioContext = new AudioContext();
+  notes = makeNotes(freqer, vol, [440, 493.88, 523.25, 587.33, 800, 250]);
+}
+
 function noisySendBeop(x) {
+
+  if (audioContext === false) {
+    startAudio();
+  }
   if (x !== "nvm") {
     playNote(notes[x], audioContext.currentTime);
     app.ports.beopIn.send(beops[x]);

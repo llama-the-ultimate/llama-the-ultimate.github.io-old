@@ -1,4 +1,3 @@
-var audioContext = new AudioContext();
 
 function playThenNext(bps) {
   const t = playBeops(bps);
