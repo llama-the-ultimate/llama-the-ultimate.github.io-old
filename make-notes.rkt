@@ -10,6 +10,7 @@
      (->html-xexpr (note->url n)
                    name
                    `((h1 () ,name)
+                     (div ((class "date")) "(",(date->string d) ")")
                      ,@pre
                      ,@(pieces->html id from pieces)
                      ,@post))]
@@ -17,6 +18,7 @@
      (->lambs-html-xexpr (note->url n)
                          name
                          `((h1 () ,name)
+                           (div ((class "date")) "(",(date->string d) ")")
                            ,@pre
                            ,@(lambs-pieces->html id from pieces)
                            ,@post))]))

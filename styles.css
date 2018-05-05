@@ -87,6 +87,11 @@ pre {
     background-color: var(--code-bg);
 }
 
+.date {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
 .listinfo {
     font-style: italic;
     font-size: 0.8rem;
