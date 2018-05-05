@@ -70,7 +70,7 @@
    @brk
    @p{
  And like, that’s it, that’s our successor.
- It seems maybe less impressive than the addition and multiplcation functions we did earlier.
+ It seems maybe less impressive than the addition and multiplication functions we did earlier.
  But like it’s pretty cool:
 }
    (ul
