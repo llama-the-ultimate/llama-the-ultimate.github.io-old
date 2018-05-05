@@ -375,7 +375,7 @@
    
    (sld #:title "some code"
         `(,(lnk "https://github.com/Glorp/elm-beep-boop" "some elm"))
-        `(,(lnk "https://github.com/Glorp/glorp.github.io/tree/master/slides/flatmap2018/beep-boop" "some js and html stuff that uses the elm")))))
+        `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/tree/master/slides/flatmap2018/beep-boop" "some js and html stuff that uses the elm")))))
 
 
 
