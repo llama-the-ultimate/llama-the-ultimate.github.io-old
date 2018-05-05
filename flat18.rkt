@@ -13,6 +13,9 @@
 }
    @p{
  Slides are @ilnk["/slides/flatmap2018/index.html"]{here}.
+ Elm code is @lnk["https://github.com/Glorp/elm-beep-boop"]{here}.
+ Some JavaScript and HTML that uses the Elm code is
+ @lnk["https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/tree/master/slides/flatmap2018/beep-boop"]{here}.
 }
    @p{
  Various beep boop evaluators. Maybe they work in some of the browsers. The later ones are more fun...
