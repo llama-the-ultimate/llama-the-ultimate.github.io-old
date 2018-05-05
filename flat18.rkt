@@ -58,7 +58,7 @@
     @li{Pling does function application. After a pling you have to write the function and then after that the argument.})
 
    @p{
- So the identiy function is beep boop bap (A S D).
+ So the identity function is beep boop bap (A S D).
  The Church encoded number one is beep beep pling boop boop bap boop bap (A A F S S D S D).
  Stuff like that.
 }
