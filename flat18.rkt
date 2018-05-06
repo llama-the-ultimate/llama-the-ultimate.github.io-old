@@ -16,7 +16,7 @@
  Elm code is @lnk["https://github.com/Glorp/elm-beep-boop"]{here}.
  Some JavaScript and HTML that uses the Elm code is
  @lnk["https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/tree/master/slides/flatmap2018/beep-boop"]{here}.
- (The the more graphical parts are mostly code stolen from Einar’s
+ (The more graphical parts are mostly code stolen from Einar’s
  @lnk["https://github.com/einarwh/escher-workshop"]{Escher-in-Elm Workshop}.)
 }
    @p{
