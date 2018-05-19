@@ -1,5 +1,3 @@
-@media all {html {font-size: 24px;}}
-
 :root {
     --main-bg: #FFFFFF;
     --link-hover-bg: #F4F4F4;
@@ -10,10 +8,11 @@
 
 
 html {
+    font-size: 24px;
     background-color: var(--main-bg);
     overflow-y: scroll;
-}
 
+}
 h1 {
     font-variant: small-caps;
     font-weight: normal;
@@ -85,18 +84,37 @@ pre {
     margin-bottom: 1rem;
 }
 
+.text {
+    max-width: 30rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .navinfo {
     float: left;
     margin-top: 0rem;
     margin-left: 0rem;
     margin-right: 2rem;
-    display: block;
     width: 2.5rem;
 }
 
+@media all and (max-width: 62rem) {
+  .text {
+    clear: left;
+  }
+  .navinfo {
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: unset;
+    float: unset;
+  }
+}
+
 .nav {
-    float: right;
+
     background-color: var(--nav-bg);
     font-weight: normal;
     font-size: 2rem;
@@ -201,24 +219,6 @@ li {
     margin-left: 0rem;
     margin-right: auto;
 
-}
-
-.text {
-    float: left;
-    max-width: 30rem;
-    margin-bottom: 0rem;
-    margin-top: 0rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.text:after
-{
-	content: ".";
-	display:block;
-	height:0;
-	clear:both;
-	visibility:hidden;
 }
 
 .image {

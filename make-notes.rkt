@@ -10,7 +10,9 @@
      (->html-xexpr (note->url n)
                    name
                    `((h1 () ,name)
-                     (div ((class "date")) "(",(date->string d) ")")
+                     ,@(if d
+                           `((div ((class "date")) "(",(date->string d) ")"))
+                           '())
                      ,@pre
                      ,@(pieces->html id from pieces)
                      ,@post))]
