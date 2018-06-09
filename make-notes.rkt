@@ -113,8 +113,9 @@
          "LISP-forty-two.rkt"
          "foldr-note.rkt"
          "mesh17.rkt"
+         "time.rkt"
          "flat18.rkt"
-         "time.rkt")
+         "types-of-functions.rkt")
 
 (define notes (list* test-note
                      data-functions-note
@@ -123,8 +124,9 @@
                      LISP-forty-two-note
                      foldr-note
                      mesh17-note
-                     flat18-note
                      time-note
+                     flat18-note
+                     types-of-functions-note
                      small-notes))
 
 (for ([n notes]) (write-note-file n))
