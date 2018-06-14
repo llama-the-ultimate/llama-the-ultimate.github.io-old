@@ -62,6 +62,12 @@
         date
         (content pieces)))
 
+(struct smol-note (id name content) #:transparent)
+(define (snt id name . pieces)
+  (smol-note id
+        name
+        (content pieces)))
+
 (define (note-before? a b)
   (match* (a b)
     [((note _ _ ad _) (note _ _ bd _))

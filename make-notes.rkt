@@ -115,7 +115,8 @@
          "mesh17.rkt"
          "time.rkt"
          "flat18.rkt"
-         "types-of-functions.rkt")
+         "types-of-functions.rkt"
+         "some-books.rkt")
 
 (define notes (list* test-note
                      data-functions-note
@@ -127,6 +128,7 @@
                      time-note
                      flat18-note
                      types-of-functions-note
+                     some-books-note
                      small-notes))
 
 (for ([n notes]) (write-note-file n))

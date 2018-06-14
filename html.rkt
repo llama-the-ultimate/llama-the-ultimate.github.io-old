@@ -39,16 +39,16 @@
 
 (define (note->url n)
   (match n
-     [(note id _ _ _)
-      (note-id->url id)]))
+    [(note id _ _ _)
+     (note-id->url id)]))
 
 (define (note-list-id->url s)
-    (~a "/lists/" s ".html"))
+  (~a "/lists/" s ".html"))
 
 (define (note-list->url l)
   (match l
-     [(note-list (note id _ _ _) _)
-      (note-list-id->url id)]))
+    [(note-list (note id _ _ _) _)
+     (note-list-id->url id)]))
 
 (define (write-html-file path x)
   (make-parent-directory* path)
@@ -105,6 +105,19 @@
 (struct tstate (quote-level) #:transparent)
 
 (define ((text-piece->html note-id from) p)
+
+  (define (outer-text-piece->xexpr p)
+    (match p
+      [(note id name d (content pieces))
+       `((h2 ((id ,(~a id)))
+             (a ((href ,(~a "#" id))
+                 (class "selflink"))
+                ,name))
+         ,@(if d
+               `((div ((class "date")) "(",(date->string d) ")"))
+               '())         
+         ,@(append* (map text-piece->xexpr pieces)))]
+      [_ (text-piece->xexpr p)]))
   
   (define (text-piece->xexpr p)
     (match p
@@ -119,6 +132,10 @@
           ()
           ,@(append* (map text-piece->xexpr ps))
           (footer () (cite () ,@(append* (map text->xexpr ts))))))]
+      [(blockquote (quotation ps) #f)
+       `((blockquote
+          ()
+          ,@(append* (map text-piece->xexpr ps))))]
       
       [(codeblock (list ts ...)) `((pre () ,@(append* (map text->xexpr ts))))]
       
@@ -165,4 +182,4 @@
       ,@(append* (map (text->xexpr-halp (tstate (+ q-lvl 1))) ts))
       ,q-end))
   
-  (text-piece->xexpr p))
+  (outer-text-piece->xexpr p))
