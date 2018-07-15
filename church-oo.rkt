@@ -50,7 +50,7 @@
  (Contrast with more data-oriented languages like those in the extended ML family.
  Here we typically define numbers by how they are constructed.
  @q{A natural number is zero or the successor of a natural number.}
- And when operating on a number we @em{do} look into how it was cunstructed and do like case analysis (typically by using pattern matching).
+ And when operating on a number we @em{do} look into how it was constructed and do like case analysis (typically by using pattern matching).
  @q{If it is zero, then such and such, if it is the successor of something, then this other thing instead.})
 }
       ))
