@@ -64,7 +64,7 @@
       @p{
  If we are @q{making sure a float does not go where an int should go},
  then that does not involve like, saying so. It is never discussed.
- Float is never mentioned. Only int, since that is what @em{should} be.)
+ Float is never mentioned. Only int, since that is what @em{should} be.
 }
 
       @p{
