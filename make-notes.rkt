@@ -118,7 +118,8 @@
          "types-of-functions.rkt"
          "some-books.rkt"
          "technical-debt.rkt"
-         "church-oo.rkt")
+         "church-oo.rkt"
+         "cataphatic.rkt")
 
 (define notes (list* test-note
                      data-functions-note
@@ -133,6 +134,7 @@
                      some-books-note
                      technical-debt-note
                      church-oo-note
+                     cataphatic-note
                      small-notes))
 
 (for ([n notes]) (write-note-file n))
