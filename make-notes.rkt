@@ -5,14 +5,19 @@
          "svg.rkt")
 
 (define (note->xexpr from n #:pre [pre '()] #:post [post '()])
+  (define (dateindex d)
+    `(div ((class "belowtitle"))
+          "("
+          ,@(if d `(,(date->string d) ". ") '())
+          (a ((class "homelink") (href ,(relative-url from "/index.html"))) "Index.")
+          ")"))
+    
   (match n
     [(note id name d (content pieces))
      (->html-xexpr (note->url n)
                    name
                    `((h1 () ,name)
-                     ,@(if d
-                           `((div ((class "date")) "(",(date->string d) ")"))
-                           '())
+                     ,(dateindex d)
                      ,@pre
                      ,@(pieces->html id from pieces)
                      ,@post))]
@@ -20,7 +25,7 @@
      (->lambs-html-xexpr (note->url n)
                          name
                          `((h1 () ,name)
-                           (div ((class "date")) "(",(date->string d) ")")
+                           ,(dateindex d)
                            ,@pre
                            ,@(lambs-pieces->html id from pieces)
                            ,@post))]))
@@ -36,15 +41,15 @@
 
 (define (note-list->pre-text from note-list previous next)
   `((p ((class "listinfo"))
-      "This post is part of a list: "
-      ,@((thing->link from) note-list)
-      ,@(if next `((br ()) "Next thing: " ,@((thing->link from) next)) '())
-      ,@(if previous `((br ()) "Previous thing: " ,@((thing->link from) previous)) '()))))
+       "This post is part of a list: "
+       ,@((thing->link from) note-list)
+       ,@(if next `((br ()) "Next thing: " ,@((thing->link from) next)) '())
+       ,@(if previous `((br ()) "Previous thing: " ,@((thing->link from) previous)) '()))))
 
-(define (maybe-save-img x dir)
+(define (maybe-save-img x dir [alt ""])
   (define reldir (relative-url "/" dir))
   (match x
-    [(img (svg name i))
+    [(img (svg name i) alt)
      (make-directory* reldir)
      (save-svg-file i (~a name) (format "~a/~a.svg" reldir name))]
     [_ (void)]))
@@ -119,7 +124,8 @@
          "some-books.rkt"
          "technical-debt.rkt"
          "church-oo.rkt"
-         "cataphatic.rkt")
+         "cataphatic.rkt"
+         "manifesto.rkt")
 
 (define notes (list* test-note
                      data-functions-note
@@ -135,6 +141,7 @@
                      technical-debt-note
                      church-oo-note
                      cataphatic-note
+                     manifesto-note
                      small-notes))
 
 (for ([n notes]) (write-note-file n))

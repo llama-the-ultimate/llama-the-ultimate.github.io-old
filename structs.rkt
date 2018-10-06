@@ -140,7 +140,7 @@
 (struct break () #:transparent)
 (define brk (break))
 
-(struct img (ref) #:transparent)
+(struct img (ref alt) #:transparent)
 (struct svg (name i) #:transparent)
 
          

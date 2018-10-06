@@ -63,11 +63,6 @@
                   
   (string-replace res  "\\" "/"))
 
-(define (nav from)
-  `(div ((class "nav"))
-        (a ((class "navlink") (href ,(relative-url from "/index.html")))
-           (div ((class "navlink")) "λ"))))
-
 (define (title->head from title)
   `(head (meta ((charset "UTF-8"))
                (title ,title)
@@ -75,10 +70,7 @@
 
 (define (->html-xexpr from name content)
   `(html ,(title->head from name)
-         (body (div ((class "content"))
-                    (div ((class "navinfo")) ,(nav from))
-                    (div ((class "text"))
-                         ,@content)))))
+         (body (div ((class "content")) ,@content))))
 
 (define (lambs-js-stuff from)
   `((script ((data-main ,(relative-url from "/lambstuff/reqmain")) (src ,(relative-url from "/lambstuff/require.js"))))
@@ -88,11 +80,8 @@
 (define (->lambs-html-xexpr from name content)
   `(html ,(title->head from name)
          (body ((onresize "refreshEditors()"))
-               (div ((class "content"))
-                    (div ((class "navinfo")) ,(nav from))
-                    (div ((class "text"))
-                         ,@content))
-               ,@(lambs-js-stuff from))))
+               (div ((class "content")) ,@content))
+               ,@(lambs-js-stuff from)))
 
 (define (editor-html-xexpr from name content)
   `(html ,(title->head from name)
@@ -125,7 +114,7 @@
       
       [(break) '((hr))]
 
-      [(img (svg i-name i)) `((div ((class "image")) (img ((src ,(format "~a/~a.svg" note-id i-name))))))]
+      [(img (svg i-name i) alt) `((div ((class "image")) (img ((src ,(format "~a/~a.svg" note-id i-name)) (alt ,alt)))))]
       
       [(blockquote (quotation ps) (citation ts))
        `((blockquote

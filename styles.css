@@ -1,7 +1,5 @@
 :root {
     --main-bg: #FFFFFF;
-    --link-hover-bg: #F4F4F4;
-    --nav-bg: #F4F4F4;
     --code-bg: #FDFDFD;
     --hr-bg: #C0C0C0
 }
@@ -51,10 +49,6 @@ a {
     background-color: inherit;
     color: inherit;
     text-decoration: underline;
-
-    -moz-transition-duration: 0.2s;
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s;
 }
 
 pre {
@@ -69,7 +63,18 @@ pre {
     background-color: var(--code-bg);
 }
 
-.date {
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 40rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.belowtitle {
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
 }
@@ -78,62 +83,6 @@ pre {
     font-style: italic;
     font-size: 0.8rem;
     margin-bottom: 1rem;
-}
-
-.text {
-    max-width: 30rem;
-    margin-bottom: 0rem;
-    margin-top: 0rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.navinfo {
-    float: left;
-    margin-top: 0rem;
-    margin-left: 0rem;
-    margin-right: 2rem;
-    width: 2.5rem;
-}
-
-@media all and (max-width: 62rem) {
-  .text {
-    clear: left;
-  }
-  .navinfo {
-    max-width: 30rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: unset;
-    float: unset;
-  }
-}
-
-.nav {
-
-    background-color: var(--nav-bg);
-    font-weight: normal;
-    font-size: 2rem;
-    text-align: center;
-    width: 2.5rem;
-
-    margin-top: 0rem;
-    margin-left: 0rem;
-    margin-right: 0rem;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.navlink {
-    margin-top: 0rem;
-    margin-left: 0rem;
-    margin-right: 0rem;
-    margin-bottom: 0rem;
-
-}
-
-a.navlink {
-    text-decoration: none;
 }
 
 a.selflink {
@@ -149,13 +98,6 @@ a.selflink {
 .codew {
     font-family: monospace;
     white-space: nowrap;
-}
-
-.content {
-    max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
 }
 
 p {
@@ -180,7 +122,6 @@ p {
   border-width: 1px;
 
 }
-
 
 ol {
     margin-bottom: 0.5rem;

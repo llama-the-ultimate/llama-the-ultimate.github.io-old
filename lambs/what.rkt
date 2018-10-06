@@ -63,7 +63,7 @@
    @p{
  And we can do like a little tree-drawing, like maybe like this:
 }
-   (img (svg 'lambdatree (draw-expr (parse "(λa.a (foo a)) bar"))))
+   (img (svg 'lambdatree (draw-expr (parse "(λa.a (foo a)) bar"))) "")
    
       
    @p{
