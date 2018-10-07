@@ -125,7 +125,8 @@
          "technical-debt.rkt"
          "church-oo.rkt"
          "cataphatic.rkt"
-         "manifesto.rkt")
+         "manifesto.rkt"
+         "js-sums.rkt")
 
 (define notes (list* test-note
                      data-functions-note
@@ -142,6 +143,7 @@
                      church-oo-note
                      cataphatic-note
                      manifesto-note
+                     js-sums-note
                      small-notes))
 
 (for ([n notes]) (write-note-file n))
