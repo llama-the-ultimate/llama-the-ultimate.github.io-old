@@ -15,7 +15,7 @@
                (div ((class "outer"))
                     (div ((class "content") (id "for-slides"))
                          (p ()
-                            "listen: the PureScript stuff is not actually the stuff that is running on the llama site these days. "
+                            "listen: the purescript stuff is not actually the stuff that is running on the llama site these days. "
                             "maybe see "
                             (a ((href "http://llama-the-ultimate.org/notes/js-cm.html")) "this post")
                             ".")
