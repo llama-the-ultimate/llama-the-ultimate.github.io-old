@@ -15,6 +15,11 @@
                (div ((class "outer"))
                     (div ((class "content") (id "for-slides"))
                          (p ()
+                            "listen: the PureScript stuff is not actually the stuff that is running on the llama site these days. "
+                            "maybe see "
+                            (a ((href "http://llama-the-ultimate.org/notes/js-cm.html")) "this post")
+                            ".")
+                         (p ()
                             "okay so these are slides. "
                             "if you have a javascript enabled, you should be able to click on one of the little "
                             (svg ((class "slidelink") (slidename "0") (width "54") (height "33")) (use ((xlink:href "#slideicon"))))
@@ -554,7 +559,7 @@
          '((pre () "lambs.step(lambs.parse(\"(λx.λy.y x) foo\"))"))
          '((pre () "lambs.isJust(lambs.parse(\"(λx.λy.y x foo\"))")))
 
-    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/reqmain.js" "reqmain.js"))
+    (sld `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/blob/monaco-and-ps/lambstuff/reqmain.js" "reqmain.js"))
          `((pre ()
                ,@@list{
  var lambs;
@@ -582,10 +587,10 @@
          "put it somewhere within reach"
          "require bit me")
     
-    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L1" "stuff.js"))
+    (sld `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/blob/monaco-and-ps/lambstuff/stuff.js#L1" "stuff.js"))
          `((pre () "require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});")))
 
-    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L3-L19" "stuff.js"))
+    (sld `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/blob/monaco-and-ps/lambstuff/stuff.js#L3-L19" "stuff.js"))
          `((pre ()
                 ,@@list{
  var startMonaco = function() @"{"
@@ -607,7 +612,7 @@
  @"}";
  })))
 
-    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L58-L66" "stuff.js"))
+    (sld `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/blob/monaco-and-ps/lambstuff/stuff.js#L58-L66" "stuff.js"))
          `((pre ()
                 ,@@list{
  var content = element.textContent;
@@ -622,7 +627,7 @@
  })))
     
     
-    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L68-L74" "stuff.js"))
+    (sld `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/blob/monaco-and-ps/lambstuff/stuff.js#L68-L74" "stuff.js"))
          `((pre ()
                 ,@@list{
     editor.addCommand([monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L], function() @"{"
@@ -633,7 +638,7 @@
         editor.executeEdits("lambs", [op]);
  @"}");})))
 
-    (sld `(,(lnk "https://github.com/Glorp/glorp.github.io/blob/1034bce5320baf182b5feef9395d348e4eef987e/lambstuff/stuff.js#L84-L101" "stuff.js"))
+    (sld `(,(lnk "https://github.com/llama-the-ultimate/llama-the-ultimate.github.io/blob/monaco-and-ps/lambstuff/stuff.js#L84-L101" "stuff.js"))
          `((pre ()
                 ,@@list{
     editor.addCommand([monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter], function() {
