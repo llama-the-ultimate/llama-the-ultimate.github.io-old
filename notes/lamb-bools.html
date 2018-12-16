@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Some booly functions</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><h1>Some booly functions</h1><div class="belowtitle">(2017-07-27. <a class="homelink" href="../index.html">Index.</a>)</div><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Next thing: <a href="lamb-pairs.html">Pairs</a><br/>Previous thing: <a href="lamb-what.html">What do the lambdas?</a></p><p>Bit of prelude, first. Some stuff from an earlier <a href="lamb-nums.html">numbery post</a>:</p><div class="editor" name="lambs" style="height:10rem" prelude="true">0 ≜ λf.λx.x
+<html><head><meta charset="UTF-8"><title>Some booly functions</title><link rel="stylesheet" href="../lambstuff/cm/codemirror.css"/><link rel="stylesheet" href="../styles.css"/></meta></head><body><div class="content"><h1>Some booly functions</h1><div class="belowtitle">(2017-07-27. <a class="homelink" href="../index.html">Index.</a>)</div><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Next thing: <a href="lamb-pairs.html">Pairs</a><br/>Previous thing: <a href="lamb-what.html">What do the lambdas?</a></p><p>Bit of prelude, first. Some stuff from an earlier <a href="lamb-nums.html">numbery post</a>:</p><div class="editor" name="lambs" style="height:10rem" prelude="true">0 ≜ λf.λx.x
 1 ≜ λf.λx.f x
 2 ≜ λf.λx.f (f x)
 5 ≜ λf.λx.f (f (f (f (f x))))
@@ -65,4 +65,4 @@ we would maybe worry about stuff like: Will the else-stuff be evaluated even if 
 We don’t really care, since it’s going to correctly return the stuff we want either way.
 But like, <em>if</em> we cared:
 We’re evaluating things in normal order, and will give the then-stuff and the else-stuff to the boolean first, before we “step into” any of the then-stuff or else-stuff.
-So like in the case of <span class="codew">true</span> the else-stuff will disappear before we do anything with it.)</p></div></body><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></html>
+So like in the case of <span class="codew">true</span> the else-stuff will disappear before we do anything with it.)</p></div></body><script src="../lambstuff/cm/codemirror.js"></script><script src="../lambstuff/stuff.js"></script></html>

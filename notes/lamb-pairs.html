@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Pairs</title><link rel="stylesheet" href="../styles.css"/></meta></head><body onresize="refreshEditors()"><div class="content"><h1>Pairs</h1><div class="belowtitle">(2017-07-30. <a class="homelink" href="../index.html">Index.</a>)</div><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Next thing: <a href="lamb-succ.html">Successor</a><br/>Previous thing: <a href="lamb-bools.html">Some booly functions</a></p><p>Prelude. Some things we defined in earlier posts:</p><div class="editor" name="lambs" style="height:10rem" prelude="true">0 ≜ λf.λx.x
+<html><head><meta charset="UTF-8"><title>Pairs</title><link rel="stylesheet" href="../lambstuff/cm/codemirror.css"/><link rel="stylesheet" href="../styles.css"/></meta></head><body><div class="content"><h1>Pairs</h1><div class="belowtitle">(2017-07-30. <a class="homelink" href="../index.html">Index.</a>)</div><p class="listinfo">This post is part of a list: <a href="../lists/lambs.html">Some lambda-notes</a><br/>Next thing: <a href="lamb-succ.html">Successor</a><br/>Previous thing: <a href="lamb-bools.html">Some booly functions</a></p><p>Prelude. Some things we defined in earlier posts:</p><div class="editor" name="lambs" style="height:10rem" prelude="true">0 ≜ λf.λx.x
 1 ≜ λf.λx.f x
 2 ≜ λf.λx.f (f x)
 + ≜ λa.λb.λf.λx.a f (b f x)
@@ -34,4 +34,4 @@ useful-thing2 ≜ λp.+ (fst p) (snd p)
 compose ≜ λf.λg.λx.f (g x)
 useful-things ≜ compose useful-thing2 useful-thing1
 
-useful-things (+ 1 2)</div><p>Woop.</p></div></body><script data-main="../lambstuff/reqmain" src="../lambstuff/require.js"></script><script src="../lambstuff/monaco-editor/min/vs/loader.js"></script><script src="../lambstuff/stuff.js"></script></html>
+useful-things (+ 1 2)</div><p>Woop.</p></div></body><script src="../lambstuff/cm/codemirror.js"></script><script src="../lambstuff/stuff.js"></script></html>
