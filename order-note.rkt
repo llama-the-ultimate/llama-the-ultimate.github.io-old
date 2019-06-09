@@ -6,7 +6,7 @@
 (define order-note
   (nt 'order
       "Land of some other order"
-      #f ;(date 2019 6 9)
+      (date 2019 6 9)
       @p{
  We start with
  @ttl{#lang racket}
@@ -77,11 +77,13 @@
   @li{If we want as many applications of @tt{<=} to give back values, we might prefer @ttc{#lang racket}.})
  
  @p{
- (In @ttc{#lang racket} the forever happens when evaluating the @tt{(inf)}-arguments @em{before} the @tt{<=}-function is applied.)
+ (In @ttc{#lang racket} the forever happens when evaluating the @tt{(inf)}-arguments @em{before} the @tt{<=}-function is applied.
+ In @ttc{#lang lazy} we might have to decide: Is it the @tt{(inf)} or the @tt{<=} that causes forever?
+ Is it reasonably to expect there to be a @tt{zero?} base case?)
 }
  @brk
  @p{
- (Mlep. Code here.
+ (Mlep. Code @lnk["https://gist.github.com/Glorp/979b7c23b7e650f45fb7372671bc5f8c"]{here}.
  We could have used like some Standard ML code and some Haskell code or something instead.
  Just, handy to use @q{the same} code for both versions and only switch between the two @tt{#lang}s.
  And then also we are not writing Racket code exactly the way we normally would, but like,
